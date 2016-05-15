@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.AspNet.WebPages.Data.zh-Hant</id>
+    <version>2.0.20710.0</version>
+    <title>Microsoft ASP.NET Web Pages 2 Data 繁體中文資源</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://www.microsoft.com/web/webpi/eula/WebPages_2_eula_CHT.htm</licenseUrl>
+    <projectUrl>http://www.asp.net/web-pages</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>此套件包含 ASP.NET Web Pages 2 Data 的 繁體中文 附屬組件。</description>
+    <summary>Microsoft.AspNet.WebPages.Data 套件的繁體中文資源</summary>
+    <language>zh-Hant</language>
+    <tags>Microsoft AspNet WebPages AspNetWebPages</tags>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.WebPages.Data" version="[2.0.20710.0]" />
+    </dependencies>
+  </metadata>
+</package>

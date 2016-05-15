@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UserModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'test.dbo.user' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="user" />
+      <PropertyRef Name="password" />
+    </Key>
+    <Property Name="user" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="UserModelStoreContainer">
+    <EntitySet Name="user" EntityType="Self.user" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>
+              SELECT
+              [user].[user] AS [user],
+              [user].[password] AS [password]
+              FROM [dbo].[user] AS [user]
+            </DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BookModelStoreContainer" CdmEntityContainer="BkEntities">
+    <EntitySetMapping Name="Book">
+      <EntityTypeMapping TypeName="BookModel.Book">
+        <MappingFragment StoreEntitySet="test">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="test_time" ColumnName="test_time" />
+          <ScalarProperty Name="bookName" ColumnName="bookName" />
+          <ScalarProperty Name="summary" ColumnName="summary" />
+          <ScalarProperty Name="BookType" ColumnName="BookType" />
+          <ScalarProperty Name="BookLanguage" ColumnName="BookLanguage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="parameter">
+      <EntityTypeMapping TypeName="BookModel.parameter">
+        <MappingFragment StoreEntitySet="parameter">
+          <ScalarProperty Name="parametertype" ColumnName="parametertype" />
+          <ScalarProperty Name="chinese" ColumnName="chinese" />
+          <ScalarProperty Name="English" ColumnName="English" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

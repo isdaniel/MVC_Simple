@@ -1,0 +1,5 @@
+C:\Users\daniel\Documents\Visual Studio 2013\Projects\MVC\MVC\Libs\MyWeb.BLL.dll
+C:\Users\daniel\Documents\Visual Studio 2013\Projects\MVC\MVC\Libs\MyWeb.BLL.pdb
+C:\Users\daniel\Documents\Visual Studio 2013\Projects\MVC\Web.BLL\obj\Debug\Web.BLL.csprojResolveAssemblyReference.cache
+C:\Users\daniel\Documents\Visual Studio 2013\Projects\MVC\Web.BLL\obj\Debug\MyWeb.BLL.dll
+C:\Users\daniel\Documents\Visual Studio 2013\Projects\MVC\Web.BLL\obj\Debug\MyWeb.BLL.pdb

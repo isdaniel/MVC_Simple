@@ -1,0 +1,5 @@
+C:\Users\daniel\Documents\Visual Studio 2013\Projects\MVC\MVC\Libs\MyWeb.Common.dll
+C:\Users\daniel\Documents\Visual Studio 2013\Projects\MVC\MVC\Libs\MyWeb.Common.pdb
+C:\Users\daniel\Documents\Visual Studio 2013\Projects\MVC\Web.Common\obj\Debug\MyWeb.Common.dll
+C:\Users\daniel\Documents\Visual Studio 2013\Projects\MVC\Web.Common\obj\Debug\MyWeb.Common.pdb
+C:\Users\daniel\Documents\Visual Studio 2013\Projects\MVC\Web.Common\obj\Debug\Web.Common.csprojResolveAssemblyReference.cache

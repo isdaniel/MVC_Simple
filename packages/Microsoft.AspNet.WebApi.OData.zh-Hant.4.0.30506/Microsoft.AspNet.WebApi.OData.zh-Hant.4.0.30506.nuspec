@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.AspNet.WebApi.OData.zh-Hant</id>
+    <version>4.0.30506</version>
+    <title>Microsoft ASP.NET Web API OData 繁體中文資源</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://www.microsoft.com/web/webpi/eula/aspnet_and_web_tools_2012_2_RTW_EULA_CHT.htm</licenseUrl>
+    <projectUrl>http://www.asp.net/web-api</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>此套件包含 ASP.NET Web API OData 的繁體中文附屬組件。</description>
+    <summary>Microsoft.AspNet.WebApi.OData 套件的繁體中文資源</summary>
+    <language>zh-Hant</language>
+    <tags>Microsoft AspNet WebApi AspNetWebApi OData</tags>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.WebApi.OData" version="[4.0.30506]" />
+    </dependencies>
+  </metadata>
+</package>

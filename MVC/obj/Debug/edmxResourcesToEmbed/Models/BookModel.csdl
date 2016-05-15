@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BookModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="test_time" Type="DateTime" Precision="3" />
+    <Property Name="bookName" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="summary" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="BookType" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="BookLanguage" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="BkEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Book" EntityType="Self.Book" />
+    <EntitySet Name="parameter" EntityType="BookModel.parameter" />
+  </EntityContainer>
+  <EntityType Name="parameter">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="English" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="chinese" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="parametertype" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>
