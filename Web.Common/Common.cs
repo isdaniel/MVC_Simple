@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace MyWeb.Common
+﻿namespace MyWeb.Common
 {
-    public static class Common
+    public static class CommonFunctions
     {
-        public static string IsNull_Value(object obj){  
+        /// <summary>
+        /// 將物件轉成string
+        /// </summary>
+        /// <param name="obj">要轉成string的物件</param>
+        /// <returns></returns>
+        public static string IsNull_Value(object obj)
+        {
             if (obj == null)
                 obj = "";
-           return obj.ToString();
+            return obj.ToString();
         }
     }
 }

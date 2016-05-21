@@ -1,25 +1,12 @@
-﻿using MyWeb.Common;
-using MyWeb.Model;
-using System;
+﻿using MyWeb.Model;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
 
-namespace Web.DAL
+namespace MyWeb.DAL
 {
     public class BookDAL
     {
-        static readonly BookUtility utility = new BookUtility();
-        public List<BookModel> GetList(string SQLText,params SqlParameter[] parameters)
-        {
-            return utility.GetPager(SQLText,parameters);
-        }
-        public void Edit(BookModel model)
-        {
-            utility.Edit(model);
-        }
+        private static readonly BookUtility utility = new BookUtility();
 
         public void Add(BookModel model)
         {
@@ -30,9 +17,20 @@ namespace Web.DAL
         {
             utility.Delete(Id);
         }
+
+        public void Edit(BookModel model)
+        {
+            utility.Edit(model);
+        }
+
         public BookModel Edit_Model(int Id)
         {
             return utility.Edit_Model(Id);
+        }
+
+        public List<BookModel> GetList(string SQLText, params SqlParameter[] parameters)
+        {
+            return utility.GetPager(SQLText, parameters);
         }
     }
 }

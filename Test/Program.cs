@@ -3,21 +3,13 @@ using MyWeb.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Web.DAL;
 
 namespace Test
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
-        {
-            //Insert();
-            //Edit();
-            Console.ReadKey();
-        }
-        static void BookTest()
+        private static void BookTest()
         {
             BookBLL bll = new BookBLL();
             PagerMode model = new PagerMode();
@@ -32,14 +24,9 @@ namespace Test
                 Console.WriteLine(item.summary);
             }
         }
-        static void Insert()
+
+        private static void Edit()
         {
-            BookModel model = new BookModel();
-            model.summary = "test";
-            BookUtility u = new BookUtility();
-            u.Add(model);
-        }
-        static void Edit() {
             BookUtility u = new BookUtility();
             BookModel model = new BookModel();
             model.summary = "test";
@@ -48,6 +35,21 @@ namespace Test
             model.BookType = "information";
             model.id = "246";
             u.Edit(model);
+        }
+
+        private static void Insert()
+        {
+            BookModel model = new BookModel();
+            model.summary = "test";
+            BookUtility u = new BookUtility();
+            u.Add(model);
+        }
+
+        private static void Main(string[] args)
+        {
+            //Insert();
+            //Edit();
+            Console.ReadKey();
         }
     }
 }

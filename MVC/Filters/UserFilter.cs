@@ -1,32 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http.Controllers;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace MVC.Filters
 {
-    public class UserFilterAttribute : ActionFilterAttribute
-    { 
-        public override void OnActionExecuting(ActionExecutingContext filterContext)
-        {
-            //var userid = HttpContext.Current.Request.Cookies["userid"];
-            //var password = HttpContext.Current.Request.Cookies["password"];
-            //if (userid == null && password == null)
-            //{
-            //    HttpContext.Current.Response.Write("未有cookie");
-            //    HttpCookie userCookie = new HttpCookie("userid", "trst");
-            //    HttpCookie passwordCookie = new HttpCookie("password", "password");
-            //    userCookie.Expires = DateTime.Now.AddYears(1);
-            //    passwordCookie.Expires = DateTime.Now.AddYears(1);
-            //    HttpContext.Current.Response.Cookies.Add(passwordCookie);
-            //    HttpContext.Current.Response.Cookies.Add(userCookie);
-            //}
-            //else
-            //{
-            //    HttpContext.Current.Response.Write("有cookie");
-            //}
-        }
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+    public class UserFilterAttribute : AuthorizeAttribute
+    {
+        //public override void OnActionExecuting(ActionExecutingContext filterContext)
+        //{
+        //    //var content = filterContext.HttpContext;
+        //    ////var ad = filterContext.ActionDescriptor;
+        //    ////string user=content.Session["User"] as string;
+        //    //string first = content.Session["IsLogin"] as string;
+        //    //if (string.IsNullOrEmpty(first))
+        //    //{
+        //    //    filterContext.Result = new RedirectResult(
+        //    //        "http://localhost:11230/Home/User/Index");
+        //    //}
+        //}
+        //private bool _isAuthorized;
+
+        //public override void OnAuthorization(AuthorizationContext filterContext)
+        //{
+        //    base.OnAuthorization(filterContext);
+
+        //    if (!_isAuthorized)
+        //    {
+        //        filterContext.Controller.TempData.Add("RedirectReason", "Unauthorized");
+        //    }
+        //}
+
+        //protected override bool AuthorizeCore(System.Web.HttpContextBase httpContext)
+        //{
+        //    _isAuthorized = base.AuthorizeCore(httpContext);
+        //    return _isAuthorized;
+        //}
     }
 }

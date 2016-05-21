@@ -8,7 +8,7 @@
 @section Buttom{
     @using (Html.BeginForm("Edit", "Book", FormMethod.Post))
     {
-        @Html.HiddenFor(model=>model.id)
+        @Html.HiddenFor(model => model.id)
         <div class="editor-label">
             @Html.LabelFor(model => model.bookName)
             @Html.TextBoxFor(moudel => moudel.bookName)
@@ -29,9 +29,7 @@
             <input type="submit" value="修改" />
         </p>
     }
-
     <div>
         @Html.ActionLink("回到上一頁", "Index")
     </div>
 }
-

@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using MyWeb.Model;
+using System;
 using System.Text;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
 using System.Web.Routing;
+
 namespace MyWeb.Common
 {
     public static class ExtHtmlHelper
@@ -17,14 +16,18 @@ namespace MyWeb.Common
         /// <param name="pageSize">每頁顯示</param>
         /// <param name="totalCount">總數據量</param>
         /// <returns></returns>
-        public static MvcHtmlString Pager(this HtmlHelper html, string currentPageStr,
-            int pageSize, int totalCount)
+        public static MvcHtmlString Pager(this HtmlHelper html,
+            string currentPageStr,
+            int pageSize,
+            int totalCount,
+            PagerMode model)
         {
             int currentPage = 1; //當前頁
             int.TryParse(currentPageStr, out currentPage); //與相應的QueryString
             var totalPages = Math.Max((totalCount + pageSize - 1) / pageSize, 1); //總頁數
             var dict = new RouteValueDictionary(html.ViewContext.RouteData.Values);
-
+            dict.Add("Language", model.Language);//增加下拉選單參數
+            dict.Add("Type", model.Type);//增加下拉選單參數
             var output = new StringBuilder();
             if (totalPages > 1)
             {
@@ -46,7 +49,7 @@ namespace MyWeb.Common
                 int currint = 5;
                 for (int i = 0; i <= 10; i++)
                 {//一頁最多10筆資料
-                    if ((currentPage + i - currint) >= 1 && (currentPage + i - currint)<= totalPages)
+                    if ((currentPage + i - currint) >= 1 && (currentPage + i - currint) <= totalPages)
                         if (currint == i)
                         {//當前頁面
                             output.Append(string.Format("[{0}]", currentPage));

@@ -1,32 +1,39 @@
 ﻿@{
     ViewBag.Title = "Index";
 }
-@model MVC.Models.user
-
-<table>
-    <tr>
-        <td><h2>會員登入</h2></td>
-    </tr>
-    @using (Html.BeginForm("Index","User",FormMethod.Post))
-    {
+@model MyWeb.Model.UserModel
+<link href="~/Style/Login.css" rel="stylesheet" />
+<link href="http://fonts.googleapis.com/css?family=Open%20Sans" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css" />
+<link href="http://fonts.googleapis.com/css?family=Syncopate" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css" />
+<body class="Login-background">
+    <table>
         <tr>
-            <td>
-            <h3>帳號</h3>@Html.TextBoxFor(u=>u.user1)
-                @Html.ValidationMessageFor(u=>u.user1)
-            </td>
+            <td><h2>會員登入</h2></td>
         </tr>
-        <tr>
-            <td>
-                <h3>密碼</h3>@Html.PasswordFor(u => u.password)
-                @Html.ValidationMessageFor(u => u.password)
-            </td>
-        </tr>
-        <tr><td><input value="提交" type="submit"/></td></tr>
-    }
-</table>
-@if (ViewBag.visable == "Yes")
-{    
-    <h3>密碼錯誤!!</h3>
-}
+        @using (Html.BeginForm("Index", "User", FormMethod.Post))
+        {
+            <tr>
+                <td>
 
-
+                    <div class="txt_input">
+                        帳號 @Html.TextBoxFor(u => u.user_txt)
+                    </div>
+                    @Html.ValidationMessageFor(u => u.user_txt)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="txt_input">
+                        密碼 @Html.PasswordFor(u => u.password_txt)
+                    </div>
+                    @Html.ValidationMessageFor(u => u.password_txt)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input value="提交" type="submit" class="button" />
+                </td>
+            </tr>
+        }
+    </table>
+</body>

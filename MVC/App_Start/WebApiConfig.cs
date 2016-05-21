@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVC.Authoriz;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -14,6 +15,8 @@ namespace MVC
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            //// 在這邊註冊剛剛寫好的AuthenticationMessageHandler
+            //config.MessageHandlers.Add(new AuthorizHttpMsg());
         }
     }
 }

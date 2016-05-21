@@ -1,15 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Data.SqlClient;
+﻿using System.Configuration;
 using System.Data;
-using System.Configuration;
+using System.Data.SqlClient;
+
 namespace MyWeb.Common
 {
     public class Sqlhelp
     {
-        readonly static string connStr = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
+        private static readonly string connStr = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
+
+        /// <summary>
+        /// 回傳一個DataTable
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable ExecuteDataTable(string sqlstr, params SqlParameter[] parameters)
+        {
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(sqlstr, conn))
+                {
+                    DataSet ds = new DataSet();
+                    cmd.Parameters.AddRange(parameters);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(ds);
+                    return ds.Tables[0];
+                }
+            }
+        }
+
         /// <summary>
         /// 執行ExecuteNonQuery
         /// </summary>
@@ -31,6 +49,7 @@ namespace MyWeb.Common
                 }
             }
         }
+
         /// <summary>
         /// 通常用在SQL指令上的Count,SUM,MAx
         /// </summary>
@@ -49,25 +68,6 @@ namespace MyWeb.Common
                         cmd.Parameters.Add(parmeter);
                     }
                     return cmd.ExecuteScalar();
-                }
-            }
-        }
-        /// <summary>
-        /// 回傳一個DataTable
-        /// </summary>
-        /// <returns></returns>
-        public static DataTable ExecuteDataTable(string sqlstr, params SqlParameter[] parameters)
-        {
-            using (SqlConnection conn = new SqlConnection(connStr))
-            {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand(sqlstr, conn))
-                {
-                    DataSet ds = new DataSet();
-                    cmd.Parameters.AddRange(parameters);
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                    adapter.Fill(ds);
-                    return ds.Tables[0];
                 }
             }
         }

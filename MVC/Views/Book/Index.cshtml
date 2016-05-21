@@ -46,6 +46,6 @@
         }
     </table>
     <p>
-        @Html.Pager((string)ViewData["page"], 10, (int)ViewData.Model.PageTotal);
+        @MyWeb.Common.ExtHtmlHelper.Pager(Html, (string)ViewData["page"], 10, (int)ViewData.Model.PageTotal, (MyWeb.Model.PagerMode)ViewData["Parameters"])
     </p>
 }
