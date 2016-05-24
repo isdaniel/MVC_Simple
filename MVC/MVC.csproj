@@ -60,6 +60,10 @@
     <Reference Include="MyWeb.Common">
       <HintPath>Libs\MyWeb.Common.dll</HintPath>
     </Reference>
+    <Reference Include="MyWeb.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\MyWeb.DAL.dll</HintPath>
+    </Reference>
     <Reference Include="MyWeb.Model">
       <HintPath>Libs\MyWeb.Model.dll</HintPath>
     </Reference>

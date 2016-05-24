@@ -7,7 +7,7 @@ using Web.DAL;
 
 namespace Test
 {
-    internal class Program
+    public class Program
     {
         private static void BookTest()
         {
@@ -47,9 +47,22 @@ namespace Test
 
         private static void Main(string[] args)
         {
+            //TestDAL dal = new TestDAL();
+            //BookModel model = new BookModel();
+            //model.summary = "test";
+            ////dal.GetList("select * from test");
+            //dal.Add(model);
             //Insert();
             //Edit();
             Console.ReadKey();
         }
     }
+
+    //public class TestDAL : DALUtility<BookModel>
+    //{
+    //    protected override string TableName()
+    //    {
+    //        return "test";
+    //    }
+    //}
 }
