@@ -57,8 +57,8 @@ namespace MyWeb.Common
                         else
                         {//其他頁面
                             dict["page"] = currentPage + i - currint;
-                            output.Append(html.RouteLink((currentPage + i - currint).ToString(),
-                                dict));
+                            output.Append(html.RouteLink((currentPage + i - currint).ToString()
+                                , dict));
                         }
                     output.Append(" ");
                 }

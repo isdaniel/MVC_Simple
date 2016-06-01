@@ -64,9 +64,8 @@ namespace MVC.Controllers
             return RedirectToAction("Index", "Book", new object { });
         }
 
-        public ActionResult Index(string page)
+        public ActionResult Index(string page = "1")
         {
-            page = page == null ? "1" : page;
             BookBLL bll = new BookBLL();
             int _Page = int.Parse(page);
             ViewData["page"] = page;
@@ -90,9 +89,9 @@ namespace MVC.Controllers
 
         private List<BookModel> GetModel()
         {
-            string Language = Request["Language"] == null ? "" :
+            string Language = Request["Language"] == null || Request["Language"] == "" ? "" :
                Request["Language"].ToString();
-            string BookType = Request["BookType"] == null ? "" :
+            string BookType = Request["BookType"] == null || Request["BookType"] == "" ? "" :
                 Request["BookType"].ToString();
             PagerMode model = new PagerMode()
             {
