@@ -62,8 +62,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BookBLL.cs" />
+    <Compile Include="ConditionStrategy.cs" />
+    <Compile Include="IWhere.cs" />
+    <Compile Include="SearchLanguage.cs" />
     <Compile Include="ParameterBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchType.cs" />
     <Compile Include="UserBLL.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -32,20 +32,18 @@ namespace MyWeb.BLL
 
         public List<BookModel> GetList(PagerMode _PageModel)
         {
+            ConditionStrategy LanuageCondition =
+                new ConditionStrategy(new SearchLanguage(), _PageModel.Language);
+            ConditionStrategy TypeCondition =
+                new ConditionStrategy(new SearchType(), _PageModel.Type);
             List<SqlParameter> paramters = new List<SqlParameter>();
+            LanuageCondition.getParameter(ref paramters);
+            TypeCondition.getParameter(ref paramters);
             StringBuilder sb = new StringBuilder();
             sb.Append(" select a.id,a.bookName,a.summary,b.chinese as BookLanguage,c.chinese  as BookType");
-            sb.Append(" from (select ROW_NUMBER() OVER(ORDER BY id) as num ,* from test Where 1=1");
-            if (_PageModel.Language.Length != 0)
-            {
-                sb.Append(" and BookLanguage=@language");
-                paramters.Add(new SqlParameter("@language", _PageModel.Language));
-            }
-            if (_PageModel.Type.Length != 0)
-            {
-                sb.Append(" and booktype=@type");
-                paramters.Add(new SqlParameter("@type", _PageModel.Type));
-            }
+            sb.Append(" from (select ROW_NUMBER() OVER(ORDER BY id) as num ,* from test Where 1=1 ");
+            sb.Append(LanuageCondition.getCondition());
+            sb.Append(TypeCondition.getCondition());
             sb.Append(" ) as a");
             sb.Append(" inner join parameter as b on a.BookLanguage=b.English");
             sb.Append(" inner join parameter as c on a.BookType=c.English");
