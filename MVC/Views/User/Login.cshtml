@@ -1,20 +1,17 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Template/LoginMaster.cshtml";
 }
 @model MyWeb.Model.UserModel
-<link href="~/Style/Login.css" rel="stylesheet" />
-<link href="http://fonts.googleapis.com/css?family=Open%20Sans" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css" />
-<link href="http://fonts.googleapis.com/css?family=Syncopate" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css" />
-<body class="Login-background">
+@section Body{
     <table>
         <tr>
             <td><h2>會員登入</h2></td>
         </tr>
-        @using (Html.BeginForm("Index", "User", FormMethod.Post))
+        @using (Html.BeginForm("Index", "Book", FormMethod.Post))
         {
             <tr>
                 <td>
-
                     <div class="txt_input">
                         帳號 @Html.TextBoxFor(u => u.user_txt)
                     </div>
@@ -36,4 +33,4 @@
             </tr>
         }
     </table>
-</body>
+}

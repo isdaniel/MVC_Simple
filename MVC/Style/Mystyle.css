@@ -1,26 +1,32 @@
-﻿#includeTable{
+﻿#includeTable {
     width: 100%;
     height: 50%;
     float: left;
 }
+
 .bottommeun {
     width: 100%;
     height: 10%;
-    float:left;
+    float: left;
 }
+
 .TopFont {
     font-size: 36px;
     text-align: center;
 }
+
 .Fonts {
     text-align: center;
 }
+
 .twentypercent {
-    width:20%;
+    width: 20%;
 }
+
 .fourtypercent {
-    width:30%;
+    width: 30%;
 }
+
 .tenpercent {
-    width:5%;
+    width: 5%;
 }

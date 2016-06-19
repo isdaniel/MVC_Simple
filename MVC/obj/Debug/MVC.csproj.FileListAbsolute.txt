@@ -64,6 +64,7 @@ C:\Users\daniel\Documents\MVC_C-\MVC\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\MyWeb.BLL.dll
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\MyWeb.Common.dll
+C:\Users\daniel\Documents\MVC_C-\MVC\bin\MyWeb.DAL.dll
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\MyWeb.Model.dll
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\Newtonsoft.Json.dll
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\System.Net.Http.dll
@@ -78,11 +79,11 @@ C:\Users\daniel\Documents\MVC_C-\MVC\bin\System.Web.WebPages.Deployment.dll
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\System.Web.WebPages.dll
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\System.Web.WebPages.Razor.dll
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\Web.DAL.dll
-C:\Users\daniel\Documents\MVC_C-\MVC\bin\MyWeb.DAL.dll
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\EntityFramework.xml
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\EntityFramework.SqlServer.xml
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\MyWeb.BLL.pdb
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\MyWeb.Common.pdb
+C:\Users\daniel\Documents\MVC_C-\MVC\bin\MyWeb.DAL.pdb
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\MyWeb.Model.pdb
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\System.Web.Helpers.xml
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\System.Web.Mvc.xml
@@ -97,7 +98,6 @@ C:\Users\daniel\Documents\MVC_C-\MVC\bin\System.Net.Http.WebRequest.xml
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\System.Web.Http.xml
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\System.Web.Http.WebHost.xml
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\Web.DAL.pdb
-C:\Users\daniel\Documents\MVC_C-\MVC\bin\MyWeb.DAL.pdb
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\zh-Hant\EntityFramework.resources.dll
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\zh-Hant\EntityFramework.SqlServer.resources.dll
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\zh-Hant\System.Web.Helpers.resources.dll

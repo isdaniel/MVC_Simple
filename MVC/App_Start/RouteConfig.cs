@@ -15,7 +15,7 @@ namespace MVC
             routes.MapRoute(
                 name: "Default",
                 url: "home/{controller}/{action}/{page}",
-                defaults: new { controller = "User", action = "Index", page = UrlParameter.Optional }
+                defaults: new { controller = "User", action = "Login", page = UrlParameter.Optional }
             );
             routes.MapRoute(
                 name: "All",

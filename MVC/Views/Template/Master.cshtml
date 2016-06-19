@@ -1,66 +1,80 @@
 ﻿<!DOCTYPE html>
 <html>
-    <head>
-        <title>First MVC</title>
-        <link rel="stylesheet" href="~/Style/main.css" />
-        <link href="~/Style/Mystyle.css" rel="stylesheet" />
-        <script src="~/JS/jquery-2.0.0.min.js"></script>
-    </head>
-    <body>
-        <div id="content">
-            <div class="inner">
-                @RenderBody()
-                <article class="box post post-excerpt">
-                    <header></header>
-                    <!--<div class="info">
+<head>
+    <title>First MVC</title>
+    <link rel="stylesheet" href="~/Style/main.css" />
+    <link href="~/Style/Mystyle.css" rel="stylesheet" />
+    <script src="~/JS/jquery-2.0.0.min.js"></script>
+</head>
+<body>
+    <div id="content">
+        .
+        <h4 style="float:right;">
+            @if (Request.IsAuthenticated)
+            {
+                <strong>@Html.Encode(User.Identity.Name)</strong>
+                @Html.ActionLink("Sign Out", "Logout", "User")
+            }
+            else
+            {
+                @Html.ActionLink("Register", "Register", "User")
+                <span> | </span>
+                @Html.ActionLink("Sign In", "Login", "User")
+            }
+        </h4>
+        <div class="inner">
+            @RenderBody()
+            <article class="box post post-excerpt">
+                <header></header>
+                <!--<div class="info">
                 </div>-->
                 @RenderSection("Buttom")
-                </article>
-                <a href="#" class="image featured">
-                    <img src="~/img/ground.jpg" alt="no src" />
-                </a>
-                <header>
-                    <p>.</p>
-                </header>
-                <div class="info">
-                </div>
+            </article>
+            <a href="#" class="image featured">
+                <img src="~/img/ground.jpg" alt="no src" />
+            </a>
+            <header>
+                <p>.</p>
+            </header>
+            <div class="info">
             </div>
         </div>
-        <div id="sidebar">
-            <h1 id="logo"><a href="#">Hello World</a></h1>
-            <nav id="nav">
-                <ul>
-                    <li><a href="#">首頁</a></li>
-                    <li class="current"><a href="#">查詢書籍</a></li>
-                    <li><a href="#">關於我</a></li>
-                    <li><a href="#">作品集</a></li>
-                </ul>
-            </nav>
-            <section class="box text-style1">
-                <div class="inner">
-                    <p class="image featured">
-                        <img src="~/img/robot.jpg" alt="no src" />
-                    </p>
-                </div>
-                <div class="inner">
-                    <p class="image featured">
-                        <img src="~/img/robot2.jpg" alt="no src" />
-                    </p>
-                </div>
-                <div class="inner">
-                    <p class="image featured">
-                        <img src="~/img/robot3.jpg" alt="no src" />
-                    </p>
-                </div>
-                <div class="inner">
-                    <p class="image featured">
-                        <img src="~/img/small.jpg" alt="no src" />
-                    </p>
-                </div>
-            </section>
-            <ul id="copyright">
-                <li>石秉修</li>
+    </div>
+    <div id="sidebar">
+        <h1 id="logo"><a href="#">Hello World</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="#">首頁</a></li>
+                <li class="current"><a href="#">查詢書籍</a></li>
+                <li><a href="#">關於我</a></li>
+                <li><a href="#">作品集</a></li>
             </ul>
-        </div>      
-    </body>
+        </nav>
+        <section class="box text-style1">
+            <div class="inner">
+                <p class="image featured">
+                    <img src="~/img/robot.jpg" alt="no src" />
+                </p>
+            </div>
+            <div class="inner">
+                <p class="image featured">
+                    <img src="~/img/robot2.jpg" alt="no src" />
+                </p>
+            </div>
+            <div class="inner">
+                <p class="image featured">
+                    <img src="~/img/robot3.jpg" alt="no src" />
+                </p>
+            </div>
+            <div class="inner">
+                <p class="image featured">
+                    <img src="~/img/small.jpg" alt="no src" />
+                </p>
+            </div>
+        </section>
+        <ul id="copyright">
+            <li>石秉修</li>
+        </ul>
+    </div>
+</body>
 </html>

@@ -61,15 +61,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookBLL.cs" />
+    <Compile Include="Home\BookBLL.cs" />
     <Compile Include="ConditionStrategy.cs" />
     <Compile Include="IWhere.cs" />
     <Compile Include="SearchLanguage.cs" />
     <Compile Include="ParameterBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchType.cs" />
-    <Compile Include="UserBLL.cs" />
+    <Compile Include="Register\UserBLL.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

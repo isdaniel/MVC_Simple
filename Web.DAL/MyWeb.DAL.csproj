@@ -74,12 +74,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookDAL.cs" />
-    <Compile Include="BookUtility.cs" />
+    <Compile Include="Home\BookDAL.cs" />
+    <Compile Include="Home\BookUtility.cs" />
     <Compile Include="IDAL.cs" />
     <Compile Include="ParameterDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserDAL.cs" />
+    <Compile Include="Register\UserDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -139,7 +139,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authoriz\AuthorizHttpMsg.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\UserFilter.cs" />
@@ -182,6 +181,8 @@
     </Content>
     <Content Include="Views\Book\AddBook.cshtml" />
     <Content Include="Views\Book\Edit.cshtml" />
+    <Content Include="Views\Template\LoginMaster.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Libs\" />
@@ -190,7 +191,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
