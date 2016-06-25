@@ -12,7 +12,7 @@ namespace MyWeb.Common
         /// 回傳一個DataTable
         /// </summary>
         /// <returns></returns>
-        public static DataTable ExecuteDataTable(string sqlstr, params SqlParameter[] parameters)
+        public static DataTable ExecuteDataTable(string sqlstr, params IDataParameter[] parameters)
         {
             using (SqlConnection conn = new SqlConnection(connStr))
             {

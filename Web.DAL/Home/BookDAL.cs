@@ -1,5 +1,6 @@
 ﻿using MyWeb.Model;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace MyWeb.DAL
@@ -20,7 +21,7 @@ namespace MyWeb.DAL
 
         public void Edit(BookModel model)
         {
-            utility.Edit(model);
+            utility.Modify(model);
         }
 
         public BookModel Edit_Model(int Id)
@@ -28,9 +29,9 @@ namespace MyWeb.DAL
             return utility.Edit_Model(Id);
         }
 
-        public List<BookModel> GetList(string SQLText, params SqlParameter[] parameters)
+        public List<BookModel> GetList(string SQLText, params IDataParameter[] parameters)
         {
-            return utility.GetPager(SQLText, parameters);
+            return utility.GetList(SQLText, parameters);
         }
     }
 }

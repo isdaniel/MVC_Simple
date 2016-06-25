@@ -54,14 +54,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="MyWeb.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MVC\Libs\MyWeb.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="MyWeb.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MVC\Libs\MyWeb.Model.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -104,6 +96,16 @@
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Web.Common\MyWeb.Common.csproj">
+      <Project>{92513457-643e-4359-ac90-4a9e9c4891ef}</Project>
+      <Name>MyWeb.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Web.Model\MyWeb.Model.csproj">
+      <Project>{5c7b93f0-e2fe-4a53-a149-babf1b5e52a0}</Project>
+      <Name>MyWeb.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

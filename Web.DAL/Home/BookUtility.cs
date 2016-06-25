@@ -10,7 +10,7 @@ using System.Text;
 
 namespace MyWeb.DAL
 {
-    public class BookUtility
+    public class BookUtility : IDAL<BookModel>
     {
         public void Add(BookModel model)
         {
@@ -26,14 +26,6 @@ namespace MyWeb.DAL
                 new SqlParameter("@id", Id));
         }
 
-        public void Edit(BookModel model)
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("update test set ");
-            sb.Append(Update_Text(model));
-            Sqlhelp.ExecuteNonQuery(sb.ToString());
-        }
-
         public BookModel Edit_Model(int Id)
         {
             DataTable Dt = Sqlhelp.ExecuteDataTable(
@@ -42,11 +34,25 @@ namespace MyWeb.DAL
             return fill_List(Dt).FirstOrDefault();
         }
 
+        public List<BookModel> GetList(string Sql, params IDataParameter[] parameters)
+        {
+            DataTable Dt = Sqlhelp.ExecuteDataTable(Sql, parameters);
+            return fill_List(Dt);
+        }
+
         public List<BookModel> GetPager(string SQLText,
             params SqlParameter[] paramters)
         {
             DataTable Dt = Sqlhelp.ExecuteDataTable(SQLText, paramters);
             return fill_List(Dt);
+        }
+
+        public void Modify(BookModel model)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("update test set ");
+            sb.Append(Update_Text(model));
+            Sqlhelp.ExecuteNonQuery(sb.ToString());
         }
 
         private List<BookModel> fill_List(DataTable Dt)

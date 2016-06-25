@@ -92,9 +92,7 @@ C:\Users\daniel\Documents\MVC_C-\MVC\bin\System.Web.WebPages.xml
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\System.Web.WebPages.Deployment.xml
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\System.Web.WebPages.Razor.xml
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\Newtonsoft.Json.xml
-C:\Users\daniel\Documents\MVC_C-\MVC\bin\System.Net.Http.xml
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\System.Net.Http.Formatting.xml
-C:\Users\daniel\Documents\MVC_C-\MVC\bin\System.Net.Http.WebRequest.xml
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\System.Web.Http.xml
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\System.Web.Http.WebHost.xml
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\Web.DAL.pdb
@@ -106,9 +104,7 @@ C:\Users\daniel\Documents\MVC_C-\MVC\bin\zh-Hant\System.Web.Razor.resources.dll
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\zh-Hant\System.Web.WebPages.resources.dll
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\zh-Hant\System.Web.WebPages.Deployment.resources.dll
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\zh-Hant\System.Web.WebPages.Razor.resources.dll
-C:\Users\daniel\Documents\MVC_C-\MVC\bin\zh-Hant\System.Net.Http.resources.dll
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\zh-Hant\System.Net.Http.Formatting.resources.dll
-C:\Users\daniel\Documents\MVC_C-\MVC\bin\zh-Hant\System.Net.Http.WebRequest.resources.dll
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\zh-Hant\System.Web.Http.resources.dll
 C:\Users\daniel\Documents\MVC_C-\MVC\bin\zh-Hant\System.Web.Http.WebHost.resources.dll
 C:\Users\daniel\Documents\MVC_C-\MVC\obj\Debug\MVC.csprojResolveAssemblyReference.cache

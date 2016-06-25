@@ -7,39 +7,6 @@
     <script src="~/JS/jquery-2.0.0.min.js"></script>
 </head>
 <body>
-    <div id="content">
-        .
-        <h4 style="float:right;">
-            @if (Request.IsAuthenticated)
-            {
-                <strong>@Html.Encode(User.Identity.Name)</strong>
-                @Html.ActionLink("Sign Out", "Logout", "User")
-            }
-            else
-            {
-                @Html.ActionLink("Register", "Register", "User")
-                <span> | </span>
-                @Html.ActionLink("Sign In", "Login", "User")
-            }
-        </h4>
-        <div class="inner">
-            @RenderBody()
-            <article class="box post post-excerpt">
-                <header></header>
-                <!--<div class="info">
-                </div>-->
-                @RenderSection("Buttom")
-            </article>
-            <a href="#" class="image featured">
-                <img src="~/img/ground.jpg" alt="no src" />
-            </a>
-            <header>
-                <p>.</p>
-            </header>
-            <div class="info">
-            </div>
-        </div>
-    </div>
     <div id="sidebar">
         <h1 id="logo"><a href="#">Hello World</a></h1>
         <nav id="nav">
@@ -75,6 +42,32 @@
         <ul id="copyright">
             <li>石秉修</li>
         </ul>
+    </div>
+    <div id="content">
+        <h4 style="float:right;">
+            @if (Request.IsAuthenticated)
+            {
+                <strong>@Html.Encode(User.Identity.Name)</strong>
+                @Html.ActionLink("Sign Out", "Logout", "User")
+            }
+            else
+            {
+                @Html.ActionLink("Register", "Register", "User")
+                <span> | </span>
+                @Html.ActionLink("Sign In", "Login", "User")
+            }
+        </h4>
+        <br />
+        <br />
+        <div class="inner">
+            @RenderBody()
+            <article class="box post post-excerpt">
+                @RenderSection("Buttom")
+            </article>
+            <a href="#" class="image featured">
+                <img src="~/img/ground.jpg" alt="no src" />
+            </a>
+        </div>
     </div>
 </body>
 </html>

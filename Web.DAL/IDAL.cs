@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 
 namespace MyWeb.DAL
 {
@@ -8,7 +9,7 @@ namespace MyWeb.DAL
 
         void Delete(int i);
 
-        List<T> GetList();
+        List<T> GetList(string Sql, params IDataParameter[] parameters);
 
         void Modify(T t);
     }
