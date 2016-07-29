@@ -1,0 +1,7 @@
+﻿@using (Html.BeginForm("Library", "Book", FormMethod.Get))
+{
+    <h5>語言:</h5>@Html.Raw(ViewData["BookLanguage"])
+    <h5>類型:</h5>@Html.Raw(ViewData["BookType"])
+    <h5>書名</h5><input type="text" name="bookName" />
+    <input type="submit" class="btn btn-default" value="搜尋" />
+}

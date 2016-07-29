@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BookModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Library_Book">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="create_time" Type="datetime" />
+    <Property Name="bookName" Type="nvarchar" MaxLength="120" />
+    <Property Name="summary" Type="nvarchar" MaxLength="200" />
+    <Property Name="BookType" Type="nvarchar" MaxLength="30" />
+    <Property Name="BookLanguage" Type="nvarchar" MaxLength="30" />
+    <Property Name="Image_Path" Type="varchar" MaxLength="50" />
+    <Property Name="Image_Date" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="BookModelStoreContainer">
+    <EntitySet Name="Library_Book" EntityType="Self.Library_Book" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

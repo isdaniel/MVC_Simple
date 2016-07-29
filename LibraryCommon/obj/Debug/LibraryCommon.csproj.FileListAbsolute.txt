@@ -1,0 +1,7 @@
+D:\LibrarySample\Library\LibraryCommon\bin\Debug\LibraryCommon.dll
+D:\LibrarySample\Library\LibraryCommon\bin\Debug\LibraryCommon.pdb
+D:\LibrarySample\Library\LibraryCommon\bin\Debug\log4net.dll
+D:\LibrarySample\Library\LibraryCommon\bin\Debug\log4net.xml
+D:\LibrarySample\Library\LibraryCommon\obj\Debug\LibraryCommon.dll
+D:\LibrarySample\Library\LibraryCommon\obj\Debug\LibraryCommon.pdb
+D:\LibrarySample\Library\LibraryCommon\obj\Debug\LibraryCommon.csprojResolveAssemblyReference.cache

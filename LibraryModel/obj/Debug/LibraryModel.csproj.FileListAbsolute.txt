@@ -1,0 +1,7 @@
+D:\LibrarySample\Library\LibraryModel\bin\Debug\LibraryModel.dll
+D:\LibrarySample\Library\LibraryModel\bin\Debug\LibraryModel.pdb
+D:\LibrarySample\Library\LibraryModel\obj\Debug\LibraryModel.dll
+D:\LibrarySample\Library\LibraryModel\obj\Debug\LibraryModel.pdb
+D:\LibrarySample\Library\LibraryModel\bin\Debug\PagedList.dll
+D:\LibrarySample\Library\LibraryModel\bin\Debug\PagedList.xml
+D:\LibrarySample\Library\LibraryModel\obj\Debug\LibraryModel.csprojResolveAssemblyReference.cache

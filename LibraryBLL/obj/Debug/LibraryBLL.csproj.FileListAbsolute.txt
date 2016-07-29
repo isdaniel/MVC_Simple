@@ -1,0 +1,15 @@
+D:\LibrarySample\Library\LibraryBLL\bin\Debug\LibraryBLL.dll
+D:\LibrarySample\Library\LibraryBLL\bin\Debug\LibraryBLL.pdb
+D:\LibrarySample\Library\LibraryBLL\bin\Debug\LibraryDAL.dll
+D:\LibrarySample\Library\LibraryBLL\bin\Debug\LibraryModel.dll
+D:\LibrarySample\Library\LibraryBLL\bin\Debug\Dapper.dll
+D:\LibrarySample\Library\LibraryBLL\bin\Debug\LibraryCommon.dll
+D:\LibrarySample\Library\LibraryBLL\bin\Debug\log4net.dll
+D:\LibrarySample\Library\LibraryBLL\bin\Debug\LibraryDAL.pdb
+D:\LibrarySample\Library\LibraryBLL\bin\Debug\LibraryModel.pdb
+D:\LibrarySample\Library\LibraryBLL\bin\Debug\Dapper.xml
+D:\LibrarySample\Library\LibraryBLL\bin\Debug\LibraryCommon.pdb
+D:\LibrarySample\Library\LibraryBLL\bin\Debug\log4net.xml
+D:\LibrarySample\Library\LibraryBLL\obj\Debug\LibraryBLL.csprojResolveAssemblyReference.cache
+D:\LibrarySample\Library\LibraryBLL\obj\Debug\LibraryBLL.dll
+D:\LibrarySample\Library\LibraryBLL\obj\Debug\LibraryBLL.pdb
