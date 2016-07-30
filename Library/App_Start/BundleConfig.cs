@@ -43,11 +43,10 @@ namespace Library
                         "~/Style/main.css"));
             bundles.Add(new ScriptBundle("~/BookIndex/js").Include(
                         "~/js/jquery.min.js",
-                        "~/js/jquery.scrolly.min.js",
-                        "~/js/jquery.poptrox.min.js",
                         "~/js/skel.min.js",
                         "~/js/util.js",
-                        "~/js/main.js"));
+                        "~/js/main.js",
+                        "~/js/UploadFile.js"));
             bundles.Add(new StyleBundle("~/Login/css").Include
                         ("~/Style/Login.css"
                         ));

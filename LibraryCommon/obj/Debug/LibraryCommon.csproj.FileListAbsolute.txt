@@ -5,3 +5,12 @@ D:\LibrarySample\Library\LibraryCommon\bin\Debug\log4net.xml
 D:\LibrarySample\Library\LibraryCommon\obj\Debug\LibraryCommon.dll
 D:\LibrarySample\Library\LibraryCommon\obj\Debug\LibraryCommon.pdb
 D:\LibrarySample\Library\LibraryCommon\obj\Debug\LibraryCommon.csprojResolveAssemblyReference.cache
+C:\Users\daniel\Documents\MVC_Simple\LibraryCommon\bin\Debug\LibraryCommon.dll
+C:\Users\daniel\Documents\MVC_Simple\LibraryCommon\bin\Debug\LibraryCommon.pdb
+C:\Users\daniel\Documents\MVC_Simple\LibraryCommon\bin\Debug\log4net.dll
+C:\Users\daniel\Documents\MVC_Simple\LibraryCommon\bin\Debug\log4net.xml
+C:\Users\daniel\Documents\MVC_Simple\LibraryCommon\obj\Debug\LibraryCommon.dll
+C:\Users\daniel\Documents\MVC_Simple\LibraryCommon\obj\Debug\LibraryCommon.pdb
+C:\Users\daniel\Documents\MVC_Simple\LibraryCommon\obj\Debug\LibraryCommon.csprojResolveAssemblyReference.cache
+C:\Users\daniel\Documents\MVC_Simple\LibraryCommon\bin\Debug\LibraryModel.dll
+C:\Users\daniel\Documents\MVC_Simple\LibraryCommon\bin\Debug\LibraryModel.pdb

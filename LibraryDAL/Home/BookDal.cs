@@ -35,14 +35,16 @@ namespace LibraryDAL.Home
         /// 創建新的資料
         /// </summary>
         /// <param name="model"></param>
-        public void Add(BookModel model)
+        /// <returns>返回成功插入的bookid</returns>
+        public int Add(BookModel model)
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("insert into Library_Book");
             sb.AppendLine("(BookLanguage,bookName,summary,BookType,create_time)");
-            sb.AppendLine("value");
+            sb.AppendLine("values");
             sb.AppendLine("(@BookLanguage,@bookName,@summary,@BookType,@create_time)");
-            _Conn.Execute(sb.ToString(),
+            sb.AppendLine("SELECT @@IDENTITY as id");
+            return _Conn.Query<int>(sb.ToString(),
                 new
                 {
                     BookLanguage = model.BookLanguage,
@@ -50,7 +52,7 @@ namespace LibraryDAL.Home
                     summary = model.summary,
                     BookType = model.BookType,
                     create_time = model.create_time
-                });
+                }).Single();
         }
 
         /// <summary>

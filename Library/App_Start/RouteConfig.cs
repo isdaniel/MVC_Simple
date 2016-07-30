@@ -16,7 +16,7 @@ namespace Library
             routes.MapRoute(
                 name: "BookList",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Library", id = UrlParameter.Optional }
+                defaults: new { controller = "Book", action = "Library", id = UrlParameter.Optional }
             );
         }
     }

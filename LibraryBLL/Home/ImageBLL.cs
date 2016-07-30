@@ -1,4 +1,5 @@
-﻿using LibraryDAL.Home;
+﻿using LibraryCommon;
+using LibraryDAL.Home;
 using LibraryModel;
 using System;
 using System.Collections.Generic;
@@ -6,13 +7,25 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace LibraryBLL.Home
 {
     public class ImageBLL
     {
+        private string _ImagePath;
         private ImageDal dal = ImageDal.GetInstance();
-        private string ImagePath = ConfigurationManager.AppSettings["ImgaePath"];
+
+        public ImageBLL(string ImagePath)
+        {
+            this._ImagePath = ImagePath;
+        }
+
+        public void AddImage(BookModel model)
+        {
+            ImageDal imagedal = ImageDal.GetInstance();
+            imagedal.InsertFiles(model.Image);
+        }
 
         /// <summary>
         /// 取得圖片路徑
@@ -20,7 +33,7 @@ namespace LibraryBLL.Home
         /// <returns></returns>
         public List<BookImgaeModel> GetImageList(BookModel model)
         {
-            string no_pic = ImagePath + "No_Pic.gif";
+            string no_pic = _ImagePath + "No_Pic.gif";
             List<BookImgaeModel> ImageList = dal.GetImagePath(model);
             if (ImageList.Count == 0)
             {
@@ -30,7 +43,7 @@ namespace LibraryBLL.Home
             {
                 foreach (var item in ImageList)
                 {
-                    item.Image_Path = ImagePath + item.Image_Path;
+                    item.Image_Path = _ImagePath + item.Image_Path;
                 }
             }
             return ImageList;

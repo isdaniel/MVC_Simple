@@ -17,9 +17,9 @@ namespace LibraryBLL
         /// 新增一本書
         /// </summary>
         /// <param name="model"></param>
-        public void Add(BookModel model)
+        public int Add(BookModel model)
         {
-            dal.Add(model);
+            return dal.Add(model);
         }
 
         /// <summary>

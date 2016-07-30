@@ -33,6 +33,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,6 +52,10 @@
     <Compile Include="Register\UserBLL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LibraryCommon\LibraryCommon.csproj">
+      <Project>{92e7cfe1-2f90-42ca-85cc-b256b4f370dc}</Project>
+      <Name>LibraryCommon</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LibraryDAL\LibraryDAL.csproj">
       <Project>{2d13579c-df43-4629-a943-b6e006bc20b8}</Project>
       <Name>LibraryDAL</Name>

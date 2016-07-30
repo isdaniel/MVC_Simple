@@ -48,9 +48,16 @@
     <Compile Include="DropDownListHelper.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UploadFileHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibraryModel\LibraryModel.csproj">
+      <Project>{8ac39703-9b40-431a-935f-9424cdb28921}</Project>
+      <Name>LibraryModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

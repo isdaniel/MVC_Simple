@@ -30,5 +30,11 @@ namespace LibraryDAL.Home
             return _Conn.Query<BookImgaeModel>("select * from Library_BookImgae where bookid=@id",
                 new { id = model.id }).ToList();
         }
+
+        public void InsertFiles(IEnumerable<BookImgaeModel> files)
+        {
+            string sqlString = @"insert into Library_BookImgae (bookid,image_path) values (@bookid,@image_path)";
+            _Conn.Execute(sqlString, files);
+        }
     }
 }

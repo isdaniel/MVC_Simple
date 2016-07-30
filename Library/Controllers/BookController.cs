@@ -6,43 +6,62 @@ using PagedList;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace MVC.Controllers
 {
     public class BookController : Controller
     {
+        private string ImagePath = ConfigurationManager.AppSettings["ImgaePath"];
+
+        [HttpGet]
+        public ActionResult AddBook()
+        {
+            ddlBind();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddBook(IEnumerable<HttpPostedFileBase> files,
+            [System.Web.Http.FromBody]BookModel model)
+        {
+            UploadFileHelper upload = new UploadFileHelper(files, Server.MapPath(ImagePath));
+            upload.SaveImage();
+            ImageBLL imageBll = new ImageBLL(Server.MapPath(ImagePath));
+            BookBLL bll = new BookBLL();
+            model.create_time = DateTime.Now;
+            int bookId = bll.Add(model);
+            model.Image = upload.BookAddImagePath(bookId);
+            imageBll.AddImage(model);
+            return View("Library", Init(1, new BookSearch_ViewModel()));
+        }
+
         /// <summary>
         /// Library.cshtml的程式 顯示清單
         /// </summary>
         /// <param name="page">頁面</param>
         /// <returns></returns>
-        public ActionResult Library(string page = "1")
+        public ActionResult Library([System.Web.Http.FromBody] BookSearch_ViewModel conditionModel, string page = "1")
         {
-            BookBLL bll = new BookBLL();
-            ImageBLL ImageBll = new ImageBLL();
-            List<BookModel> bookList = bll.GetList(ddlInfo());
-            var model = bookList.
-                OrderBy(x => x.create_time).
-                Select(x => new BookModel()
-                {
-                    id = x.id,
-                    summary = x.summary,
-                    BookLanguage = x.BookLanguage,
-                    bookName = x.bookName,
-                    BookType = x.BookType,
-                    create_time = x.create_time,
-                    Image = ImageBll.GetImageList(x)
-                }).
-                ToPagedList(int.Parse(page), 12);
+            IPagedList<BookModel> model = Init(int.Parse(page), conditionModel);
+            ddlBind();
+            return View(model);
+        }
+
+        /// <summary>
+        /// Bind下拉式選單
+        /// </summary>
+        private void ddlBind()
+        {
             /*===Bind下拉式選單 begin===*/
             ViewData["BookLanguage"] = DropDownListGenerator
                 ("BookLanguage", "language");
             ViewData["BookType"] = DropDownListGenerator
                 ("BookType", "booktype");
             /*===Bind下拉式選單 end===*/
-            return View(model);
         }
 
         private BookSearch_ViewModel ddlInfo()
@@ -81,6 +100,26 @@ namespace MVC.Controllers
                                        true,
                                       "請選擇"
                                     );
+        }
+
+        private IPagedList<BookModel> Init(int page, BookSearch_ViewModel model)
+        {
+            BookBLL bll = new BookBLL();
+            ImageBLL ImageBll = new ImageBLL("/LibraryImgae/");
+            List<BookModel> bookList = bll.GetList(model);
+            return bookList.
+                OrderBy(x => x.create_time).
+                Select(x => new BookModel()
+                {
+                    id = x.id,
+                    summary = x.summary,
+                    BookLanguage = x.BookLanguage,
+                    bookName = x.bookName,
+                    BookType = x.BookType,
+                    create_time = x.create_time,
+                    Image = ImageBll.GetImageList(x)
+                }).
+                ToPagedList(page, 12);
         }
     }
 }
