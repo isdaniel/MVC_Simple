@@ -38,16 +38,16 @@ namespace LibraryCommon
         public List<string> _FilesName { private set; get; }
 
         /// <summary>
-        /// 將圖片路徑塞入BookImgaeModel組中
+        /// 將圖片路徑塞入Library_BookImgae組中
         /// </summary>
         /// <param name="files"></param>
         /// <returns></returns>
-        public List<BookImgaeModel> BookAddImagePath(int bookId)
+        public List<Library_BookImgae> BookAddImagePath(int bookId)
         {
-            List<BookImgaeModel> list = new List<BookImgaeModel>();
+            List<Library_BookImgae> list = new List<Library_BookImgae>();
             foreach (var file in _FilesName)
             {
-                list.Add(new BookImgaeModel()
+                list.Add(new Library_BookImgae()
                 {
                     Image_Path = file,
                     BookId = bookId

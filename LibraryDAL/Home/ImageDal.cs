@@ -25,13 +25,13 @@ namespace LibraryDAL.Home
             return _Insetance;
         }
 
-        public List<BookImgaeModel> GetImagePath(BookModel model)
+        public List<Library_BookImgae> GetImagePath(Library_Book model)
         {
-            return _Conn.Query<BookImgaeModel>("select * from Library_BookImgae where bookid=@id",
+            return _Conn.Query<Library_BookImgae>("select * from Library_BookImgae where bookid=@id",
                 new { id = model.id }).ToList();
         }
 
-        public void InsertFiles(IEnumerable<BookImgaeModel> files)
+        public void InsertFiles(IEnumerable<Library_BookImgae> files)
         {
             string sqlString = @"insert into Library_BookImgae (bookid,image_path) values (@bookid,@image_path)";
             _Conn.Execute(sqlString, files);

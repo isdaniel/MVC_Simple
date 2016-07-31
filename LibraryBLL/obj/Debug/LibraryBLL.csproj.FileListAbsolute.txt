@@ -28,3 +28,6 @@ C:\Users\daniel\Documents\MVC_Simple\LibraryBLL\bin\Debug\log4net.xml
 C:\Users\daniel\Documents\MVC_Simple\LibraryBLL\obj\Debug\LibraryBLL.csprojResolveAssemblyReference.cache
 C:\Users\daniel\Documents\MVC_Simple\LibraryBLL\obj\Debug\LibraryBLL.dll
 C:\Users\daniel\Documents\MVC_Simple\LibraryBLL\obj\Debug\LibraryBLL.pdb
+C:\Users\daniel\Documents\MVC_Simple\LibraryBLL\bin\Debug\EntityFramework.dll
+C:\Users\daniel\Documents\MVC_Simple\LibraryBLL\bin\Debug\EntityFramework.xml
+C:\Users\daniel\Documents\MVC_Simple\LibraryBLL\bin\Debug\zh-Hant\EntityFramework.resources.dll

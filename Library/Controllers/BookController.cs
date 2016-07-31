@@ -32,7 +32,7 @@ namespace MVC.Controllers
         /// <returns></returns>
         [HttpPost]
         public ActionResult AddBook(IEnumerable<HttpPostedFileBase> files,
-            [System.Web.Http.FromBody]BookModel model)
+            [System.Web.Http.FromBody]Library_Book model)
         {
             UploadFileHelper upload = new UploadFileHelper(files, Server.MapPath(ImagePath));
             upload.SaveImage();
@@ -50,7 +50,7 @@ namespace MVC.Controllers
         {
             BookBLL bll = new BookBLL();
             ddlBind();
-            BookModel model = bll.GetBookById(id);
+            Library_Book model = bll.GetBookById(id);
             return View(model);
         }
 
@@ -61,7 +61,7 @@ namespace MVC.Controllers
         /// <returns></returns>
         public ActionResult Library([System.Web.Http.FromBody] BookSearch_ViewModel conditionModel, string page = "1")
         {
-            IPagedList<BookModel> model = Init(int.Parse(page), conditionModel);
+            IPagedList<Library_Book> model = Init(int.Parse(page), conditionModel);
             ddlBind();
             return View(model);
         }
@@ -117,14 +117,14 @@ namespace MVC.Controllers
                                     );
         }
 
-        private IPagedList<BookModel> Init(int page, BookSearch_ViewModel model)
+        private IPagedList<Library_Book> Init(int page, BookSearch_ViewModel model)
         {
             BookBLL bll = new BookBLL();
             ImageBLL ImageBll = new ImageBLL("/LibraryImgae/");
-            List<BookModel> bookList = bll.GetList(model);
+            List<Library_Book> bookList = bll.GetList(model);
             return bookList.
                 OrderBy(x => x.create_time).
-                Select(x => new BookModel()
+                Select(x => new Library_Book()
                 {
                     id = x.id,
                     summary = x.summary,

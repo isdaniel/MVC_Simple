@@ -36,3 +36,4 @@ C:\Users\daniel\Documents\MVC_Simple\LibraryDAL\bin\Debug\zh-Hant\EntityFramewor
 C:\Users\daniel\Documents\MVC_Simple\LibraryDAL\obj\Debug\LibraryDAL.csprojResolveAssemblyReference.cache
 C:\Users\daniel\Documents\MVC_Simple\LibraryDAL\obj\Debug\LibraryDAL.dll
 C:\Users\daniel\Documents\MVC_Simple\LibraryDAL\obj\Debug\LibraryDAL.pdb
+C:\Users\daniel\Documents\MVC_Simple\LibraryDAL\bin\Debug\zh-Hant\EntityFramework.SqlServer.resources.dll

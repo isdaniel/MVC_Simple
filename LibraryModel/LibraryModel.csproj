@@ -43,8 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookImgaeModel.cs" />
-    <Compile Include="BookModel.cs" />
+    <Compile Include="Library_BookImgae.cs" />
+    <Compile Include="Library_Book.cs" />
     <Compile Include="BookSearch_ViewModel.cs" />
     <Compile Include="ParameterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

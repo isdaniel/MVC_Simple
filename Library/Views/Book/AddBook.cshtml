@@ -1,55 +1,55 @@
-﻿@model LibraryModel.BookModel
+﻿@model LibraryModel.Library_Book
 
-@{
-    ViewBag.Title = "AddBook";
-    Layout = "~/Views/Template/Master.cshtml";
-}
-
-<h2>AddBook</h2>
-@section Buttom{
-    @using (Html.BeginForm("AddBook", "Book", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
-
-        <fieldset>
-            <h3>
-                語言
-            </h3>
-            <div class="editor-field">
-                @Html.Raw(ViewData["BookType"])
-            </div>
-
-            <h3>
-                書名
-            </h3>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.bookName)
-                @Html.ValidationMessageFor(model => model.bookName)
-            </div>
-
-            <h3>
-                類型
-            </h3>
-            <div class="editor-field">
-                @Html.Raw(ViewData["BookLanguage"])
-            </div>
-
-            <h3>
-                摘要
-            </h3>
-            <div class="editor-field">
-                @Html.TextAreaFor(model => model.summary, 5, 5, null)
-                @Html.ValidationMessageFor(model => model.summary)
-            </div>
-            @Html.Partial("_LibraryUploadPartial")
-            <p>
-                <input type="submit" value="創建" />
-            </p>
-        </fieldset>
+    @{
+        ViewBag.Title = "AddBook";
+        Layout = "~/Views/Template/Master.cshtml";
     }
-    <div>
-        @Html.ActionLink("回到查詢頁面", "Library")
-    </div>
 
-}
+    <h2>AddBook</h2>
+    @section Buttom{
+        @using (Html.BeginForm("AddBook", "Book", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <h3>
+                    語言
+                </h3>
+                <div class="editor-field">
+                    @Html.Raw(ViewData["BookType"])
+                </div>
+
+                <h3>
+                    書名
+                </h3>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.bookName)
+                    @Html.ValidationMessageFor(model => model.bookName)
+                </div>
+
+                <h3>
+                    類型
+                </h3>
+                <div class="editor-field">
+                    @Html.Raw(ViewData["BookLanguage"])
+                </div>
+
+                <h3>
+                    摘要
+                </h3>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.summary, 5, 5, null)
+                    @Html.ValidationMessageFor(model => model.summary)
+                </div>
+                @Html.Partial("_LibraryUploadPartial")
+                <p>
+                    <input type="submit" value="創建" />
+                </p>
+            </fieldset>
+        }
+        <div>
+            @Html.ActionLink("回到查詢頁面", "Library")
+        </div>
+
+    }

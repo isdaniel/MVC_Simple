@@ -21,7 +21,7 @@ namespace LibraryBLL.Home
             this._ImagePath = ImagePath;
         }
 
-        public void AddImage(BookModel model)
+        public void AddImage(Library_Book model)
         {
             ImageDal imagedal = ImageDal.GetInstance();
             imagedal.InsertFiles(model.Image);
@@ -31,13 +31,13 @@ namespace LibraryBLL.Home
         /// 取得圖片路徑
         /// </summary>
         /// <returns></returns>
-        public List<BookImgaeModel> GetImageList(BookModel model)
+        public List<Library_BookImgae> GetImageList(Library_Book model)
         {
             string no_pic = _ImagePath + "No_Pic.gif";
-            List<BookImgaeModel> ImageList = dal.GetImagePath(model);
+            List<Library_BookImgae> ImageList = dal.GetImagePath(model);
             if (ImageList.Count == 0)
             {
-                ImageList.Add(new BookImgaeModel() { Image_Path = no_pic });
+                ImageList.Add(new Library_BookImgae() { Image_Path = no_pic });
             }
             else
             {

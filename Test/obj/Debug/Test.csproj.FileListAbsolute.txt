@@ -16,3 +16,6 @@ D:\LibrarySample\Library\Test\bin\Debug\LibraryCommon.pdb
 D:\LibrarySample\Library\Test\bin\Debug\log4net.xml
 D:\LibrarySample\Library\Test\bin\Debug\LibraryBLL.dll
 D:\LibrarySample\Library\Test\bin\Debug\LibraryBLL.pdb
+C:\Users\daniel\Documents\MVC_Simple\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\Users\daniel\Documents\MVC_Simple\Test\obj\Debug\Test.exe
+C:\Users\daniel\Documents\MVC_Simple\Test\obj\Debug\Test.pdb

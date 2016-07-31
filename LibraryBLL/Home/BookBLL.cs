@@ -17,7 +17,7 @@ namespace LibraryBLL
         /// 新增一本書
         /// </summary>
         /// <param name="model"></param>
-        public int Add(BookModel model)
+        public int Add(Library_Book model)
         {
             return dal.Add(model);
         }
@@ -26,7 +26,7 @@ namespace LibraryBLL
         /// 刪除書
         /// </summary>
         /// <param name="model"></param>
-        public void Delete(BookModel model)
+        public void Delete(Library_Book model)
         {
             dal.Delete(model);
         }
@@ -35,14 +35,14 @@ namespace LibraryBLL
         /// 修改書的資訊
         /// </summary>
         /// <param name="model"></param>
-        public void Edit(BookModel model)
+        public void Edit(Library_Book model)
         {
             dal.Modify(model);
         }
 
-        public BookModel GetBookById(int id)
+        public Library_Book GetBookById(int id)
         {
-            BookModel model = dal.GetBookById(id);
+            Library_Book model = dal.GetBookById(id);
             return model;
         }
 
@@ -51,7 +51,7 @@ namespace LibraryBLL
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public List<BookModel> GetList(BookSearch_ViewModel model)
+        public List<Library_Book> GetList(BookSearch_ViewModel model)
         {
             SearchConcrete concrete = new SearchConcrete(model);
             StringBuilder sb = new StringBuilder();
@@ -73,7 +73,7 @@ namespace LibraryBLL
             return paraDal.GetAllParameter();
         }
 
-        private List<BookModel> BookListViewModel(List<BookModel> model)
+        private List<Library_Book> BookListViewModel(List<Library_Book> model)
         {
             ParameterDal paraDal = ParameterDal.GetInstace();
             List<ParameterModel> parameters = paraDal.GetAllParameter();
@@ -82,7 +82,7 @@ namespace LibraryBLL
                             on item.BookLanguage equals language.English
                             join booktype in parameters
                             on item.BookType equals booktype.English
-                            select new BookModel
+                            select new Library_Book
                             {
                                 BookLanguage = booktype.chinese,
                                 BookType = language.chinese,

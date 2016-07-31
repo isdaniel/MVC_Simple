@@ -36,7 +36,7 @@ namespace LibraryDAL.Home
         /// </summary>
         /// <param name="model"></param>
         /// <returns>返回成功插入的bookid</returns>
-        public int Add(BookModel model)
+        public int Add(Library_Book model)
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("insert into Library_Book");
@@ -59,7 +59,7 @@ namespace LibraryDAL.Home
         /// 刪除一本書
         /// </summary>
         /// <param name="model">要刪除的實體</param>
-        public void Delete(BookModel model)
+        public void Delete(Library_Book model)
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("delete Library_Book");
@@ -67,12 +67,12 @@ namespace LibraryDAL.Home
             _Conn.Execute(sb.ToString(), new { id = model.id });
         }
 
-        public BookModel GetBookById(int id)
+        public Library_Book GetBookById(int id)
         {
             string IamString = "select * from Library_BookImgae where id=@id";
             string BookString = "select * from Library_Book where id=@id";
-            List<BookImgaeModel> image = _Conn.Query<BookImgaeModel>(IamString, param: new { id = id }).ToList();
-            BookModel book = _Conn.Query<BookModel>(BookString, param: new { id = id }).FirstOrDefault();
+            List<Library_BookImgae> image = _Conn.Query<Library_BookImgae>(IamString, param: new { id = id }).ToList();
+            Library_Book book = _Conn.Query<Library_Book>(BookString, param: new { id = id }).FirstOrDefault();
             book.Image = image;
             return book;
         }
@@ -83,17 +83,17 @@ namespace LibraryDAL.Home
         /// <param name="SqlStr"></param>
         /// <param name="parameter"></param>
         /// <returns></returns>
-        public List<BookModel> GetList(string SqlStr,
+        public List<Library_Book> GetList(string SqlStr,
             BookSearch_ViewModel parameter)
         {
-            return _Conn.Query<BookModel>(SqlStr, parameter).ToList();
+            return _Conn.Query<Library_Book>(SqlStr, parameter).ToList();
         }
 
         /// <summary>
         /// 修改書的資訊
         /// </summary>
         /// <param name="model"></param>
-        public void Modify(BookModel model)
+        public void Modify(Library_Book model)
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("update Library_Book set");
