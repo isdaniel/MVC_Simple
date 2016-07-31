@@ -67,6 +67,16 @@ namespace LibraryDAL.Home
             _Conn.Execute(sb.ToString(), new { id = model.id });
         }
 
+        public BookModel GetBookById(int id)
+        {
+            string IamString = "select * from Library_BookImgae where id=@id";
+            string BookString = "select * from Library_Book where id=@id";
+            List<BookImgaeModel> image = _Conn.Query<BookImgaeModel>(IamString, param: new { id = id }).ToList();
+            BookModel book = _Conn.Query<BookModel>(BookString, param: new { id = id }).FirstOrDefault();
+            book.Image = image;
+            return book;
+        }
+
         /// <summary>
         /// 取得目前在資料庫中的書
         /// </summary>

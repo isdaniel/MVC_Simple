@@ -5,36 +5,36 @@
 }
 @section Buttom{
     @Html.Partial("_LibarySearchPartal")
-        <div id="main">
-            <div class="inner">
-                <!-- Boxes -->
-                <div class="thumbnails">
-                    @foreach (var item in Model)
-                    {
-                        <div class="box">
-                            <div class="inner">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <h3>書名:@item.bookName</h3>
-                                            <h5>類型:@item.BookType</h5>
-                                            <h5>語言:@item.BookLanguage</h5>
-                                            摘要:@item.summary<br />
-                                            @Html.Partial("_LibaryImagePartal", item.Image)
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                                            @Html.ActionLink("Delete", "Delete", new { id = item.id })
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
+    <div id="main">
+        <div class="inner">
+            <!-- Boxes -->
+            <div class="thumbnails">
+                @foreach (var item in Model)
+                {
+                    <div class="box">
+                        <div class="inner">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <h3>書名:@item.bookName</h3>
+                                        <h5>類型:@item.BookType</h5>
+                                        <h5>語言:@item.BookLanguage</h5>
+                                        摘要:@item.summary<br />
+                                        @Html.Partial("_LibaryImagePartal", item.Image)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @Html.ActionLink("Edit", "EditBook", new { id = item.id }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
-                    }
-                </div>
+                    </div>
+                }
             </div>
         </div>
-        @Html.Partial("_LibarayPagePartial", Model)
+    </div>
+    @Html.Partial("_LibarayPagePartial", Model)
 }

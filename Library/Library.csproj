@@ -251,6 +251,7 @@
     <Content Include="Views\Book\_LibarySearchPartal.cshtml" />
     <Content Include="Views\Book\AddBook.cshtml" />
     <Content Include="Views\Book\_LibraryUploadPartial.cshtml" />
+    <Content Include="Views\Book\EditBook.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

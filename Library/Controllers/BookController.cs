@@ -24,6 +24,12 @@ namespace MVC.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 新增一本書
+        /// </summary>
+        /// <param name="files">頁面上的files Tag</param>
+        /// <param name="model">回傳空的model代表 全部查詢</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult AddBook(IEnumerable<HttpPostedFileBase> files,
             [System.Web.Http.FromBody]BookModel model)
@@ -37,6 +43,15 @@ namespace MVC.Controllers
             model.Image = upload.BookAddImagePath(bookId);
             imageBll.AddImage(model);
             return View("Library", Init(1, new BookSearch_ViewModel()));
+        }
+
+        [HttpGet]
+        public ActionResult EditBook(int id)
+        {
+            BookBLL bll = new BookBLL();
+            ddlBind();
+            BookModel model = bll.GetBookById(id);
+            return View(model);
         }
 
         /// <summary>

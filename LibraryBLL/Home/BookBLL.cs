@@ -40,6 +40,12 @@ namespace LibraryBLL
             dal.Modify(model);
         }
 
+        public BookModel GetBookById(int id)
+        {
+            BookModel model = dal.GetBookById(id);
+            return model;
+        }
+
         /// <summary>
         /// 取得所有書的資訊
         /// </summary>
