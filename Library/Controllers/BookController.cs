@@ -45,12 +45,42 @@ namespace MVC.Controllers
             return View("Library", Init(1, new BookSearch_ViewModel()));
         }
 
+        /// <summary>
+        /// 刪除的控制器
+        /// </summary>
+        /// <param name="id">傳入Book的Id</param>
+        /// <returns></returns>
+        public ActionResult Delete(int id)
+        {
+            BookBLL bll = new BookBLL();
+            Library_Book model = new Library_Book() { id = id };
+            bll.Delete(model);
+            ddlBind();
+            return View("Library", Init(1, new BookSearch_ViewModel()));
+        }
+
+        [HttpPost]
+        public ActionResult EditBook(IEnumerable<HttpPostedFileBase> files,
+            [System.Web.Http.FromBody]BookViewModel model)
+        {
+            UploadFileHelper upload = new UploadFileHelper(files, Server.MapPath(ImagePath));
+            ddlBind();
+            BookBLL bll = new BookBLL();
+            upload.SaveImage();
+            model.ImagePath = upload._FilesName;
+            bll.Edit(model);
+            return View("Library", Init(1, new BookSearch_ViewModel()));
+        }
+
         [HttpGet]
         public ActionResult EditBook(int id)
         {
             BookBLL bll = new BookBLL();
-            ddlBind();
-            Library_Book model = bll.GetBookById(id);
+            BookViewModel model = bll.GetBookModelById(id);
+            ViewData["BookLanguage"] = DropDownListGenerator
+                ("BookLanguage", "language", model.BookLanguage);
+            ViewData["BookType"] = DropDownListGenerator
+                ("BookType", "booktype", model.BookType);
             return View(model);
         }
 
@@ -79,6 +109,10 @@ namespace MVC.Controllers
             /*===Bind下拉式選單 end===*/
         }
 
+        /// <summary>
+        /// 將資訊填充到BookSearch_ViewModel方便做查詢
+        /// </summary>
+        /// <returns></returns>
         private BookSearch_ViewModel ddlInfo()
         {
             BookSearch_ViewModel viewmodel = new BookSearch_ViewModel();
@@ -93,12 +127,15 @@ namespace MVC.Controllers
         /// </summary>
         /// <param name="TagId">Html下拉選單標籤ID</param>
         /// <param name="parameterType">哪個參數</param>
+        /// <param name="defalutSelect">預設選項(沒選為null)</param>
         /// <returns></returns>
-        private string DropDownListGenerator(string TagId, string parameterType)
+        private string DropDownListGenerator(string TagId,
+            string parameterType,
+            string defalutSelect = null)
         {
             BookBLL bll = new BookBLL();
             Dictionary<string, string> dict = new Dictionary<string, string>();
-            List<ParameterModel> paras = bll.GetParameterList();
+            List<Parameter> paras = bll.GetParameterList();
             var model = from i in paras
                         where i.parametertype == parameterType
                         select i;
@@ -111,12 +148,18 @@ namespace MVC.Controllers
                                        TagId,
                                        dict,
                                        new { id = TagId },
-                                       null,
+                                       defalutSelect,
                                        true,
                                       "請選擇"
                                     );
         }
 
+        /// <summary>
+        /// 進入Library首頁
+        /// </summary>
+        /// <param name="page">頁碼</param>
+        /// <param name="model">bookModel</param>
+        /// <returns></returns>
         private IPagedList<Library_Book> Init(int page, BookSearch_ViewModel model)
         {
             BookBLL bll = new BookBLL();

@@ -25,9 +25,9 @@ namespace LibraryDAL.Home
             return _Instance;
         }
 
-        public List<ParameterModel> GetAllParameter()
+        public List<Parameter> GetAllParameter()
         {
-            return _Conn.Query<ParameterModel>
+            return _Conn.Query<Parameter>
                 ("select english,chinese,Parametertype from parameter").
                 ToList();
         }

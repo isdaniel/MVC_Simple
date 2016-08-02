@@ -116,3 +116,6 @@ C:\Users\daniel\Documents\MVC_Simple\Library\bin\zh-Hant\System.Web.WebPages.Raz
 C:\Users\daniel\Documents\MVC_Simple\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache
 C:\Users\daniel\Documents\MVC_Simple\Library\obj\Debug\Library.dll
 C:\Users\daniel\Documents\MVC_Simple\Library\obj\Debug\Library.pdb
+C:\Users\daniel\Documents\MVC_Simple\Library\bin\EntityFramework.SqlServer.dll
+C:\Users\daniel\Documents\MVC_Simple\Library\bin\EntityFramework.SqlServer.xml
+C:\Users\daniel\Documents\MVC_Simple\Library\bin\zh-Hant\EntityFramework.SqlServer.resources.dll

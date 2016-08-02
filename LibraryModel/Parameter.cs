@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryModel
 {
-    public class ParameterModel
+    public class Parameter
     {
         /// <summary>
         /// 參數中文
@@ -21,6 +21,11 @@ namespace LibraryModel
         /// <summary>
         /// 參數類別
         /// </summary>
+
+        /// <summary>
+        /// 編號
+        /// </summary>
+        public int id { get; set; }
 
         public string parametertype { get; set; }
     }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,6 +42,7 @@ namespace LibraryModel
         /// <summary>
         /// 連接Library_Image資料表
         /// </summary>
+        [NotMapped]
         public List<Library_BookImgae> Image { get; set; }
 
         /// <summary>

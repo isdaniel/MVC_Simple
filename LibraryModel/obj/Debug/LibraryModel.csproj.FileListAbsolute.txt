@@ -11,4 +11,3 @@ C:\Users\daniel\Documents\MVC_Simple\LibraryModel\bin\Debug\PagedList.dll
 C:\Users\daniel\Documents\MVC_Simple\LibraryModel\bin\Debug\PagedList.xml
 C:\Users\daniel\Documents\MVC_Simple\LibraryModel\obj\Debug\LibraryModel.dll
 C:\Users\daniel\Documents\MVC_Simple\LibraryModel\obj\Debug\LibraryModel.pdb
-C:\Users\daniel\Documents\MVC_Simple\LibraryModel\obj\Debug\LibraryModel.csprojResolveAssemblyReference.cache

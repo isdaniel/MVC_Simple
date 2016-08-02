@@ -31,3 +31,7 @@ C:\Users\daniel\Documents\MVC_Simple\LibraryBLL\obj\Debug\LibraryBLL.pdb
 C:\Users\daniel\Documents\MVC_Simple\LibraryBLL\bin\Debug\EntityFramework.dll
 C:\Users\daniel\Documents\MVC_Simple\LibraryBLL\bin\Debug\EntityFramework.xml
 C:\Users\daniel\Documents\MVC_Simple\LibraryBLL\bin\Debug\zh-Hant\EntityFramework.resources.dll
+C:\Users\daniel\Documents\MVC_Simple\LibraryBLL\bin\Debug\LibraryBLL.dll.config
+C:\Users\daniel\Documents\MVC_Simple\LibraryBLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\daniel\Documents\MVC_Simple\LibraryBLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\daniel\Documents\MVC_Simple\LibraryBLL\bin\Debug\zh-Hant\EntityFramework.SqlServer.resources.dll
