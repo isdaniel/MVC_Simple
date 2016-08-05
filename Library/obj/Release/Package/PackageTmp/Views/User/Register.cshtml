@@ -1,0 +1,34 @@
+﻿@model LibraryModel.UserModel
+
+@{
+    ViewBag.Title = "創建帳號";
+    Layout = "~/Views/Template/LoginMaster.cshtml";
+}
+@section Body{
+    @using (Html.BeginForm("Register", "User", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <legend>UserModel</legend>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Lib_username)
+            </div>
+            <div class="txt_input">
+                @Html.EditorFor(model => model.Lib_username)
+                @Html.ValidationMessageFor(model => model.Lib_username)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Lib_password)
+            </div>
+            <div class="txt_input">
+                @Html.PasswordFor(model => model.Lib_password)
+                @Html.ValidationMessageFor(model => model.Lib_password)
+            </div>
+            <p>
+                <input type="submit" value="創建帳戶" />
+            </p>
+            <h1>@ViewBag.message</h1>
+        </fieldset>
+    }
+}

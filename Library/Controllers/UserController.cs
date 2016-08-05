@@ -22,7 +22,7 @@ namespace MVC.Controllers
             UserBLL bll = new UserBLL();
             if (bll.IsUserExist(model))
             {
-                return RedirectToAction("Index", "Book", new { });
+                return RedirectToAction("library", "book", new { });
             }
             else
             {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,11 +12,13 @@ namespace LibraryModel
         /// <summary>
         /// 外鍵liabrary_book(Id)
         /// </summary>
+        [Required]
         public int BookId { get; set; }
 
         /// <summary>
         /// 編號
         /// </summary>
+        [Key]
         public int Id { get; set; }
 
         /// <summary>

@@ -10,16 +10,15 @@
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
         <fieldset>
-            <legend>UserModel</legend>
             <div class="editor-label">
-                @Html.LabelFor(model => model.Lib_username)
+                帳號
             </div>
             <div class="txt_input">
                 @Html.EditorFor(model => model.Lib_username)
                 @Html.ValidationMessageFor(model => model.Lib_username)
             </div>
             <div class="editor-label">
-                @Html.LabelFor(model => model.Lib_password)
+                密碼
             </div>
             <div class="txt_input">
                 @Html.PasswordFor(model => model.Lib_password)

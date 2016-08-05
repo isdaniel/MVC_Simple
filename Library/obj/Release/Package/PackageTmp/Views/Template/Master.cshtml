@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>First MVC</title>
+    @Styles.Render("~/BookIndex/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/BookIndex/js")
+</head>
+<body>
+    <div>
+        <h4 style="float:right;">
+            @if (Request.IsAuthenticated)
+            {
+                <strong>@Html.Encode(User.Identity.Name)</strong>
+                @Html.ActionLink("Sign Out", "Logout", "User")
+            }
+            else
+            {
+                @Html.ActionLink("Register", "Register", "User")
+                <span> | </span>
+                @Html.ActionLink("Sign In", "Login", "User")
+            }
+        </h4>
+        <br />
+        <br />
+        <div class="inner">
+            <article class="box post post-excerpt">
+                @RenderSection("Buttom")
+            </article>
+            <!--<a href="#" class="image featured">
+                <img src="~/img/ground.jpg" alt="no src" />
+            </a>-->
+        </div>
+    </div>
+</body>
+</html>

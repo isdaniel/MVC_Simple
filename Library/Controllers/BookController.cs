@@ -13,6 +13,7 @@ using System.Web.Mvc;
 
 namespace MVC.Controllers
 {
+    [Authorize]
     public class BookController : Controller
     {
         private string ImagePath = ConfigurationManager.AppSettings["ImgaePath"];

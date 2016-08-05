@@ -14,3 +14,12 @@ C:\Users\daniel\Documents\MVC_Simple\LibraryCommon\obj\Debug\LibraryCommon.pdb
 C:\Users\daniel\Documents\MVC_Simple\LibraryCommon\obj\Debug\LibraryCommon.csprojResolveAssemblyReference.cache
 C:\Users\daniel\Documents\MVC_Simple\LibraryCommon\bin\Debug\LibraryModel.dll
 C:\Users\daniel\Documents\MVC_Simple\LibraryCommon\bin\Debug\LibraryModel.pdb
+D:\MVC_Simple\LibraryCommon\bin\Debug\LibraryCommon.dll
+D:\MVC_Simple\LibraryCommon\bin\Debug\LibraryCommon.pdb
+D:\MVC_Simple\LibraryCommon\bin\Debug\LibraryModel.dll
+D:\MVC_Simple\LibraryCommon\bin\Debug\log4net.dll
+D:\MVC_Simple\LibraryCommon\bin\Debug\LibraryModel.pdb
+D:\MVC_Simple\LibraryCommon\bin\Debug\log4net.xml
+D:\MVC_Simple\LibraryCommon\obj\Debug\LibraryCommon.csprojResolveAssemblyReference.cache
+D:\MVC_Simple\LibraryCommon\obj\Debug\LibraryCommon.dll
+D:\MVC_Simple\LibraryCommon\obj\Debug\LibraryCommon.pdb

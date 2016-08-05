@@ -37,6 +37,7 @@ namespace LibraryModel
         /// <summary>
         /// 序號
         /// </summary>
+        [Key]
         public int id { get; set; }
 
         /// <summary>

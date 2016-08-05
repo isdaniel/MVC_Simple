@@ -1,0 +1,9 @@
+D:\MVC_Simple\LibraryCommon\bin\Release\LibraryCommon.dll
+D:\MVC_Simple\LibraryCommon\bin\Release\LibraryCommon.pdb
+D:\MVC_Simple\LibraryCommon\bin\Release\LibraryModel.dll
+D:\MVC_Simple\LibraryCommon\bin\Release\log4net.dll
+D:\MVC_Simple\LibraryCommon\bin\Release\LibraryModel.pdb
+D:\MVC_Simple\LibraryCommon\bin\Release\log4net.xml
+D:\MVC_Simple\LibraryCommon\obj\Release\LibraryCommon.csprojResolveAssemblyReference.cache
+D:\MVC_Simple\LibraryCommon\obj\Release\LibraryCommon.dll
+D:\MVC_Simple\LibraryCommon\obj\Release\LibraryCommon.pdb

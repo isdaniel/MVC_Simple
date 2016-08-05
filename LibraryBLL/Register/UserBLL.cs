@@ -1,5 +1,8 @@
 ﻿using LibraryDAL;
 using LibraryModel;
+using System;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace LibraryBLL
 {
@@ -20,6 +23,7 @@ namespace LibraryBLL
             if (dal.SingleSearchByUserName(model.Lib_username) == null)
             {
                 IsInsert = false;
+                model.Lib_password = PwdEncryption(model.Lib_password);//進行加密
                 dal.Add(model);
             }
             return IsInsert;
@@ -52,6 +56,19 @@ namespace LibraryBLL
                 IsModify = true;
             }
             return IsModify;
+        }
+
+        /// <summary>
+        /// 密碼進行加密SHA512
+        /// </summary>
+        /// <param name="pwd">密碼</param>
+        /// <returns>返回加密後的密碼</returns>
+        private string PwdEncryption(string pwd)
+        {
+            SHA512 sha512 = new SHA512CryptoServiceProvider();//建立一個SHA512
+            byte[] source = Encoding.Default.GetBytes(pwd);//將字串轉為Byte[]
+            byte[] crypto = sha512.ComputeHash(source);//進行SHA512加密
+            return Convert.ToBase64String(crypto);
         }
     }
 }
