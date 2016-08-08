@@ -41,31 +41,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServerCompact">
-      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.1.3\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
-    </Reference>
-<<<<<<< HEAD:LibraryDAL/LibraryDAL.csproj
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-=======
-    <Reference Include="MyWeb.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MVC\Libs\MyWeb.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="MyWeb.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MVC\Libs\MyWeb.Model.dll</HintPath>
-    </Reference>
->>>>>>> parent of a307532... Add UserLogin and UI Imporve:Web.DAL/MyWeb.DAL.csproj
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
-    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
-    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -80,7 +62,6 @@
     <Compile Include="Home\BookDal.cs" />
     <Compile Include="Home\ImageDal.cs" />
     <Compile Include="Home\ParameterDal.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register\UserConcrete.cs" />
     <Compile Include="Register\UserDAL.cs" />
@@ -90,7 +71,6 @@
     <None Include="App.Config" />
     <None Include="packages.config" />
   </ItemGroup>
-<<<<<<< HEAD:LibraryDAL/LibraryDAL.csproj
   <ItemGroup>
     <ProjectReference Include="..\LibraryCommon\LibraryCommon.csproj">
       <Project>{92e7cfe1-2f90-42ca-85cc-b256b4f370dc}</Project>
@@ -105,16 +85,7 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-=======
->>>>>>> parent of a307532... Add UserLogin and UI Imporve:Web.DAL/MyWeb.DAL.csproj
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>
-    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
-    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
-    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
-    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
-  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

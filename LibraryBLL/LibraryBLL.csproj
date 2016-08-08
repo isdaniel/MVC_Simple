@@ -37,18 +37,6 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="MyWeb.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MVC\Libs\MyWeb.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="MyWeb.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MVC\Libs\MyWeb.DAL.dll</HintPath>
-    </Reference>
-    <Reference Include="MyWeb.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MVC\Libs\MyWeb.Model.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
@@ -74,7 +62,6 @@
     <Compile Include="Register\UserBLL.cs" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD:LibraryBLL/LibraryBLL.csproj
     <ProjectReference Include="..\LibraryCommon\LibraryCommon.csproj">
       <Project>{92e7cfe1-2f90-42ca-85cc-b256b4f370dc}</Project>
       <Name>LibraryCommon</Name>
@@ -92,23 +79,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-=======
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup />
->>>>>>> parent of a307532... Add UserLogin and UI Imporve:Web.BLL/MyWeb.BLL.csproj
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
