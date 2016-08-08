@@ -3,36 +3,37 @@
     Layout = "~/Views/Template/LoginMaster.cshtml";
 }
 @model LibraryModel.UserModel
-    @section Body{
-        @Html.ActionLink("新創一個帳戶", "Register")
-        <table>
-            <tr>
-                <td><h2>會員登入</h2></td>
-            </tr>
-            @using (Html.BeginForm("Login", "User", FormMethod.Post))
+@section Body{
+    @Html.ActionLink("新創一個帳戶", "Register")
+    <table>
+        <tr>
+            <td><h2>會員登入</h2></td>
+        </tr>
+        @using (Html.BeginForm("Login", "User", FormMethod.Post))
             {
-                @Html.ValidationSummary(true)
-                <tr>
-                    <td>
-                        <div class="txt_input">
-                            帳號 @Html.TextBoxFor(u => u.Lib_username)
-                        </div>
-                        @Html.ValidationMessageFor(u => u.Lib_username)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="txt_input">
-                            密碼 @Html.PasswordFor(u => u.Lib_password)
-                        </div>
-                        @Html.ValidationMessageFor(u => u.Lib_password)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input value="提交" type="submit" class="button" />
-                    </td>
-                </tr>
+            @Html.ValidationSummary(true)
+            <tr>
+                <td>
+                    <div class="txt_input">
+                        帳號 @Html.TextBoxFor(u => u.Lib_username)
+                    </div>
+                    @Html.ValidationMessageFor(u => u.Lib_username)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="txt_input">
+                        密碼 @Html.PasswordFor(u => u.Lib_password)
+                    </div>
+                    @Html.ValidationMessageFor(u => u.Lib_password)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input value="提交" type="submit" class="button" />
+                </td>
+            </tr>
             }
-        </table>
-    }
+    </table>
+    <h3>@ViewData["IsUser"]</h3>
+}
