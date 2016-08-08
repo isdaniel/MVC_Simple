@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace LibraryModel
         /// <summary>
         /// 序號
         /// </summary>
+        [Key]
         public int id { get; set; }
 
         /// <summary>
@@ -22,7 +24,7 @@ namespace LibraryModel
         /// <summary>
         /// 密碼
         /// </summary>
-        [Range(6, 10, ErrorMessage = "密碼需6~10碼")]
+        [StringLength(10, MinimumLength = 6, ErrorMessage = "密碼需6~10碼")]
         [Required(ErrorMessage = "密碼不能為空")]
         public string Lib_password { get; set; }
 

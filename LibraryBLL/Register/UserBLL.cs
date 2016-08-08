@@ -1,6 +1,8 @@
 ﻿using LibraryDAL;
+using LibraryDAL.Register;
 using LibraryModel;
 using System;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -18,15 +20,33 @@ namespace LibraryBLL
         /// <returns>返回 true成功新增 false已重複</returns>
         public bool Add(UserModel model)
         {
-            bool IsInsert = true;
+            bool IsInsert = false;
             //找尋是否已有在資料庫
             if (dal.SingleSearchByUserName(model.Lib_username) == null)
             {
-                IsInsert = false;
+                IsInsert = true;
                 model.Lib_password = PwdEncryption(model.Lib_password);//進行加密
                 dal.Add(model);
             }
             return IsInsert;
+        }
+
+        /// <summary>
+        /// 確認是否有此使用者
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns>true有此使用者 false無此使用的</returns>
+        public bool IsUser(UserModel model)
+        {
+            model.Lib_password = PwdEncryption(model.Lib_password);
+            using (var concrete = new UserConcrete())
+            {
+                var m = from i in concrete.User
+                        where i.Lib_password == model.Lib_password &&
+                              i.Lib_username == model.Lib_username
+                        select i;//是否有此使用者
+                return m.Count() > 0;
+            }
         }
 
         /// <summary>

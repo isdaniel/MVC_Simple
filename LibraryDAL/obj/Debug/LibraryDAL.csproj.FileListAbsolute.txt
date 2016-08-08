@@ -57,3 +57,6 @@ D:\MVC_Simple\LibraryDAL\bin\Debug\zh-Hant\EntityFramework.SqlServer.resources.d
 D:\MVC_Simple\LibraryDAL\obj\Debug\LibraryDAL.csprojResolveAssemblyReference.cache
 D:\MVC_Simple\LibraryDAL\obj\Debug\LibraryDAL.dll
 D:\MVC_Simple\LibraryDAL\obj\Debug\LibraryDAL.pdb
+D:\MVC_Simple\LibraryDAL\bin\Debug\EntityFramework.SqlServerCompact.dll
+D:\MVC_Simple\LibraryDAL\bin\Debug\System.Data.SqlServerCe.dll
+D:\MVC_Simple\LibraryDAL\bin\Debug\EntityFramework.SqlServerCompact.xml

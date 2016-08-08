@@ -20,14 +20,14 @@ namespace MVC.Controllers
         public ActionResult Login(UserModel model)
         {
             UserBLL bll = new UserBLL();
-            if (bll.IsUserExist(model))
+            if (ModelState.IsValid)//是否符合資料驗證(後端驗證)
             {
-                return RedirectToAction("library", "book", new { });
+                if (bll.IsUser(model))//判斷是否有次使用者
+                {
+                    return RedirectToAction("library", "book", new { });
+                }
             }
-            else
-            {
-                return View();
-            }
+            return View();
         }
 
         [HttpGet]
@@ -40,17 +40,20 @@ namespace MVC.Controllers
         public ActionResult Register(UserModel model)
         {
             UserBLL bll = new UserBLL();
-            string message = "";
-            if (bll.Add(model))
+            if (ModelState.IsValid)//是否符合資料驗證(後端驗證)
             {
-                return RedirectToAction("Login");
+                if (bll.Add(model))//增加用戶
+                {
+                    return RedirectToAction("Login");
+                }
+                else
+                {
+                    string message = "";
+                    message = "帳戶已存在";
+                    ViewBag.message = message;
+                }
             }
-            else
-            {
-                message = "帳戶已存在";
-                ViewBag.message = message;
-                return View();
-            }
+            return View();
         }
     }
 }
