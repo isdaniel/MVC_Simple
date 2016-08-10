@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using WebMatrix.WebData;
 
 namespace LibraryBLL
 {
@@ -32,11 +33,21 @@ namespace LibraryBLL
         }
 
         /// <summary>
+        /// 確認用戶是否在資料庫中
+        /// </summary>
+        /// <returns></returns>
+        public bool IsUser(UserModel model)
+        {
+            string password = PwdEncryption(model.Lib_password);//密碼加密
+            return WebSecurity.Login(model.Lib_username, password, true);
+        }
+
+        /// <summary>
         /// 確認是否有此使用者
         /// </summary>
         /// <param name="model"></param>
         /// <returns>true有此使用者 false無此使用的</returns>
-        public bool IsUser(UserModel model)
+        public bool IsUserExite(UserModel model)
         {
             model.Lib_password = PwdEncryption(model.Lib_password);
             using (var concrete = new UserConcrete())
@@ -47,17 +58,6 @@ namespace LibraryBLL
                         select i;//是否有此使用者
                 return m.Count() > 0;
             }
-        }
-
-        /// <summary>
-        /// 檢核帳戶是否存在
-        /// 返回 true帳戶存在 false帳戶不存在
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns>返回 true帳戶存在 false帳戶不存在</returns>
-        public bool IsUserExist(UserModel model)
-        {
-            return dal.SingleSearchByUserName(model.Lib_username) == null ? false : true;
         }
 
         /// <summary>

@@ -60,3 +60,6 @@ D:\MVC_Simple\Library\bin\zh-Hant\System.Web.WebPages.Razor.resources.dll
 D:\MVC_Simple\Library\obj\Release\Library.csprojResolveAssemblyReference.cache
 D:\MVC_Simple\Library\obj\Release\Library.dll
 D:\MVC_Simple\Library\obj\Release\Library.pdb
+D:\MVC_Simple\Library\bin\EntityFramework.SqlServerCompact.dll
+D:\MVC_Simple\Library\bin\System.Data.SqlServerCe.dll
+D:\MVC_Simple\Library\bin\EntityFramework.SqlServerCompact.xml

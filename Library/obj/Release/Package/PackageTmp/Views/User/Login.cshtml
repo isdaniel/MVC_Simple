@@ -4,12 +4,14 @@
 }
 @model LibraryModel.UserModel
 @section Body{
+    @Html.ActionLink("新創一個帳戶", "Register")
     <table>
         <tr>
             <td><h2>會員登入</h2></td>
         </tr>
         @using (Html.BeginForm("Login", "User", FormMethod.Post))
         {
+            @Html.AntiForgeryToken()
             @Html.ValidationSummary(true)
             <tr>
                 <td>
@@ -34,4 +36,5 @@
             </tr>
         }
     </table>
+    <h3>@ViewData["IsUser"]</h3>
 }

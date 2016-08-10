@@ -181,3 +181,12 @@ D:\MVC_Simple\Library\bin\zh-Hant\System.Web.WebPages.Razor.resources.dll
 D:\MVC_Simple\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache
 D:\MVC_Simple\Library\obj\Debug\Library.dll
 D:\MVC_Simple\Library\obj\Debug\Library.pdb
+D:\MVC_Simple\Library\bin\EntityFramework.SqlServerCompact.dll
+D:\MVC_Simple\Library\bin\System.Data.SqlServerCe.dll
+D:\MVC_Simple\Library\bin\EntityFramework.SqlServerCompact.xml
+D:\MVC_Simple\Library\bin\WebMatrix.Data.dll
+D:\MVC_Simple\Library\bin\WebMatrix.WebData.dll
+D:\MVC_Simple\Library\bin\WebMatrix.Data.xml
+D:\MVC_Simple\Library\bin\WebMatrix.WebData.xml
+D:\MVC_Simple\Library\bin\zh-Hant\WebMatrix.Data.resources.dll
+D:\MVC_Simple\Library\bin\zh-Hant\WebMatrix.WebData.resources.dll
