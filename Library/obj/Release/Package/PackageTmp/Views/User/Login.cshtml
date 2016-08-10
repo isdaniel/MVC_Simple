@@ -9,7 +9,7 @@
         <tr>
             <td><h2>會員登入</h2></td>
         </tr>
-        @using (Html.BeginForm("Login", "User", FormMethod.Post))
+        @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true)

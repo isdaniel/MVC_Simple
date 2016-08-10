@@ -32,15 +32,15 @@ namespace LibraryBLL
             return IsInsert;
         }
 
-        /// <summary>
-        /// 確認用戶是否在資料庫中
-        /// </summary>
-        /// <returns></returns>
-        public bool IsUser(UserModel model)
-        {
-            string password = PwdEncryption(model.Lib_password);//密碼加密
-            return WebSecurity.Login(model.Lib_username, password, true);
-        }
+        ///// <summary>
+        ///// 確認用戶是否在資料庫中
+        ///// </summary>
+        ///// <returns></returns>
+        //public bool IsUser(UserModel model)
+        //{
+        //    string password = PwdEncryption(model.Lib_password);//密碼加密
+        //    return WebSecurity.Login(model.Lib_username, password, true);
+        //}
 
         /// <summary>
         /// 確認是否有此使用者

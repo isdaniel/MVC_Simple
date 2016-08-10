@@ -63,3 +63,9 @@ D:\MVC_Simple\Library\obj\Release\Library.pdb
 D:\MVC_Simple\Library\bin\EntityFramework.SqlServerCompact.dll
 D:\MVC_Simple\Library\bin\System.Data.SqlServerCe.dll
 D:\MVC_Simple\Library\bin\EntityFramework.SqlServerCompact.xml
+D:\MVC_Simple\Library\bin\WebMatrix.Data.dll
+D:\MVC_Simple\Library\bin\WebMatrix.WebData.dll
+D:\MVC_Simple\Library\bin\WebMatrix.Data.xml
+D:\MVC_Simple\Library\bin\WebMatrix.WebData.xml
+D:\MVC_Simple\Library\bin\zh-Hant\WebMatrix.Data.resources.dll
+D:\MVC_Simple\Library\bin\zh-Hant\WebMatrix.WebData.resources.dll

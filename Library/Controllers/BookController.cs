@@ -1,4 +1,5 @@
-﻿using LibraryBLL;
+﻿using Library.Authorize;
+using LibraryBLL;
 using LibraryBLL.Home;
 using LibraryCommon;
 using LibraryModel;
@@ -13,7 +14,7 @@ using System.Web.Mvc;
 
 namespace MVC.Controllers
 {
-    [Authorize]
+    [CustomAuthorize]
     public class BookController : Controller
     {
         private string ImagePath = ConfigurationManager.AppSettings["ImgaePath"];

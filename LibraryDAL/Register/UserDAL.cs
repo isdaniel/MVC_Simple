@@ -39,7 +39,7 @@ namespace LibraryDAL
         public void Add(UserModel model)
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("insert into UserModel");
+            sb.AppendLine("insert into Library_UserInfo");
             sb.AppendLine("(Lib_username,Lib_password)");
             sb.AppendLine("values");
             sb.AppendLine("(@Lib_username,@Lib_password)");
@@ -53,7 +53,7 @@ namespace LibraryDAL
         public void Modify(UserModel model)
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("update UserModel");
+            sb.AppendLine("update Library_UserInfo");
             sb.AppendLine("set lastpassword=lib_password,");
             sb.AppendLine("lib_password=@lib_password,");
             sb.AppendLine("ModifyDate=@ModifyDate");
