@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>SpecFlow.NUnit</id>
+    <version>2.1.0</version>
+    <title>SpecFlow.NUnit</title>
+    <authors>TechTalk</authors>
+    <owners>TechTalk</owners>
+    <licenseUrl>http://go.specflow.org/license</licenseUrl>
+    <projectUrl>http://www.specflow.org/</projectUrl>
+    <iconUrl>http://go.specflow.org/specflow-nuget-icon</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Combined package to setup SpecFlow with NUnit v2.6+ easily. For running tests with NUnit runners, use SpecFlow.NUnit.Runners package!</description>
+    <summary>Combined package to setup SpecFlow with NUnit v2.6+ easily. For running tests with NUnit runners, use SpecFlow.NUnit.Runners package!</summary>
+    <language>en-US</language>
+    <tags>specflow nunit</tags>
+    <dependencies>
+      <dependency id="SpecFlow" version="[2.1.0]" />
+      <dependency id="NUnit" version="3.0.0" />
+    </dependencies>
+  </metadata>
+</package>

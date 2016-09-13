@@ -15,6 +15,13 @@ namespace Library
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        protected void Application_Error()
+        {
+            Exception ex = Server.GetLastError();
+            Server.ClearError();
+            Response.Redirect("/Error/ErrorPage");
+        }
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();

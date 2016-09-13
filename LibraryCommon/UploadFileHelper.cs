@@ -27,6 +27,8 @@ namespace LibraryCommon
         /// <param name="files"></param>
         public UploadFileHelper(IEnumerable<HttpPostedFileBase> files, string path)
         {
+            if (files == null)//如果沒有檔案就配置一個空的給他 避免報錯
+                files = new List<HttpPostedFileBase>();
             this._Files = files;
             this._ImagePath = path;
             _FilesName = new List<string>();

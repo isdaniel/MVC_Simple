@@ -1,40 +1,43 @@
-﻿@{
-    ViewBag.Title = "Login";
+﻿@model LibraryModel.UserModel
+@{
+    ViewBag.Title = "登入頁面";
     Layout = "~/Views/Template/LoginMaster.cshtml";
 }
-@model LibraryModel.UserModel
 @section Body{
     @Html.ActionLink("新創一個帳戶", "Register")
-    <table>
-        <tr>
-            <td><h2>會員登入</h2></td>
-        </tr>
-        @using (Html.BeginForm())
+    <div class="container">
+        @using (Html.BeginForm("Login", "User", FormMethod.Post, new
+    {
+        @class = "form-signin",
+        role = "form"
+    }))
         {
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true)
-            <tr>
-                <td>
-                    <div class="txt_input">
-                        帳號 @Html.TextBoxFor(u => u.Lib_username)
-                    </div>
-                    @Html.ValidationMessageFor(u => u.Lib_username)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="txt_input">
-                        密碼 @Html.PasswordFor(u => u.Lib_password)
-                    </div>
-                    @Html.ValidationMessageFor(u => u.Lib_password)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input value="提交" type="submit" class="button" />
-                </td>
-            </tr>
+            <h2 class="form-signin-heading">登入系統</h2>
+            <label for="inputEmail">帳號</label>
+            @Html.TextBoxFor(u => u.Lib_username, new
+                  {
+                      @class = "form-control",
+                      required = "",
+                      autofocus = ""
+                  })
+            @Html.ValidationMessageFor(u => u.Lib_username)
+            <label for="inputPassword">密碼</label>
+            @Html.PasswordFor(u => u.Lib_password,
+                    new
+                    {
+                        @class = "form-control",
+                        required = "",
+                        autofocus = ""
+                    })
+            @Html.ValidationMessageFor(u => u.Lib_password)
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">登入</button>
         }
-    </table>
-    <h3>@ViewData["IsUser"]</h3>
+    </div>
 }

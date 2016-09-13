@@ -15,7 +15,7 @@ namespace LibraryCommon
         /// <summary>
         /// config.xml的路徑
         /// </summary>
-        private string configPath = ConfigurationManager.AppSettings["configPath"];
+        private string configPath = ConfigurationManager.AppSettings["LogPath"];
 
         private ILog log = null;
 

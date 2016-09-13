@@ -23,8 +23,6 @@ namespace Library
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
-
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
                         "~/Content/themes/base/jquery.ui.resizable.css",
@@ -47,9 +45,9 @@ namespace Library
                         "~/js/util.js",
                         "~/js/main.js",
                         "~/js/UploadFile.js"));
-            bundles.Add(new StyleBundle("~/Login/css").Include
-                        ("~/Style/Login.css"
-                        ));
+
+            bundles.Add(new StyleBundle("~/Login.css").Include(
+                        "~/Content/bootstrap.min.css"));
         }
     }
 }

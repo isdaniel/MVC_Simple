@@ -30,7 +30,7 @@ namespace MVC.Controllers
                 SetUserToken(model);
                 return RedirectToAction("Library", "Book");
             }
-            ViewData["IsUser"] = "帳號密碼錯誤!!";
+            ModelState.AddModelError("Lib_password", "帳號密碼錯誤!!");
             return View();
         }
 
@@ -54,7 +54,8 @@ namespace MVC.Controllers
             {
                 if (bll.Add(model))//增加用戶
                 {
-                    return RedirectToAction("Login", new { });
+                    SetUserToken(model);
+                    return RedirectToAction("Library", "Book");
                 }
                 else
                 {
@@ -70,7 +71,7 @@ namespace MVC.Controllers
         {
             if (Url.IsLocalUrl(returnUrl))
             {
-                return Redirect(returnUrl);
+                return RedirectToAction("Library", "Book");
             }
             else
             {
@@ -79,7 +80,7 @@ namespace MVC.Controllers
         }
 
         /// <summary>
-        /// 設置登入的token
+        /// 設置登入的token　過期30分鐘就冊銷
         /// </summary>
         /// <param name="model"></param>
         private void SetUserToken(UserModel model)
