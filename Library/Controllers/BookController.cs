@@ -105,9 +105,10 @@ namespace MVC.Controllers
         {
             /*===Bind下拉式選單 begin===*/
             ViewData["BookLanguage"] = DropDownListGenerator
-                ("BookLanguage", "language");
+                ("BookLanguage", "language", Request["BookLanguage"]);
             ViewData["BookType"] = DropDownListGenerator
-                ("BookType", "booktype");
+                ("BookType", "booktype", Request["BookType"]);
+            ViewData["Serchvalue"] = Request["bookName"];
             /*===Bind下拉式選單 end===*/
         }
 
@@ -178,8 +179,7 @@ namespace MVC.Controllers
                     BookType = x.BookType,
                     create_time = x.create_time,
                     Image = ImageBll.GetImageList(x)
-                }).
-                ToPagedList(page, 12);
+                }).ToPagedList(page, 12);
         }
     }
 }

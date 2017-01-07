@@ -10,7 +10,6 @@ namespace UnitTestWeb
     [Binding]
     public class LoginFeatureSteps
     {
-        private bool acceptNextAlert = true;
         private string baseURL;
         private IWebDriver driver;
         private StringBuilder verificationErrors;
@@ -51,14 +50,14 @@ namespace UnitTestWeb
         public void Given輸入密碼(string password)
         {
             driver.FindElement(By.Id("Lib_password")).Clear();
-            driver.FindElement(By.Id("Lib_password")).SendKeys("dd123456");
+            driver.FindElement(By.Id("Lib_password")).SendKeys("d830228d");
         }
 
         [Given(@"輸入帳號(.*)")]
         public void Given輸入帳號(string username)
         {
             driver.FindElement(By.Id("Lib_username")).Clear();
-            driver.FindElement(By.Id("Lib_username")).SendKeys("dd123456");
+            driver.FindElement(By.Id("Lib_username")).SendKeys("t1023456");
         }
 
         [Then(@"登入管理者頁面 頁面並有(.*)標誌 代表登入成功")]
@@ -70,7 +69,7 @@ namespace UnitTestWeb
         [When(@"按下提交按鈕")]
         public void When按下提交按鈕()
         {
-            driver.FindElement(By.CssSelector("input.button")).Click();
+            driver.FindElement(By.Id("submit_btn")).Click();
         }
     }
 }

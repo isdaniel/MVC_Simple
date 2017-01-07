@@ -11,3 +11,5 @@ D:\MVC_Simple\UnitTestWeb\bin\Debug\WebDriver.Support.xml
 D:\MVC_Simple\UnitTestWeb\obj\Debug\UnitTestWeb.csprojResolveAssemblyReference.cache
 D:\MVC_Simple\UnitTestWeb\obj\Debug\UnitTestWeb.dll
 D:\MVC_Simple\UnitTestWeb\obj\Debug\UnitTestWeb.pdb
+D:\MVC_Simple\UnitTestWeb\bin\Debug\chromedriver.exe
+D:\MVC_Simple\UnitTestWeb\bin\Debug\chromedriver-license.txt

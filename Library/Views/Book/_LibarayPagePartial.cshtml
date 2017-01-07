@@ -1,7 +1,11 @@
 ﻿@model IPagedList<Library_Book>
 @Html.PagedListPager(Model,
-                    page => Url.Action("Library",
-                        new { page }),
+                        page => Url.Action("Library",
+                                    new RouteValueDictionary {
+                                        {"page", page},
+                                        {"BookLanguage",Request["BookLanguage"]},
+                                        {"BookType",Request["BookType"]}
+                                    }),
                          new PagedListRenderOptions
             {
                 LinkToFirstPageFormat = "<<",

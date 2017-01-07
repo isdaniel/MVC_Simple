@@ -45,9 +45,9 @@ namespace SeleniumTests
         {
             driver.Navigate().GoToUrl(baseURL + "/User/Login");
             driver.FindElement(By.Id("Lib_username")).Clear();
-            driver.FindElement(By.Id("Lib_username")).SendKeys("dd123456");
+            driver.FindElement(By.Id("Lib_username")).SendKeys("t1023456");
             driver.FindElement(By.Id("Lib_password")).Clear();
-            driver.FindElement(By.Id("Lib_password")).SendKeys("dd123456");
+            driver.FindElement(By.Id("Lib_password")).SendKeys("d830228d");
             driver.FindElement(By.CssSelector("input.button")).Click();
             Assert.AreEqual("Sign Out", driver.FindElement(By.LinkText("Sign Out")).Text);
         }
