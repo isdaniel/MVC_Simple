@@ -5,18 +5,18 @@ namespace LibraryDAL.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<LibraryDAL.Register.UserConcrete>
+    internal sealed class Configuration : DbMigrationsConfiguration<LibraryDAL.Home.BookConcrete>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(LibraryDAL.Register.UserConcrete context)
+        protected override void Seed(LibraryDAL.Home.BookConcrete context)
         {
             //  This method will be called after migrating to the latest version.
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             //
             //    context.People.AddOrUpdate(

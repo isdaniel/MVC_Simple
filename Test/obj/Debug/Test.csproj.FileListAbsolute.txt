@@ -40,3 +40,13 @@ D:\MVC_Simple\Test\bin\Debug\zh-Hant\EntityFramework.resources.dll
 D:\MVC_Simple\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
 D:\MVC_Simple\Test\obj\Debug\Test.exe
 D:\MVC_Simple\Test\obj\Debug\Test.pdb
+D:\MVC_Simple\Test\bin\Debug\System.Web.WebPages.dll
+D:\MVC_Simple\Test\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\MVC_Simple\Test\bin\Debug\System.Web.Razor.dll
+D:\MVC_Simple\Test\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\MVC_Simple\Test\bin\Debug\System.Web.WebPages.xml
+D:\MVC_Simple\Test\bin\Debug\System.Web.Razor.xml
+D:\MVC_Simple\Test\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\MVC_Simple\Test\bin\Debug\zh-Hant\System.Web.WebPages.resources.dll
+D:\MVC_Simple\Test\bin\Debug\zh-Hant\System.Web.Razor.resources.dll
+D:\MVC_Simple\Test\bin\Debug\zh-Hant\System.Web.WebPages.Deployment.resources.dll

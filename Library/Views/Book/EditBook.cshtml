@@ -42,7 +42,7 @@
                 @Html.LabelFor(model => model.summary)
             </h3>
             <div class="editor-field">
-                @Html.EditorFor(model => model.summary)
+                @Html.TextAreaFor(model => model.summary, new { @cols = 50, @rows = 8 })
                 @Html.ValidationMessageFor(model => model.summary)
             </div>
             @Html.Partial("_LibarayEditImagePartial", Model.ImagePath)

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace LibraryModel
 {
+    [MetadataType(typeof(UserModel))]
     public class UserModel
     {
         /// <summary>

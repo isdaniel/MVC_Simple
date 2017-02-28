@@ -1,4 +1,4 @@
-﻿/// <reference path="jquery.min.js" />
+﻿/// <reference path="lib/jquery-3.1.1-min.js" />
 /*
 上傳檔案產生器
 */

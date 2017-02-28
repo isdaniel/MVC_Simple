@@ -20,6 +20,7 @@ namespace MVC.Controllers
         private string ImagePath = ConfigurationManager.AppSettings["ImgaePath"];
 
         [HttpGet]
+
         public ActionResult AddBook()
         {
             ddlBind();
@@ -71,7 +72,7 @@ namespace MVC.Controllers
             upload.SaveImage();
             model.ImagePath = upload._FilesName;
             bll.Edit(model);
-            return View("Library", Init(1, new BookSearch_ViewModel()));
+            return RedirectToAction("Library");
         }
 
         [HttpGet]
@@ -79,6 +80,7 @@ namespace MVC.Controllers
         {
             BookBLL bll = new BookBLL();
             BookViewModel model = bll.GetBookModelById(id);
+
             ViewData["BookLanguage"] = DropDownListGenerator
                 ("BookLanguage", "language", model.BookLanguage);
             ViewData["BookType"] = DropDownListGenerator

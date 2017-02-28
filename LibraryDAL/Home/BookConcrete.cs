@@ -11,7 +11,7 @@ namespace LibraryDAL.Home
     public class BookConcrete : DbContext
     {
         public BookConcrete()
-            : base("LibraryConn")
+            : base("BookLibrary")
         {
         }
 

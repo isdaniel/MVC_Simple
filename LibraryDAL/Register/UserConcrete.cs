@@ -12,7 +12,7 @@ namespace LibraryDAL.Register
     public class UserConcrete : DbContext
     {
         public UserConcrete()
-            : base("LibraryConn")
+            : base("BookLibrary")
         {
         }
 

@@ -57,3 +57,16 @@ D:\MVC_Simple\LibraryDAL\bin\Debug\zh-Hant\EntityFramework.SqlServer.resources.d
 D:\MVC_Simple\LibraryDAL\obj\Debug\LibraryDAL.csprojResolveAssemblyReference.cache
 D:\MVC_Simple\LibraryDAL\obj\Debug\LibraryDAL.dll
 D:\MVC_Simple\LibraryDAL\obj\Debug\LibraryDAL.pdb
+D:\MVC_Simple\LibraryDAL\bin\Debug\System.Web.WebPages.dll
+D:\MVC_Simple\LibraryDAL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\MVC_Simple\LibraryDAL\bin\Debug\System.Web.Razor.dll
+D:\MVC_Simple\LibraryDAL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\MVC_Simple\LibraryDAL\bin\Debug\System.Web.WebPages.xml
+D:\MVC_Simple\LibraryDAL\bin\Debug\System.Web.Razor.xml
+D:\MVC_Simple\LibraryDAL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\MVC_Simple\LibraryDAL\obj\Debug\LibraryDAL.Migrations.init.resources
+D:\MVC_Simple\LibraryDAL\obj\Debug\LibraryDAL.csproj.GenerateResource.Cache
+D:\MVC_Simple\LibraryDAL\obj\Debug\LibraryDAL.Migrations.list.resources
+D:\MVC_Simple\LibraryDAL\bin\Debug\zh-Hant\System.Web.Razor.resources.dll
+D:\MVC_Simple\LibraryDAL\bin\Debug\zh-Hant\System.Web.WebPages.resources.dll
+D:\MVC_Simple\LibraryDAL\bin\Debug\zh-Hant\System.Web.WebPages.Deployment.resources.dll

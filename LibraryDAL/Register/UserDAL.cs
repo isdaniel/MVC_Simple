@@ -68,7 +68,7 @@ namespace LibraryDAL
         /// <returns>查有資料回傳實體  查無資料回傳null</returns>
         public UserModel SingleSearchByUserName(string username)
         {
-            string SqlString = "select * from Library_UserInfo where Lib_username=@Lib_username";
+            string SqlString = "select id from Library_UserInfo where Lib_username=@Lib_username";
             return _Conn.Query<UserModel>(
                 SqlString,
                 new { Lib_username = username }

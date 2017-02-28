@@ -2,8 +2,8 @@
 <html>
 <head>
     <title>First MVC</title>
+    @Scripts.Render("~/jquery")
     @Styles.Render("~/BookIndex/css")
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/BookIndex/js")
 </head>
 <body>
@@ -11,7 +11,8 @@
         <h4 style="float:right;">
             @if (Request.IsAuthenticated)
             {
-                <strong>@Html.Encode(User.Identity.Name)</strong>
+                @Html.Raw("歡迎使用者  ")
+                <strong> @Html.Encode(User.Identity.Name)</strong>
                 @Html.ActionLink("Sign Out", "Logout", "User")
             }
             else

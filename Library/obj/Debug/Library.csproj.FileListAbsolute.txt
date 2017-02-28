@@ -131,7 +131,6 @@ D:\MVC_Simple\Library\bin\LibraryCommon.dll
 D:\MVC_Simple\Library\bin\LibraryDAL.dll
 D:\MVC_Simple\Library\bin\LibraryModel.dll
 D:\MVC_Simple\Library\bin\Microsoft.Web.Infrastructure.dll
-D:\MVC_Simple\Library\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
 D:\MVC_Simple\Library\bin\Newtonsoft.Json.dll
 D:\MVC_Simple\Library\bin\PagedList.dll
 D:\MVC_Simple\Library\bin\PagedList.Mvc.dll
@@ -147,8 +146,6 @@ D:\MVC_Simple\Library\bin\System.Web.WebPages.Deployment.dll
 D:\MVC_Simple\Library\bin\System.Web.WebPages.dll
 D:\MVC_Simple\Library\bin\System.Web.WebPages.Razor.dll
 D:\MVC_Simple\Library\bin\WebGrease.dll
-D:\MVC_Simple\Library\bin\WebMatrix.Data.dll
-D:\MVC_Simple\Library\bin\WebMatrix.WebData.dll
 D:\MVC_Simple\Library\bin\log4net.dll
 D:\MVC_Simple\Library\bin\Dapper.dll
 D:\MVC_Simple\Library\bin\LibraryBLL.pdb
@@ -169,8 +166,6 @@ D:\MVC_Simple\Library\bin\System.Web.Razor.xml
 D:\MVC_Simple\Library\bin\System.Web.WebPages.xml
 D:\MVC_Simple\Library\bin\System.Web.WebPages.Deployment.xml
 D:\MVC_Simple\Library\bin\System.Web.WebPages.Razor.xml
-D:\MVC_Simple\Library\bin\WebMatrix.Data.xml
-D:\MVC_Simple\Library\bin\WebMatrix.WebData.xml
 D:\MVC_Simple\Library\bin\log4net.xml
 D:\MVC_Simple\Library\bin\Dapper.xml
 D:\MVC_Simple\Library\bin\zh-Hant\EntityFramework.resources.dll
@@ -181,12 +176,17 @@ D:\MVC_Simple\Library\bin\zh-Hant\System.Web.Http.WebHost.resources.dll
 D:\MVC_Simple\Library\bin\zh-Hant\System.Web.Mvc.resources.dll
 D:\MVC_Simple\Library\bin\zh-Hant\System.Web.Optimization.resources.dll
 D:\MVC_Simple\Library\bin\zh-Hant\System.Web.Providers.resources.dll
-D:\MVC_Simple\Library\bin\zh-Hant\System.Web.Razor.resources.dll
 D:\MVC_Simple\Library\bin\zh-Hant\System.Web.WebPages.resources.dll
 D:\MVC_Simple\Library\bin\zh-Hant\System.Web.WebPages.Deployment.resources.dll
 D:\MVC_Simple\Library\bin\zh-Hant\System.Web.WebPages.Razor.resources.dll
-D:\MVC_Simple\Library\bin\zh-Hant\WebMatrix.Data.resources.dll
-D:\MVC_Simple\Library\bin\zh-Hant\WebMatrix.WebData.resources.dll
 D:\MVC_Simple\Library\obj\Debug\Library.csprojResolveAssemblyReference.cache
 D:\MVC_Simple\Library\obj\Debug\Library.dll
 D:\MVC_Simple\Library\obj\Debug\Library.pdb
+D:\MVC_Simple\Library\bin\WebMatrix.Data.dll
+D:\MVC_Simple\Library\bin\WebMatrix.WebData.dll
+D:\MVC_Simple\Library\bin\WebMatrix.Data.xml
+D:\MVC_Simple\Library\bin\WebMatrix.WebData.xml
+D:\MVC_Simple\Library\bin\System.Web.Helpers.dll
+D:\MVC_Simple\Library\bin\zh-Hant\System.Web.Razor.resources.dll
+D:\MVC_Simple\Library\bin\System.Web.Helpers.xml
+D:\MVC_Simple\Library\bin\zh-Hant\System.Web.Helpers.resources.dll

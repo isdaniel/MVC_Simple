@@ -97,7 +97,7 @@ namespace LibraryBLL
                 /*===將圖片的資訊塞入BookViewModel中 begin===*/
                 var IamgeList = (from i in concrete.Library_BookImgae
                                  where i.BookId == id
-                                 select i.Image_Path).ToList();
+                                 select "/LibraryImgae/" + i.Image_Path).ToList();
                 model.ImagePath = IamgeList;
                 /*===將圖片的資訊塞入BookViewModel中 end===*/
                 return model;

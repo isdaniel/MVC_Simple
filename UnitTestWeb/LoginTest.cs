@@ -50,20 +50,20 @@ namespace UnitTestWeb
         public void Given輸入密碼(string password)
         {
             driver.FindElement(By.Id("Lib_password")).Clear();
-            driver.FindElement(By.Id("Lib_password")).SendKeys("d830228d");
+            driver.FindElement(By.Id("Lib_password")).SendKeys(password);
         }
 
         [Given(@"輸入帳號(.*)")]
         public void Given輸入帳號(string username)
         {
             driver.FindElement(By.Id("Lib_username")).Clear();
-            driver.FindElement(By.Id("Lib_username")).SendKeys("t1023456");
+            driver.FindElement(By.Id("Lib_username")).SendKeys(username);
         }
 
         [Then(@"登入管理者頁面 頁面並有(.*)標誌 代表登入成功")]
         public void Then登入管理者頁面頁面並有Logout標誌代表登入成功(string tag)
         {
-            Assert.AreEqual(tag, driver.FindElement(By.LinkText("Sign Out")).Text);
+            Assert.AreEqual(tag, driver.FindElement(By.LinkText(tag)).Text);
         }
 
         [When(@"按下提交按鈕")]
