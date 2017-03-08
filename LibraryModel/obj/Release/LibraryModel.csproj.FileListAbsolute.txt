@@ -1,7 +1,0 @@
-D:\MVC_Simple\LibraryModel\bin\Release\LibraryModel.dll
-D:\MVC_Simple\LibraryModel\bin\Release\LibraryModel.pdb
-D:\MVC_Simple\LibraryModel\bin\Release\PagedList.dll
-D:\MVC_Simple\LibraryModel\bin\Release\PagedList.xml
-D:\MVC_Simple\LibraryModel\obj\Release\LibraryModel.csprojResolveAssemblyReference.cache
-D:\MVC_Simple\LibraryModel\obj\Release\LibraryModel.dll
-D:\MVC_Simple\LibraryModel\obj\Release\LibraryModel.pdb
