@@ -20,6 +20,7 @@ namespace MVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public ActionResult Login(UserModel model)
         {
             UserBLL bll = new UserBLL();
@@ -27,6 +28,7 @@ namespace MVC.Controllers
             //是否符合資料驗證(後端驗證)且判斷是否有次使用者
             {
                 //FormsAuthentication.SetAuthCookie(model.Lib_username, true);
+                Session["Callid"] = model.Lib_username;
                 SetUserToken(model);
                 return RedirectToAction("Library", "Book");
             }

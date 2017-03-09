@@ -83,11 +83,11 @@ this.ScenarioSetup(scenarioInfo);
 #line 9
  testRunner.And("輸入帳號abcd123", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
- testRunner.And("輸入密碼aa123455", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("輸入密碼aa12345", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
  testRunner.When("按下提交按鈕", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
- testRunner.Then("登入管理者頁面 頁面並有Sign Out標誌 代表登入成功", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("登入管理者頁面 頁面並有登出標誌 代表登入成功", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

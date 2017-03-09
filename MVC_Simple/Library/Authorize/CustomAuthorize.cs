@@ -16,7 +16,7 @@ namespace Library.Authorize
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
 
-            //base.OnAuthorization(filterContext);
+            base.OnAuthorization(filterContext);
         }
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
