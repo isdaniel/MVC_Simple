@@ -5,55 +5,82 @@
     Layout = "~/Views/Template/Master.cshtml";
 }
 
-<h2>EditBook</h2>
 @section Buttom {
-    @using (Html.BeginForm("EditBook", "Book", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        @Html.AntiForgeryToken()
-        <fieldset>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 text-center">
+                @using (Html.BeginForm("EditBook", "Book", FormMethod.Post, new { enctype = "multipart/form-data", onsubmit = "checkFile(event)" }))
+                {
+                @Html.AntiForgeryToken()
+                <fieldset>
 
-            <h3>
-                類型
-            </h3>
-            <h3>
-                @Html.Raw(ViewData["BookLanguage"])
-            </h3>
+                    <h3>
+                        類型
+                    </h3>
+                    <h3>
+                        @Html.Raw(ViewData["BookLanguage"])
+                    </h3>
+                    <h3>
+                        語言
+                    </h3>
+                    <div class="editor-field">
+                        @Html.Raw(ViewData["BookType"])
+                    </div>
+                    <h3>
+                    </h3>
+                    <div class="editor-field">
+                        <h3>
+                            書名
+                        </h3>
+                        <input name="bookName" id="bookName" class="form-control" value="@Model.bookName" placeholder="書名"/>
+                    </div>
 
-            <h3>
-                @Html.LabelFor(model => model.bookName)
-            </h3>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.bookName)
-                @Html.ValidationMessageFor(model => model.bookName)
+                    
+
+                    @Html.HiddenFor(model => model.id)
+
+                    <h3>
+                        @Html.LabelFor(model => model.summary)
+                    </h3>
+                    @Html.ValidationSummary(true)
+                    <div class="editor-field">
+                        @Html.TextAreaFor(model => model.summary, new { @cols = 50, @rows = 8,@class = "form-control" })
+                    </div>
+                    @Html.Partial("_LibarayEditImagePartial", Model.ImagePath)
+                    @Html.Partial("_LibraryUploadPartial")
+                    @Html.ValidationSummary()
+                    <p>
+                        <input type="submit" value="修改完成" class="btn btn-lg btn-primary"  />
+                    </p>
+                </fieldset>
+            }
+
+            <div>
+                @Html.ActionLink("Back to List", "Index")
             </div>
-
-            <h3>
-                語言
-            </h3>
-            <div class="editor-field">
-                @Html.Raw(ViewData["BookType"])
-            </div>
-
-            @Html.HiddenFor(model => model.id)
-
-            <h3>
-                @Html.LabelFor(model => model.summary)
-            </h3>
-            @Html.ValidationSummary(true)
-            <div class="editor-field">
-                @Html.TextAreaFor(model => model.summary, new { @cols = 50, @rows = 8 })
-                @Html.ValidationMessageFor(model => model.summary)
-            </div>
-            @Html.Partial("_LibarayEditImagePartial", Model.ImagePath)
-            @Html.Partial("_LibraryUploadPartial")
-            <p>
-                <input type="submit" value="修改完成" />
-            </p>
-        </fieldset>
-    }
-
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
-
+        </div>
+        <div class="col-sm-4"></div>
 }
+@section Script{
+                <script src="~/js/UploadFile.js"></script>
+                <script type="text/javascript">
+        var isCheckImageType = true;  //是否檢查圖片副檔名
+        var isCheckImageWidth = true;  //是否檢查圖片寬度
+        var isCheckImageHeight = true;  //是否檢查圖片高度
+        var isCheckImageSize = true;  //是否檢查圖片檔案大小
+
+        function checkFile(event) {
+            var $allFile = $("#uploadgroup>input");
+            var re = /\.(jpg|gif|png)$/i;  //允許的圖片副檔名
+            for (var i = 0; i < $allFile.length; i++) {
+                if (isCheckImageType && !re.test($allFile[i].value)) {
+                    swal("只允許上傳JPG或GIF影像檔");
+                    event.preventDefault();
+                    return false;
+                }
+            }
+            return true;
+        }
+                </script>
+            }

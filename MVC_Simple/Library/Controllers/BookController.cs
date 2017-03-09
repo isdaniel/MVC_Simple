@@ -14,7 +14,6 @@ using System.Web.Mvc;
 
 namespace MVC.Controllers
 {
-    [CustomAuthorize]
     public class BookController : Controller
     {
         private string ImagePath = ConfigurationManager.AppSettings["ImgaePath"];
