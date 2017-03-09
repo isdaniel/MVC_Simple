@@ -27,6 +27,7 @@ namespace LibraryCommon
                 throw new ArgumentNullException("name", "產生DropDownList時 tag Name 不得為空");
             }
             TagBuilder select = new TagBuilder("select");
+            select.AddCssClass("form-control");
             select.Attributes.Add("name", name);
             StringBuilder renderHtmlTag = new StringBuilder();
             IDictionary<string, string> newOptionData = new Dictionary<string, string>();
