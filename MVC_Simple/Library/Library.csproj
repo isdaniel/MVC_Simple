@@ -171,7 +171,7 @@
     <Content Include="css\Mystyle.css" />
     <Content Include="css\PagedList.css" />
     <Content Include="css\Site.css" />
-    <Content Include="js\lib\sweetalert.min.js" />
+    <Content Include="js\lib\sweetalert-min.js" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -193,8 +193,6 @@
     <Content Include="js\lib\jquery-3.1.1-min.js" />
     <Content Include="js\UploadFile.js" />
     <Content Include="LibraryImgae\No_Pic.gif" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

@@ -3,25 +3,24 @@
     ViewBag.Title = "登入頁面";
     Layout = "~/Views/Template/LoginMaster.cshtml";
 }
-@section Body{
-    @Html.ActionLink("新創一個帳戶", "Register")
-    <div class="container">
-        @using (Html.BeginForm("Login", "User", FormMethod.Post, new
+@Html.ActionLink("新創一個帳戶", "Register")
+<div class="container">
+    @using (Html.BeginForm("Login", "User", FormMethod.Post, new
     {
         @class = "form-signin",
         role = "form"
     }))
-        {
-            @Html.AntiForgeryToken()
-            @Html.ValidationSummary(true)
-            <h2 class="form-signin-heading">登入系統</h2>
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <h2 class="form-signin-heading">登入系統</h2>
             <label for="inputEmail">帳號</label>
             @Html.TextBoxFor(u => u.Lib_username, new
-                  {
-                      @class = "form-control",
-                      required = "",
-                      autofocus = ""
-                  })
+       {
+           @class = "form-control",
+           required = "",
+           autofocus = ""
+       })
             @Html.ValidationMessageFor(u => u.Lib_username)
             <label for="inputPassword">密碼</label>
             @Html.PasswordFor(u => u.Lib_password,
@@ -38,6 +37,5 @@
                 </label>
             </div>
             <button id="submit_btn" class="btn btn-lg btn-primary btn-block" type="submit">登入</button>
-        }
-    </div>
-}
+    }
+</div>

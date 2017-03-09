@@ -1,38 +1,69 @@
-﻿<!DOCTYPE html>
+﻿
 <html>
 <head>
     <title>圖書館後台</title>
-    @Scripts.Render("~/jquery")
-    @Styles.Render("~/BookIndex/css")
-    @Scripts.Render("~/BookIndex/js")
+    @Styles.Render("~/css/lib")
+    @Scripts.Render("~/js/lib")
+    <style>
+        .navbar {
+            margin-bottom: 50px;
+            border-radius: 0;
+        }
 
+        .jumbotron {
+            margin-bottom: 0;
+        }
+
+        footer {
+            background-color: #f2f2f2;
+            padding: 25px;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <h4 style="float:right;">
-            @if (Request.IsAuthenticated)
-            {
-                @Html.Raw("歡迎使用者  ")
-                <strong> @Html.Encode(User.Identity.Name)</strong>
-                @Html.ActionLink("Sign Out", "Logout", "User")
-            }
-            else
-            {
-                @Html.ActionLink("Register", "Register", "User")
-                <span> | </span>
-                @Html.ActionLink("Sign In", "Login", "User")
-            }
-        </h4>
-        <br />
-        <br />
-        <div class="inner">
-            <article class="box post post-excerpt">
-                @RenderSection("Buttom")
-            </article>
-            <!--<a href="#" class="image featured">
-                <img src="~/img/ground.jpg" alt="no src" />
-            </a>-->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Logo</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Deals</a></li>
+                    <li><a href="#">Stores</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>
+                            <a>歡迎使用者  @Html.Encode(User.Identity.Name)</a>
+                        </li>
+                        <li>
+                            @Html.ActionLink("登出", "Logout", "User")
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            @Html.ActionLink("註冊帳號", "Register", "User")
+                        </li>
+                        <li>
+                            @Html.ActionLink("登入", "Login", "User")
+                        </li>
+                    }
+                </ul>
+
+            </div>
         </div>
-    </div>
+    </nav>
+    @RenderSection("Buttom", false)
 </body>
+@RenderSection("Script", false)
 </html>

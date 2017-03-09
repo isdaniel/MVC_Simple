@@ -4,26 +4,25 @@
     ViewBag.Title = "創建帳號";
     Layout = "~/Views/Template/LoginMaster.cshtml";
 }
-
-@section Body{
-    <div class="container">
-        @using (Html.BeginForm("Register", "User", FormMethod.Post, new
+<div class="container">
+    <h2 class="form-signin-heading">創建帳號</h2>
+    @using (Html.BeginForm("Register", "User", FormMethod.Post, new
     {
         @class = "form-signin",
         role = "form"
     }))
-        {
-            @Html.AntiForgeryToken()
-            @Html.ValidationSummary(true)
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
 
-            <label for="input_username">帳號</label>
+        <label for="input_username">帳號</label>
             <div class="txt_input" id="input_username">
                 @Html.TextBoxFor(u => u.Lib_username, new
-                  {
-                      @class = "form-control",
-                      required = "",
-                      autofocus = ""
-                  })
+           {
+               @class = "form-control",
+               required = "",
+               autofocus = ""
+           })
                 @Html.ValidationMessageFor(model => model.Lib_username)
             </div>
             <label for="input_password">密碼</label>
@@ -44,6 +43,5 @@
             </div>
             <br />
             <button class="btn btn-lg btn-primary btn-block" type="submit">創建帳戶</button>
-        }
-    </div>
-}
+    }
+</div>
