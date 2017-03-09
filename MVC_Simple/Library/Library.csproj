@@ -162,13 +162,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Style\lib\bootstrap-theme.min.css" />
-    <Content Include="Style\lib\bootstrap-min.css" />
-    <Content Include="Style\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="css\lib\bootstrap-min.css" />
+    <Content Include="css\lib\bootstrap-theme.min.css" />
+    <Content Include="css\lib\sweetalert.css" />
+    <Content Include="css\Login.css" />
+    <Content Include="css\main.css" />
+    <Content Include="css\Mystyle.css" />
+    <Content Include="css\PagedList.css" />
+    <Content Include="css\Site.css" />
+    <Content Include="js\lib\sweetalert.min.js" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Style\Site.css" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
@@ -189,11 +195,6 @@
     <Content Include="LibraryImgae\No_Pic.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Style\font-awesome.min.css" />
-    <Content Include="Style\images\arrow.svg" />
-    <Content Include="Style\Login.css" />
-    <Content Include="Style\main.css" />
-    <Content Include="Style\Mystyle.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

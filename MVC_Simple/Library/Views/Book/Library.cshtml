@@ -26,16 +26,35 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        @Html.ActionLink("修改", "EditBook", new { id = item.id }) |
-                                        @Html.ActionLink("刪除", "Delete", new { id = item.id })
+                                        <a href="@{Html.ActionLink("修改", "EditBook", new { id = item.id });}">修改</a>
+                                        <a id="a_Delete" href="@{Html.ActionLink("修改", "Delete", new { id = item.id });}">刪除</a>
                                     </td>
                                 </tr>
                             </table>
                         </div>
                     </div>
-                }
+    }
             </div>
         </div>
     </div>
     @Html.Partial("_LibarayPagePartial", Model)
 }
+<script type="text/javascript">
+    $(function () {
+        swal({
+            title: "確定要刪除嗎",
+            text: "刪除後資料就會不見",
+            type: "警告",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "確定刪除",
+            closeOnConfirm: false
+        },
+        function () {
+            swal("成功刪除", "你已經將資料刪除了", "success");
+        });
+        $("#a_Edit").click(function () {
+
+        });
+    });
+</script>

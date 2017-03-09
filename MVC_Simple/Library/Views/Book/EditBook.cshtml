@@ -10,8 +10,6 @@
     @using (Html.BeginForm("EditBook", "Book", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
-
         <fieldset>
 
             <h3>
@@ -41,6 +39,7 @@
             <h3>
                 @Html.LabelFor(model => model.summary)
             </h3>
+            @Html.ValidationSummary(true)
             <div class="editor-field">
                 @Html.TextAreaFor(model => model.summary, new { @cols = 50, @rows = 8 })
                 @Html.ValidationMessageFor(model => model.summary)

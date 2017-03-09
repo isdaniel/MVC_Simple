@@ -18,12 +18,13 @@ namespace MVC.Controllers
     public class BookController : Controller
     {
         private string ImagePath = ConfigurationManager.AppSettings["ImgaePath"];
-
+        public BookController() {
+            ddlBind();            
+        }
         [HttpGet]
 
         public ActionResult AddBook()
         {
-            ddlBind();
             return View();
         }
 
@@ -37,15 +38,19 @@ namespace MVC.Controllers
         public ActionResult AddBook(IEnumerable<HttpPostedFileBase> files,
             [System.Web.Http.FromBody]Library_Book model)
         {
-            UploadFileHelper upload = new UploadFileHelper(files, Server.MapPath(ImagePath));
-            upload.SaveImage();
-            ImageBLL imageBll = new ImageBLL(Server.MapPath(ImagePath));
-            BookBLL bll = new BookBLL();
-            model.create_time = DateTime.Now;
-            int bookId = bll.Add(model);
-            model.Image = upload.BookAddImagePath(bookId);
-            imageBll.AddImage(model);
-            return View("Library", Init(1, new BookSearch_ViewModel()));
+            if (ModelState.IsValid)
+            {
+                UploadFileHelper upload = new UploadFileHelper(files, Server.MapPath(ImagePath));
+                upload.SaveImage();
+                ImageBLL imageBll = new ImageBLL(Server.MapPath(ImagePath));
+                BookBLL bll = new BookBLL();
+                model.create_time = DateTime.Now;
+                int bookId = bll.Add(model);
+                model.Image = upload.BookAddImagePath(bookId);
+                imageBll.AddImage(model);
+                return View("Library", Init(1, new BookSearch_ViewModel()));
+            }
+            return View();
         }
 
         /// <summary>
@@ -58,7 +63,6 @@ namespace MVC.Controllers
             BookBLL bll = new BookBLL();
             Library_Book model = new Library_Book() { id = id };
             bll.Delete(model);
-            ddlBind();
             return View("Library", Init(1, new BookSearch_ViewModel()));
         }
 
@@ -66,13 +70,17 @@ namespace MVC.Controllers
         public ActionResult EditBook(IEnumerable<HttpPostedFileBase> files,
             [System.Web.Http.FromBody]BookViewModel model)
         {
-            UploadFileHelper upload = new UploadFileHelper(files, Server.MapPath(ImagePath));
-            ddlBind();
-            BookBLL bll = new BookBLL();
-            upload.SaveImage();
-            model.ImagePath = upload._FilesName;
-            bll.Edit(model);
-            return RedirectToAction("Library");
+            if (ModelState.IsValid)
+            {
+                UploadFileHelper upload = new UploadFileHelper(files, Server.MapPath(ImagePath));
+                ddlBind();
+                BookBLL bll = new BookBLL();
+                upload.SaveImage();
+                model.ImagePath = upload._FilesName;
+                bll.Edit(model);
+                return RedirectToAction("Library");
+            }
+            return View();
         }
 
         [HttpGet]
@@ -96,7 +104,6 @@ namespace MVC.Controllers
         public ActionResult Library([System.Web.Http.FromBody] BookSearch_ViewModel conditionModel, string page = "1")
         {
             IPagedList<Library_Book> model = Init(int.Parse(page), conditionModel);
-            ddlBind();
             return View(model);
         }
 
@@ -105,12 +112,21 @@ namespace MVC.Controllers
         /// </summary>
         private void ddlBind()
         {
+            string Language = null;
+            string BookType = null;
+            string bookName = null;
+            if (Request!=null)
+            {
+                Language = Request["BookLanguage"];
+                BookType = Request["BookType"];
+                bookName = Request["bookName"];
+            }
             /*===Bind下拉式選單 begin===*/
             ViewData["BookLanguage"] = DropDownListGenerator
-                ("BookLanguage", "language", Request["BookLanguage"]);
+                ("BookLanguage", "language", Language);
             ViewData["BookType"] = DropDownListGenerator
-                ("BookType", "booktype", Request["BookType"]);
-            ViewData["Serchvalue"] = Request["bookName"];
+                ("BookType", "booktype", BookType);
+            ViewData["Serchvalue"] = bookName;
             /*===Bind下拉式選單 end===*/
         }
 
