@@ -1,5 +1,4 @@
-﻿using Library.Authorize;
-using LibraryBLL;
+﻿using LibraryBLL;
 using LibraryBLL.Home;
 using LibraryCommon;
 using LibraryModel;
@@ -12,7 +11,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MVC.Controllers
+namespace LibraryController
 {
     public class BookController : Controller
     {

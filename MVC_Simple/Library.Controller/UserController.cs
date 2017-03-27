@@ -1,12 +1,11 @@
-﻿using Library.Authorize;
-using LibraryBLL;
+﻿using LibraryBLL;
 using LibraryModel;
 using System;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
-namespace MVC.Controllers
+namespace LibraryController
 {
     [AllowAnonymous]
     public class UserController : Controller

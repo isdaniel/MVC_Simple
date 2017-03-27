@@ -9,7 +9,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Xml.Linq;
 
-namespace Library.Authorize
+namespace Library.infrastructure
 {
     public class CustomAuthorizeAttribute : AuthorizeAttribute
     {
