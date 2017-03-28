@@ -43,13 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookViewModel.cs" />
+    <Compile Include="Extention\LoginViewModelExt.cs" />
+    <Compile Include="ViewModel\BookViewModel.cs" />
     <Compile Include="Library_BookImgae.cs" />
     <Compile Include="Library_Book.cs" />
-    <Compile Include="BookSearch_ViewModel.cs" />
+    <Compile Include="ViewModel\BookSearch_ViewModel.cs" />
     <Compile Include="Parameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

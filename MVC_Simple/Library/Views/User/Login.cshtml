@@ -1,4 +1,4 @@
-﻿@model UserModel
+﻿@model LoginViewModel
 @{
     ViewBag.Title = "登入頁面";
     Layout = "~/Views/Template/LoginMaster.cshtml";
@@ -14,26 +14,26 @@
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
         <h2 class="form-signin-heading">登入系統</h2>
-            <label for="inputEmail">帳號</label>
-            @Html.TextBoxFor(u => u.Lib_username, new
+        <label for="inputEmail">帳號</label>
+            @Html.TextBoxFor(u => u.username, new
        {
            @class = "form-control",
            required = "",
            autofocus = ""
        })
-            @Html.ValidationMessageFor(u => u.Lib_username)
+            @Html.ValidationMessageFor(u => u.username)
             <label for="inputPassword">密碼</label>
-            @Html.PasswordFor(u => u.Lib_password,
+            @Html.PasswordFor(u => u.password,
                     new
                     {
                         @class = "form-control",
                         required = "",
                         autofocus = ""
                     })
-            @Html.ValidationMessageFor(u => u.Lib_password)
+            @Html.ValidationMessageFor(u => u.password)
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" value="remember-me"> Remember me
+                    @Html.CheckBoxFor(u=>u.IsRemember) 記住密碼
                 </label>
             </div>
             <button id="submit_btn" class="btn btn-lg btn-primary btn-block" type="submit">登入</button>

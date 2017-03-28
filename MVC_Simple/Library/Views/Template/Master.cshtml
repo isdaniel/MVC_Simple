@@ -1,5 +1,4 @@
-﻿
-<html>
+﻿<html>
 <head>
     <title>圖書館後台</title>
     @Styles.Render("~/css/lib")
@@ -37,10 +36,10 @@
                     <li><a href="#">關於我</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    @if (Request.IsAuthenticated)
+                    @if (Session["Callid"]!=null)
                     {
                         <li>
-                            <a>歡迎使用者  @Html.Encode(User.Identity.Name)</a>
+                            <a>歡迎使用者  @Html.Encode(Session["Callid"].ToString())</a>
                         </li>
                         <li>
                             @Html.ActionLink("登出", "Logout", "User")

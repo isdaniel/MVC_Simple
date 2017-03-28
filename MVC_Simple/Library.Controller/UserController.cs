@@ -1,4 +1,5 @@
 ﻿using LibraryBLL;
+using LibraryCommon;
 using LibraryModel;
 using System;
 using System.Web;
@@ -7,10 +8,24 @@ using System.Web.Security;
 
 namespace LibraryController
 {
-    [AllowAnonymous]
+    [IgnoreAuthorize]
     public class UserController : Controller
     {
-        // GET: /User/
+        public ActionResult Index()
+        {
+
+            //如果Cookie中的UserId中有值
+            if (Request.Cookies["Callid"] != null)
+            {
+                string UserId = Request.Cookies["Callid"].Value;
+                UserBLL bll = new UserBLL();
+                string strDecrypt = CipherTextHelper.Decrypt(UserId);
+                Session["Callid"] = strDecrypt;
+                return RedirectToAction("Library", "Book");
+            }
+            return View("Login");
+        }
+
         [HttpGet]
         public ActionResult Login()
         {
@@ -19,16 +34,14 @@ namespace LibraryController
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [AllowAnonymous]
-        public ActionResult Login(UserModel model)
+        public ActionResult Login(LoginViewModel model)
         {
             UserBLL bll = new UserBLL();
-            if (ModelState.IsValid && bll.IsUserExite(model))
+            if (ModelState.IsValid && bll.IsUserExite(model.ToUserModel()))
             //是否符合資料驗證(後端驗證)且判斷是否有次使用者
             {
-                //FormsAuthentication.SetAuthCookie(model.Lib_username, true);
-                Session["Callid"] = model.Lib_username;
-                SetUserToken(model);
+                Session["Callid"] = model.username;
+                Response.Cookies.Add(CipherTextHelper.SetCookie(model.username,"Callid"));
                 return RedirectToAction("Library", "Book");
             }
             ModelState.AddModelError("Lib_password", "帳號密碼錯誤!!");
@@ -37,26 +50,27 @@ namespace LibraryController
 
         public ActionResult Logout()
         {
-            FormsAuthentication.SignOut();
+            HttpCookie cookie = new HttpCookie("Callid");
+            cookie.Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies.Add(cookie);
+            Session["Callid"] = null;
             return RedirectToAction("Login", "User");
         }
 
         [HttpGet]
         public ActionResult Register()
         {
-
             return View();
         }
 
         [HttpPost]
-        public ActionResult Register(UserModel model)
+        public ActionResult Register(LoginViewModel model)
         {
             UserBLL bll = new UserBLL();
             if (ModelState.IsValid)//是否符合資料驗證(後端驗證)
             {
-                if (bll.Add(model))//增加用戶
+                if (bll.Add(model.ToUserModel()))//增加用戶
                 {
-                    SetUserToken(model);
                     return RedirectToAction("Library", "Book");
                 }
                 else
@@ -67,40 +81,6 @@ namespace LibraryController
                 }
             }
             return View();
-        }
-
-        private ActionResult RedirectToLocal(string returnUrl)
-        {
-            if (Url.IsLocalUrl(returnUrl))
-            {
-                return RedirectToAction("Library", "Book");
-            }
-            else
-            {
-                return RedirectToAction("Login", "User");
-            }
-        }
-
-        /// <summary>
-        /// 設置登入的token　過期30分鐘就冊銷
-        /// </summary>
-        /// <param name="model"></param>
-        private void SetUserToken(UserModel model)
-        {
-            string userData = "User Longin";
-            FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
-              model.Lib_username,
-              DateTime.Now,
-              DateTime.Now.AddMinutes(30),
-              true,
-              userData,
-              FormsAuthentication.FormsCookiePath);
-            // 將ticket加密
-            string encTicket = FormsAuthentication.Encrypt(ticket);
-
-            // 新增cookie
-            Response.Cookies.Add(new
-                HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
         }
     }
 }

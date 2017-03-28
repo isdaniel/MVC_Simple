@@ -21,6 +21,7 @@ namespace LibraryDAL.Home
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
         }
     }
 }

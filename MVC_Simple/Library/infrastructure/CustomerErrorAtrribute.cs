@@ -15,7 +15,6 @@ namespace Library.infrastructure
             log.WriteErrorLog(filterContext.Exception.Message, filterContext.Exception);
             filterContext.Result = new RedirectResult("~/Error/ErrorPage");
             filterContext.ExceptionHandled = false;
-            //base.OnException(filterContext);
         }
     }
 }

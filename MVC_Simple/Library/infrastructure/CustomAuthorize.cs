@@ -11,14 +11,25 @@ using System.Xml.Linq;
 
 namespace Library.infrastructure
 {
-    public class CustomAuthorizeAttribute : AuthorizeAttribute
+    public class CustomAuthorizeAttribute : 
+        FilterAttribute,IAuthorizationFilter
     {
-        public override void OnAuthorization(AuthorizationContext filterContext)
+        public void OnAuthorization(AuthorizationContext filterContext)
         {
-
-            base.OnAuthorization(filterContext);
+            
+            var ControllerDescriptor= filterContext.ActionDescriptor.ControllerDescriptor;
+            var ActionDescriptor = filterContext.ActionDescriptor;
+            if (!ControllerDescriptor.IsDefined(typeof(IgnoreAuthorizeAttribute),false) &&
+                !ActionDescriptor.IsDefined(typeof(IgnoreAuthorizeAttribute),false))
+            {
+                if (!AuthorizeCore(filterContext.HttpContext))
+                {
+                    HandleUnauthorizedRequest(filterContext);
+                }
+            }
+            //base.OnAuthorization(filterContext);
         }
-        protected override bool AuthorizeCore(HttpContextBase httpContext)
+        protected bool AuthorizeCore(HttpContextBase httpContext)
         {
             if (httpContext.Session["Callid"]!=null)
             {
@@ -27,14 +38,14 @@ namespace Library.infrastructure
                     httpContext.Session["Callid"].ToString()));
                 var Id = httpContext.Session["Callid"];
                 httpContext.Session["Callid"] = Id;
+                
                 return true;
             }
             return false;
-            //return base.AuthorizeCore(httpContext);
         }
-        protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
+        protected void HandleUnauthorizedRequest(AuthorizationContext filterContext)
         {
-            filterContext.Result = new RedirectResult("~/User/Login");
+            filterContext.Result = new RedirectResult("~/User/Index");
         }
     }
 }
