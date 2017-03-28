@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Library.infrastructure
+namespace LibraryController.infrastructure
 {
     public class CustomerErrorAtrribute: HandleErrorAttribute
     {

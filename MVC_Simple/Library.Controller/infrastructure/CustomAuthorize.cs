@@ -9,7 +9,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Xml.Linq;
 
-namespace Library.infrastructure
+namespace LibraryController.infrastructure
 {
     public class CustomAuthorizeAttribute : 
         FilterAttribute,IAuthorizationFilter
@@ -45,7 +45,7 @@ namespace Library.infrastructure
         }
         protected void HandleUnauthorizedRequest(AuthorizationContext filterContext)
         {
-            filterContext.Result = new RedirectResult("~/User/Index");
+            filterContext.Result = new RedirectResult("~/User/Login");
         }
     }
 }

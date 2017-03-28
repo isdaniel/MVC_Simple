@@ -83,8 +83,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthorityContext.cs" />
     <Compile Include="BookController.cs" />
     <Compile Include="ErrorController.cs" />
+    <Compile Include="infrastructure\CustomAuthorize.cs" />
+    <Compile Include="infrastructure\CustomerErrorAtrribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserController.cs" />
   </ItemGroup>

@@ -151,11 +151,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="infrastructure\CustomAuthorize.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="infrastructure\CustomerErrorAtrribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -224,17 +222,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LibraryBLL\LibraryBLL.csproj">
-      <Project>{1321baaf-e538-4b3c-a6f1-c7f904d218b4}</Project>
-      <Name>LibraryBLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LibraryCommon\LibraryCommon.csproj">
-      <Project>{92e7cfe1-2f90-42ca-85cc-b256b4f370dc}</Project>
-      <Name>LibraryCommon</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LibraryDAL\LibraryDAL.csproj">
-      <Project>{2d13579c-df43-4629-a943-b6e006bc20b8}</Project>
-      <Name>LibraryDAL</Name>
+    <ProjectReference Include="..\Library.Controller\Library.Controller.csproj">
+      <Project>{2e988b42-27e6-46c6-8fe1-0a450935072a}</Project>
+      <Name>Library.Controller</Name>
     </ProjectReference>
     <ProjectReference Include="..\LibraryModel\LibraryModel.csproj">
       <Project>{8ac39703-9b40-431a-935f-9424cdb28921}</Project>

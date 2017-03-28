@@ -37,7 +37,7 @@ namespace LibraryBLL
         /// </summary>
         /// <param name="model"></param>
         /// <returns>true有此使用者 false無此使用的</returns>
-        public bool IsUserExite(UserModel model)
+        public UserModel GetUser(UserModel model)
         {
             model.Lib_password = CipherTextHelper.SHA512Encryption(model.Lib_password);
             using (var concrete = new UserConcrete())
@@ -46,10 +46,22 @@ namespace LibraryBLL
                         where i.Lib_password == model.Lib_password &&
                               i.Lib_username == model.Lib_username
                         select i;//是否有此使用者
-                return m.Count() > 0;
+                return m.FirstOrDefault();
             }
         }
-
+        /// <summary>
+        /// 返回一個使用者藉由使用者帳號
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public UserModel GetUserByUsername(string username) {
+            using (var concrete = new UserConcrete()) {
+                var m = (from i in concrete.User
+                        where i.Lib_username == username
+                        select i).FirstOrDefault();
+                return m;
+            }
+        }
         /// <summary>
         /// 修改帳戶
         /// 返回 true成功修改 false修改失敗
