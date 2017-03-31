@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LibraryModel
 {
-    public class BookViewModel
+    public partial class BookViewModel
     {
         /// <summary>
         /// 語言

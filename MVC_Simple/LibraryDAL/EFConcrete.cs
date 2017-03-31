@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryDAL.Home
+namespace LibraryDAL
 {
-    public class BookConcrete : DbContext
+    public class EFConcrete : DbContext
     {
-        public BookConcrete()
+        public EFConcrete()
             : base("BookLibrary")
         {
         }
@@ -18,10 +18,12 @@ namespace LibraryDAL.Home
         public DbSet<Library_Book> Book { get; set; }
         public DbSet<Library_BookImgae> Library_BookImgae { get; set; }
         public DbSet<Parameter> Parameter { get; set; }
-
+        public DbSet<UserModel> User { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-
+            modelBuilder.Entity<UserModel>().ToTable("Library_UserInfo");
+            modelBuilder.Entity<Parameter>().ToTable("parameter");
+            
         }
     }
 }

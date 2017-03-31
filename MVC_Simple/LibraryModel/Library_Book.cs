@@ -40,11 +40,6 @@ namespace LibraryModel
         [Key]
         public int id { get; set; }
 
-        /// <summary>
-        /// 連接Library_Image資料表
-        /// </summary>
-        [NotMapped]
-        public List<Library_BookImgae> Image { get; set; }
 
         /// <summary>
         /// 摘要

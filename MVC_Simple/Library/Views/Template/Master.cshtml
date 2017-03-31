@@ -39,7 +39,7 @@
                     @if (Session["Callid"]!=null)
                     {
                         <li>
-                            <a>歡迎使用者  @Html.Encode(Session["Callid"].ToString())</a>
+                            <a>歡迎使用者  @Html.Encode(((UserModel)Session["Callid"]).Lib_username)</a>
                         </li>
                         <li>
                             @Html.ActionLink("登出", "Logout", "User")

@@ -63,20 +63,20 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="LoginFeature.feature.cs">
+    <Compile Include="Login\LoginFeature.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LoginFeature.feature</DependentUpon>
     </Compile>
-    <Compile Include="LoginStep.cs" />
-    <Compile Include="LoginTest.cs" />
+    <Compile Include="Login\LoginStep.cs" />
+    <Compile Include="Login\LoginTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="LoginFeature.feature">
+    <None Include="Login\LoginFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>LoginFeature.feature.cs</LastGenOutput>
     </None>

@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using IDAL;
 using LibraryModel;
 using System;
 using System.Collections.Generic;
@@ -7,102 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryDAL.Home
+namespace LibraryDAL
 {
-    public class BookDal
+    public partial class BookDAL:BaseDAL<Library_Book>,IBookDAL
     {
-        private static BookDal _Insetance = null;
-        private IDbConnection _Conn = GetConn.GetInstance();
-
-        /// <summary>
-        /// 使用單例模式
-        /// </summary>
-        private BookDal()
-        { }
-
-        /// <summary>
-        /// 單例模式 取得實體
-        /// </summary>
-        /// <returns></returns>
-        public static BookDal GetInstance()
+        public int InsertGetId(Library_Book model)
         {
-            if (_Insetance == null)
-                _Insetance = new BookDal();
-            return _Insetance;
-        }
-
-        /// <summary>
-        /// 創建新的資料
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns>返回成功插入的bookid</returns>
-        public int Add(Library_Book model)
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("insert into Library_Book");
-            sb.AppendLine("(BookLanguage,bookName,summary,BookType,create_time)");
-            sb.AppendLine("values");
-            sb.AppendLine("(@BookLanguage,@bookName,@summary,@BookType,@create_time)");
-            sb.AppendLine("SELECT @@IDENTITY as id");
-            return _Conn.Query<int>(sb.ToString(),
-                new
-                {
-                    BookLanguage = model.BookLanguage,
-                    bookName = model.bookName,
-                    summary = model.summary,
-                    BookType = model.BookType,
-                    create_time = model.create_time
-                }).Single();
-        }
-
-        /// <summary>
-        /// 刪除一本書
-        /// </summary>
-        /// <param name="model">要刪除的實體</param>
-        public void Delete(Library_Book model)
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("delete Library_Book");
-            sb.AppendLine("where id=@id");
-            _Conn.Execute(sb.ToString(), new { id = model.id });
-        }
-
-        public Library_Book GetBookById(int id)
-        {
-            string IamString = "select * from Library_BookImgae where id=@id";
-            string BookString = "select * from Library_Book where id=@id";
-            List<Library_BookImgae> image = _Conn.Query<Library_BookImgae>(IamString, param: new { id = id }).ToList();
-            Library_Book book = _Conn.Query<Library_Book>(BookString, param: new { id = id }).FirstOrDefault();
-            book.Image = image;
-            return book;
-        }
-
-        /// <summary>
-        /// 取得目前在資料庫中的書
-        /// </summary>
-        /// <param name="SqlStr"></param>
-        /// <param name="parameter"></param>
-        /// <returns></returns>
-        public List<Library_Book> GetList(string SqlStr,
-            BookSearch_ViewModel parameter)
-        {
-            return _Conn.Query<Library_Book>(SqlStr, parameter).ToList();
-        }
-
-        /// <summary>
-        /// 修改書的資訊
-        /// </summary>
-        /// <param name="model"></param>
-        public void Modify(Library_Book model)
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("update Library_Book set");
-            sb.AppendLine("BookLanguage=@BookLanguage");
-            sb.AppendLine("bookName=@bookName");
-            sb.AppendLine("summary=@summary");
-            sb.AppendLine("BookType=@BookType");
-            sb.AppendLine("where id=@id");
-            _Conn.Execute(sb.ToString(), new { id = model.id });
+            _Dbcontext.Entry(model).State = System.Data.Entity.EntityState.Added;
+            _Dbcontext.SaveChanges();
+            return model.id;
         }
     }
 }

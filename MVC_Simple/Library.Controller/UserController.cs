@@ -1,10 +1,11 @@
-﻿using LibraryBLL;
-using LibraryCommon;
+﻿using LibraryCommon;
 using LibraryModel;
 using System;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
+using System.Collections.Generic;
+using System.Linq;
+using WarehouseBLL;
 
 namespace LibraryController
 {
@@ -26,10 +27,10 @@ namespace LibraryController
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model)
         {
-            UserBLL bll = new UserBLL();
+            
             //是否符合資料驗證(後端驗證)且判斷是否有次使用者
-            if (AuthorizeContext.Current.Login(
-                model.ToUserModel(), ModelState.IsValid))
+            if (AuthorizeContext.Current.
+                Login(model.ToUserModel(), ModelState.IsValid))
             {
                 return RedirectToAction("Library", "Book");
             }
@@ -52,10 +53,11 @@ namespace LibraryController
         [HttpPost]
         public ActionResult Register(LoginViewModel model)
         {
-            UserBLL bll = new UserBLL();
+            
             if (ModelState.IsValid)//是否符合資料驗證(後端驗證)
             {
-                if (bll.Add(model.ToUserModel()))//增加用戶
+                if (AuthorizeContext.Current.InsertAccount(
+                    model.ToUserModel()))//增加用戶
                 {
                     return RedirectToAction("Library", "Book");
                 }

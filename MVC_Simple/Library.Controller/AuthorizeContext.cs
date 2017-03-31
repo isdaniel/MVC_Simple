@@ -7,13 +7,17 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.SessionState;
 using LibraryModel;
-using LibraryBLL;
 using LibraryCommon;
+using WarehouseBLL;
 
 namespace LibraryController
 {
     public class AuthorizeContext
     {
+        /// <summary>
+        /// 資料倉儲的User對象
+        /// </summary>
+        private IBLL.IUser User = new BLLWarehouse().User;
         #region 每個執行序中只有一個AuthorizeContext +  public AuthorizeContext Current
         /// <summary>
         /// 每個執行序中只有一個AuthorizeContext
@@ -109,11 +113,10 @@ namespace LibraryController
             //如果Cookie中的UserId中有值
             if (Cookie[USERNAME] != null)
             {
-                UserBLL bll = new UserBLL();
                 string UserId = Cookie[USERNAME].Value;
                 //將UserId解密
                 string UserIdDecrypt = CipherTextHelper.Decrypt(UserId);
-                var user = bll.GetUserByUsername(UserIdDecrypt);
+                var user = User.GetUserByUsername(UserIdDecrypt);
                 //如果有查詢到User
                 if (user != null)
                 {
@@ -135,9 +138,12 @@ namespace LibraryController
         /// <returns></returns>
         public bool Login(UserModel model, bool IsValid)
         {
+            string password = CipherTextHelper.SHA512Encryption(model.Lib_password);
             //是否符合資料驗證(後端驗證)且判斷是否有次使用者
-            UserBLL bll = new UserBLL();
-            var user = bll.GetUser(model);
+            var user = User.GetListBy(
+                o=>
+                o.Lib_username==model.Lib_username&&
+                o.Lib_password== password).FirstOrDefault();
             if (IsValid && user != null)
             {
                 UserName = user;
@@ -161,6 +167,12 @@ namespace LibraryController
             Response.Cookies.Add(cookie);
             UserName = null;
         }
+        #endregion
+        #region 新增帳號 + public bool InsertAccount(UserModel model)
+        public bool InsertAccount(UserModel model)
+        {
+            return User.Insert(model);
+        } 
         #endregion
     }
 }

@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace UnitTestWeb
+namespace UnitTestWeb.Login
 {
     using TechTalk.SpecFlow;
     
@@ -48,7 +48,7 @@ namespace UnitTestWeb
             if (((testRunner.FeatureContext != null) 
                         && (testRunner.FeatureContext.FeatureInfo.Title != "LoginFeature")))
             {
-                UnitTestWeb.LoginFeatureFeature.FeatureSetup(null);
+                UnitTestWeb.Login.LoginFeatureFeature.FeatureSetup(null);
             }
         }
         
@@ -81,7 +81,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
  testRunner.Given("至\"http://localhost:3148/\"登入帳號", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
- testRunner.And("輸入帳號abcd123", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("輸入帳號aa123456", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
  testRunner.And("輸入密碼aa12345", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11

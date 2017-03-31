@@ -1,4 +1,4 @@
-﻿@model IPagedList<Library_Book>
+﻿@model IPagedList<BookViewModel>
 @Html.PagedListPager(Model,
                         page => Url.Action("Library",
                                     new RouteValueDictionary {

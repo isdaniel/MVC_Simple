@@ -1,4 +1,4 @@
-﻿@model IPagedList<Library_Book>
+﻿@model IPagedList<BookViewModel>
 @{
     ViewBag.Title = "Library";
     Layout = "~/Views/Template/Master.cshtml";
@@ -19,12 +19,11 @@
         <div class="row">
             @foreach (var item in Model)
     {
-
                 <div class="col-sm-4 text-center">
                     <div class="panel panel-primary">
                         <div class="panel-heading">書名:@item.bookName</div>
                         <div class="panel-body">
-                            @Html.Partial("_LibaryImagePartal", item.Image)
+                            @*@Html.Partial("_LibaryImagePartal", item.ImagePath)*@
                         </div>
                         <div class="panel-footer">類型:@item.BookType<br />語言:@item.BookLanguage</div>
                         <div class="panel-footer">摘要:@item.summary</div>

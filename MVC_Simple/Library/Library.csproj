@@ -187,7 +187,6 @@
     <Content Include="js\lib\jquery-3.1.1.js" />
     <Content Include="js\lib\jquery-3.1.1-min.js" />
     <Content Include="js\UploadFile.js" />
-    <Content Include="LibraryImgae\No_Pic.gif" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

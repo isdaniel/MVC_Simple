@@ -49,15 +49,15 @@ namespace UnitTestWeb
         [Given(@"輸入密碼(.*)")]
         public void Given輸入密碼(string password)
         {
-            driver.FindElement(By.Id("Lib_password")).Clear();
-            driver.FindElement(By.Id("Lib_password")).SendKeys(password);
+            driver.FindElement(By.Id("password")).Clear();
+            driver.FindElement(By.Id("password")).SendKeys(password);
         }
 
         [Given(@"輸入帳號(.*)")]
         public void Given輸入帳號(string username)
         {
-            driver.FindElement(By.Id("Lib_username")).Clear();
-            driver.FindElement(By.Id("Lib_username")).SendKeys(username);
+            driver.FindElement(By.Id("username")).Clear();
+            driver.FindElement(By.Id("username")).SendKeys(username);
         }
 
         [Then(@"登入管理者頁面 頁面並有(.*)標誌 代表登入成功")]

@@ -25,7 +25,10 @@ namespace LibraryCommon
         /// 將Html的files填入
         /// </summary>
         /// <param name="files"></param>
-        public UploadFileHelper(IEnumerable<HttpPostedFileBase> files, string path)
+        /// <param name="path"></param>
+        public UploadFileHelper(
+            IEnumerable<HttpPostedFileBase> files, 
+            string path)
         {
             if (files == null)//如果沒有檔案就配置一個空的給他 避免報錯
                 files = new List<HttpPostedFileBase>();
@@ -67,10 +70,13 @@ namespace LibraryCommon
             {
                 if (file != null)
                 {
-                    string ReanderTime =
+                    //避免檔案重複在前面加時間作區別
+                    string PrefixName =
                       DateTime.Now.Millisecond.ToString() +
                       DateTime.Now.Minute.ToString();
-                    var fileName = Path.GetFileName(ReanderTime + file.FileName);
+                    //時間和檔名合併
+                    var fileName = Path.GetFileName(
+                        PrefixName + file.FileName);
                     _FilesName.Add(fileName);
                     var path = Path.Combine(_ImagePath, fileName);
                     file.SaveAs(path);
