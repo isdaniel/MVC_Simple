@@ -85,7 +85,9 @@
   <ItemGroup>
     <Compile Include="AuthorizeContext.cs" />
     <Compile Include="BookController.cs" />
+    <Compile Include="ControllerBase.cs" />
     <Compile Include="ErrorController.cs" />
+    <Compile Include="Extention\UserControllerExt.cs" />
     <Compile Include="infrastructure\CustomAuthorize.cs" />
     <Compile Include="infrastructure\CustomerErrorAtrribute.cs" />
     <Compile Include="LibraryContext.cs" />

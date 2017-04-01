@@ -1,4 +1,5 @@
-﻿@using (Html.BeginForm("Library", "Book", FormMethod.Get))
+﻿
+@using (Html.BeginForm("Library", "Book", FormMethod.Get))
 {
         <h5>語言:</h5>@Html.Raw(ViewData["BookLanguage"])
         <h5>類型:</h5>@Html.Raw(ViewData["BookType"])

@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Demo.cs" />
     <Compile Include="Extention\BookViewModelExt.cs" />
     <Compile Include="Extention\LoginViewModelExt.cs" />
     <Compile Include="ViewModel\BookViewModel.cs" />
