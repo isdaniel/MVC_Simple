@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace LibraryModel
 {
+
     [Table("Library_UserInfo")]
     public class UserModel
     {

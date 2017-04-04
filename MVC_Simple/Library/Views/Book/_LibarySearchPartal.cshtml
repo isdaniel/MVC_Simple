@@ -1,8 +1,10 @@
 ﻿
 @using (Html.BeginForm("Library", "Book", FormMethod.Get))
 {
-        <h5>語言:</h5>@Html.Raw(ViewData["BookLanguage"])
-        <h5>類型:</h5>@Html.Raw(ViewData["BookType"])
+        <h5>語言:</h5>@Html.DropDownList("BookLanguage", ViewData["BookLanguage"] as IEnumerable<SelectListItem>, new { @class = "form-control" })
+        @*@Html.Raw(ViewData["BookLanguage"])*@
+        <h5>類型:</h5>@Html.DropDownList("BookType", ViewData["BookType"] as IEnumerable<SelectListItem>,new { @class= "form-control" })
+        @*@Html.Raw(ViewData["BookType"])*@
         <br />
         @Html.TextBox("bookName", ViewData["Serchvalue"], new { @class = "form-control", placeholder = "書名" })
         <br />

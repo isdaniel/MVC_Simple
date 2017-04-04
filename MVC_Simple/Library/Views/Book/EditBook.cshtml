@@ -1,5 +1,4 @@
 ﻿@model LibraryModel.BookViewModel
-
 @{
     ViewBag.Title = "EditBook";
     Layout = "~/Views/Template/Master.cshtml";
@@ -19,13 +18,13 @@
                         類型
                     </h3>
                     <h3>
-                        @Html.Raw(ViewData["BookLanguage"])
+                        @Html.DropDownList("BookType", ViewData["BookType"] as IEnumerable<SelectListItem>, new { @class = "form-control" })
                     </h3>
                     <h3>
                         語言
                     </h3>
                     <div class="editor-field">
-                        @Html.Raw(ViewData["BookType"])
+                        @Html.DropDownList("BookLanguage", ViewData["BookLanguage"] as IEnumerable<SelectListItem>, new { @class = "form-control" })
                     </div>
                     <h3>
                     </h3>

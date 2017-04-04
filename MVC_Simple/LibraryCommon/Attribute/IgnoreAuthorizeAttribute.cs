@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace LibraryCommon
 {
+    /// <summary>
+    /// 不需要做權限驗證
+    /// </summary>
     public class IgnoreAuthorizeAttribute:Attribute
     {
     }

@@ -46,6 +46,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
@@ -83,14 +84,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthorizeContext.cs" />
     <Compile Include="BookController.cs" />
     <Compile Include="ControllerBase.cs" />
     <Compile Include="ErrorController.cs" />
+    <Compile Include="Extention\BookControllerExt.cs" />
     <Compile Include="Extention\UserControllerExt.cs" />
     <Compile Include="infrastructure\CustomAuthorize.cs" />
     <Compile Include="infrastructure\CustomerErrorAtrribute.cs" />
-    <Compile Include="LibraryContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserController.cs" />
   </ItemGroup>
@@ -102,10 +102,6 @@
     <ProjectReference Include="..\IBLL\IBLL.csproj">
       <Project>{c9316154-d6a0-423a-9dee-58bd32876320}</Project>
       <Name>IBLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LibraryBLL\LibraryBLL.csproj">
-      <Project>{1321baaf-e538-4b3c-a6f1-c7f904d218b4}</Project>
-      <Name>LibraryBLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\LibraryCommon\LibraryCommon.csproj">
       <Project>{92e7cfe1-2f90-42ca-85cc-b256b4f370dc}</Project>

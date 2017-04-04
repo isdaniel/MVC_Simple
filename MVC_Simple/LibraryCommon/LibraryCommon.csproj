@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="Attribute\IgnoreAuthorizeAttribute.cs" />
     <Compile Include="CipherTextHelper.cs" />
+    <Compile Include="ConfigHelper.cs" />
     <Compile Include="Controls\DropDownListHelper.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
