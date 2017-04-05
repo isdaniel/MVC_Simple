@@ -34,13 +34,13 @@ namespace LibraryCommon
                 files = new List<HttpPostedFileBase>();
             this._Files = files;
             this._ImagePath = path;
-            _FilesName = new List<string>();
+            FilesName = new List<string>();
         }
 
         /// <summary>
         /// 全部的檔名
         /// </summary>
-        public List<string> _FilesName { private set; get; }
+        public List<string> FilesName { private set; get; }
 
         /// <summary>
         /// 將圖片路徑塞入Library_BookImgae組中
@@ -50,7 +50,7 @@ namespace LibraryCommon
         public List<Library_BookImgae> BookAddImagePath(int bookId)
         {
             List<Library_BookImgae> list = new List<Library_BookImgae>();
-            foreach (var file in _FilesName)
+            foreach (var file in FilesName)
             {
                 list.Add(new Library_BookImgae()
                 {
@@ -77,8 +77,8 @@ namespace LibraryCommon
                     //時間和檔名合併
                     var fileName = Path.GetFileName(
                         PrefixName + file.FileName);
-                    _FilesName.Add(fileName);
-                    var path = Path.Combine(_ImagePath, fileName);
+                    FilesName.Add(fileName);
+                    var path = Path.Combine(ConfigHelper.AppSetting("ImaPhysicalPath"), fileName);
                     file.SaveAs(path);
                 }
             }

@@ -46,7 +46,7 @@
                     <div class="editor-field">
                         @Html.TextAreaFor(model => model.summary, new { @cols = 50, @rows = 8,@class = "form-control" })
                     </div>
-                    @Html.Partial("_LibarayEditImagePartial", Model.ImagePath)
+                    @Html.Partial("_LibarayEditImagePartial",Model.ImagePath)
                     @Html.Partial("_LibraryUploadPartial")
                     @Html.ValidationSummary()
                     <p>

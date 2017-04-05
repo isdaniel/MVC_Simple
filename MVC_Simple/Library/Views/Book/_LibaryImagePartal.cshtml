@@ -1,6 +1,6 @@
-﻿@model List<Library_BookImgae>
+﻿@model List<string>
 
-@foreach (var i in Model)
+@foreach (var path in Model)
 {
-    <img src="@i.Image_Path" class="img-responsive" style="object-fit:cover;" alt="此圖片出現問題">
+    <img src="@path" class="img-responsive" style="object-fit:cover;" alt="此圖片出現問題">
 }

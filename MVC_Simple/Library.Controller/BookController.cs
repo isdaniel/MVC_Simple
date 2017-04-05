@@ -36,7 +36,7 @@ namespace LibraryController
             if (ModelState.IsValid)
             {
                 UploadFileHelper upload = new UploadFileHelper
-                (files, ImagePath);
+                (files, _imagePath);
                 upload.SaveImage();
                 int bookId = BookRepositroy.InsertGetId(model);
                 var Images = upload.BookAddImagePath(bookId);
@@ -68,11 +68,14 @@ namespace LibraryController
             if (ModelState.IsValid)
             {
                 UploadFileHelper upload = new UploadFileHelper
-                (files, ImagePath);
+                (files, _imagePath);
                 SetDropDown();
                 upload.SaveImage();
-                model.ImagePath = upload._FilesName;
-                BookRepositroy.Update(model.ToBookModel());
+                var Images = upload.BookAddImagePath(model.id);
+                foreach (var item in Images)
+                {
+                    BookImageRepositroy.Insert(item);
+                }
                 return RedirectToAction("Library");
             }
             return View();
@@ -82,7 +85,16 @@ namespace LibraryController
         public ActionResult EditBook(int id)
         {
             var model = BookRepositroy.
-                GetListBy(u => u.id == id).FirstOrDefault();
+                GetListBy(u => u.id == id).Select(o=> {
+                    return new BookViewModel()
+                    {
+                        BookLanguage=o.BookLanguage,
+                        bookName=o.bookName,
+                        BookType=o.BookType,
+                        summary=o.summary,
+                        ImagePath=GetImageByBookId(o.id)                        
+                    };
+                }).FirstOrDefault();
             SetDropDown();
             return View(model);
         }
@@ -96,7 +108,7 @@ namespace LibraryController
         {
             SetDropDown();
             return View(GetPage(int.Parse(page), conditionModel));
-
-        }       
+        }
+  
     }
 }

@@ -14,7 +14,7 @@ namespace LibraryController
         /// <summary>
         /// 圖片儲存的路徑
         /// </summary>
-        string ImagePath = ConfigHelper.AppSetting("ImgaePath");
+        string _imagePath = ConfigHelper.AppSetting("ImgaePath");
         /// <summary>
         /// 書名的下拉選單
         /// </summary>
@@ -52,6 +52,7 @@ namespace LibraryController
             //如果沒有創建一個新的
             if (dropList == null)
             {
+                dropList = new List<SelectListItem>();
                 var paras = ParameterRepositroy.GetListBy
                 (u => u.parametertype == paraString).ToList();
                 paras.ForEach((p) =>
@@ -110,7 +111,8 @@ namespace LibraryController
                     BookLanguage = x.BookLanguage,
                     bookName = x.bookName,
                     BookType = x.BookType,
-                    create_time = x.create_time
+                    create_time = x.create_time,
+                    ImagePath= GetImageByBookId(x.id)
                 }).ToPagedList(page, 12);
         }
 
@@ -122,5 +124,27 @@ namespace LibraryController
             ViewData["BookLanguage"] = BookLanguage;
             ViewData["BookType"] = BookType;
         }
+        /// <summary>
+        /// 取得圖片路徑
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        private List<string> GetImageByBookId(int id) {
+            List<string> imagePaths = new List<string>();
+            string no_pic = _imagePath + "No_Pic.gif";
+            var images=BookImageRepositroy.GetListBy(b => b.BookId == id);
+            if (images.Count()>0)
+            {
+                foreach (var image in images)
+                {
+                    imagePaths.Add(_imagePath + image.Image_Path);
+                }
+            }
+            else
+            {
+                imagePaths.Add(no_pic);
+            }
+            return imagePaths;
+        }   
     }
 }
