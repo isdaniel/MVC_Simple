@@ -76,9 +76,10 @@
     <Compile Include="CipherTextHelper.cs" />
     <Compile Include="ConfigHelper.cs" />
     <Compile Include="Controls\DropDownListHelper.cs" />
+    <Compile Include="Emun\FileType.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controls\UploadFileHelper.cs" />
+    <Compile Include="UploadMananger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

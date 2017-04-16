@@ -19,14 +19,14 @@
                             語言
                         </h3>
                         <div class="editor-field">
-                            @Html.Raw(ViewData["BookType"])
+                            @Html.DropDownList("BookLanguage", ViewData["BookLanguage"] as IEnumerable<SelectListItem>, new { @class = "form-control" })
                         </div>
 
                         <h3>
                             類型
                         </h3>
                         <div class="editor-field">
-                            @Html.Raw(ViewData["BookLanguage"])
+                           @Html.DropDownList("BookType", ViewData["BookType"] as IEnumerable<SelectListItem>, new { @class = "form-control" })
                         </div>
                         <h3>
                             書名

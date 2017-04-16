@@ -14,7 +14,7 @@ namespace LibraryController
         /// <summary>
         /// 圖片儲存的路徑
         /// </summary>
-        string _imagePath = ConfigHelper.AppSetting("ImgaePath");
+        string _imagePath = ConfigHelper.ImagePath;
         /// <summary>
         /// 書名的下拉選單
         /// </summary>
@@ -93,14 +93,7 @@ namespace LibraryController
         {
             List<string> imagePaths = new List<string>();
 
-            var BookList = BookRepositroy.GetListBy(
-                u =>
-                !string.IsNullOrEmpty(model.BookLanguage) ?
-                u.BookLanguage == model.BookLanguage : true &&
-                !string.IsNullOrEmpty(model.bookName) ?
-                u.bookName == model.bookName : true &&
-                !string.IsNullOrEmpty(model.BookType) ?
-                u.BookType == model.BookType : true);
+            var BookList = GetBookList(model);
 
             return BookList.
                 OrderBy(x => x.create_time).
@@ -115,7 +108,21 @@ namespace LibraryController
                     ImagePath= GetImageByBookId(x.id)
                 }).ToPagedList(page, 12);
         }
-
+        /// <summary>
+        /// 取得書本資訊
+        /// </summary>
+        /// <param name="model">條件</param>
+        /// <returns></returns>
+        private IEnumerable<Library_Book> GetBookList(BookSearch_ViewModel model) {
+            return BookRepositroy.GetListBy
+                (u =>
+                !string.IsNullOrEmpty(model.BookLanguage) ?
+                u.BookLanguage == model.BookLanguage : true &&
+                !string.IsNullOrEmpty(model.bookName) ?
+                u.bookName == model.bookName : true &&
+                !string.IsNullOrEmpty(model.BookType) ?
+                u.BookType == model.BookType : true);
+        }
         /// <summary>
         /// 設置頁面上的下拉選單
         /// </summary>

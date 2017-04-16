@@ -35,20 +35,17 @@ namespace LibraryController
         {
             if (ModelState.IsValid)
             {
-                UploadFileHelper upload = new UploadFileHelper
-                (files, _imagePath);
-                upload.SaveImage();
+                UploadManage manage = new UploadManage(files);
+                manage.SetNext(new FileFilter())
+                      .SetNext(new FileSize())
+                      .SetNext(new Uploader());
+                manage.Execute();
                 int bookId = BookRepositroy.InsertGetId(model);
-                var Images = upload.BookAddImagePath(bookId);
-                foreach (var item in Images)
-                {
-                    BookImageRepositroy.Insert(item);
-                }
+                InsertImage(files, bookId);
                 return View("Library", GetPage(1));
             }
             return View();
         }
-
         /// <summary>
         /// 刪除的控制器
         /// </summary>
@@ -67,15 +64,15 @@ namespace LibraryController
         {
             if (ModelState.IsValid)
             {
-                UploadFileHelper upload = new UploadFileHelper
-                (files, _imagePath);
+                //UploadMananger upload = new UploadMananger(FileType.Image);
+                //upload.SaveImage(files);
+                UploadManage manage = new UploadManage(files);
+                manage.SetNext(new FileSize())
+                      .SetNext(new FileFilter())
+                      .SetNext(new Uploader());
+                manage.Execute();
+                InsertImage(files, model.id);
                 SetDropDown();
-                upload.SaveImage();
-                var Images = upload.BookAddImagePath(model.id);
-                foreach (var item in Images)
-                {
-                    BookImageRepositroy.Insert(item);
-                }
                 return RedirectToAction("Library");
             }
             return View();
@@ -109,6 +106,37 @@ namespace LibraryController
             SetDropDown();
             return View(GetPage(int.Parse(page), conditionModel));
         }
-  
+
+        /// <summary>
+        /// 儲存圖片
+        /// </summary>
+        /// <param name="files"></param>
+        /// <param name="BookId"></param>
+        private void InsertImage
+            (IEnumerable<HttpPostedFileBase> files,int BookId)
+        {
+            foreach (var file in files)
+            {
+                if (file!=null)
+                {
+                    BookImageRepositroy.Insert(new Library_BookImgae()
+                    {
+                        BookId = BookId,
+                        Image_Path = file.FileName
+                    });
+                }
+            }
+        }
+        /// <summary>
+        /// 創建不重複檔名
+        /// </summary>
+        /// <returns></returns>
+        private string CreatePrefixName(string name)
+        {
+            return 
+                Guid.NewGuid().ToString() +
+                DateTime.Now.Month.ToString()+
+                name;
+        }
     }
 }
