@@ -79,7 +79,11 @@
     <Compile Include="Emun\FileType.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UploadMananger.cs" />
+    <Compile Include="Tool\FileFilter.cs" />
+    <Compile Include="Tool\Filelimit.cs" />
+    <Compile Include="Tool\IUpload.cs" />
+    <Compile Include="Tool\Uploader.cs" />
+    <Compile Include="Tool\UploadMananger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -37,7 +37,7 @@ namespace LibraryController
             {
                 UploadManage manage = new UploadManage(files);
                 manage.SetNext(new FileFilter())
-                      .SetNext(new FileSize())
+                      .SetNext(new Filelimit())
                       .SetNext(new Uploader());
                 manage.Execute();
                 int bookId = BookRepositroy.InsertGetId(model);
@@ -64,13 +64,12 @@ namespace LibraryController
         {
             if (ModelState.IsValid)
             {
-                //UploadMananger upload = new UploadMananger(FileType.Image);
-                //upload.SaveImage(files);
                 UploadManage manage = new UploadManage(files);
-                manage.SetNext(new FileSize())
+                manage.SetNext(new Filelimit())
                       .SetNext(new FileFilter())
                       .SetNext(new Uploader());
                 manage.Execute();
+
                 InsertImage(files, model.id);
                 SetDropDown();
                 return RedirectToAction("Library");
