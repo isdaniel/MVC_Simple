@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace LibraryCommon
@@ -11,7 +12,12 @@ namespace LibraryCommon
     /// </summary>
     public class FileFilter : IUpload
     {
+
         FileType _filter;
+        /// <summary>
+        /// 預設只允許Img
+        /// </summary>
+        /// <param name="type"></param>
         public FileFilter(FileType type = FileType.Image)
         {
             _filter = type;
@@ -37,7 +43,7 @@ namespace LibraryCommon
         /// <returns></returns>
         private string FilterProvider(FileType type)
         {
-            string reg = ".";
+            string reg = "null";
             switch (type)
             {
                 case FileType.Image:
