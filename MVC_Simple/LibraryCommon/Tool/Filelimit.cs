@@ -26,7 +26,7 @@ namespace LibraryCommon
             bool IsOk = true;
             foreach (var file in manage.Files)
             {
-                if (_fileLimitSize > file.ContentLength)
+                if (_fileLimitSize < file.ContentLength)
                 {
                     manage.Msg = "檔案太大";
                     IsOk = false;
