@@ -51,21 +51,7 @@ namespace LibraryController
 
         [HttpPost]
         public ActionResult Register(LoginViewModel model)
-        {
-           // StringBuilder sb = new StringBuilder();
-           // if (TryUpdateModel<LoginViewModel>(model))
-           // {
-           //// ModelState.AddModelError(""'')
-           //     foreach (var item in ModelState.Values)
-           //     {
-           //         if (item.Errors.Count >= 1)
-           //         {
-           //             sb.Append(item.Errors[0].ErrorMessage);
-                       
-           //             sb.Append(",");
-           //         }
-           //     }
-           // }         
+        {       
             if (ModelState.IsValid)//是否符合資料驗證(後端驗證)
             {
                 if (InsertAccount(model.ToUserModel()))//增加用戶

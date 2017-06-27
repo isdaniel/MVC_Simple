@@ -1,4 +1,4 @@
-﻿@model LibraryModel.UserModel
+﻿@model LibraryModel.LoginViewModel
 
 @{
     ViewBag.Title = "創建帳號";
@@ -17,24 +17,24 @@
 
         <label for="input_username">帳號</label>
             <div class="txt_input" id="input_username" >
-                @Html.TextBoxFor(u => u.Lib_username, new
+                @Html.TextBoxFor(u => u.username, new
            {
                @class = "form-control",
                required = "",
                autofocus = ""
            })
-                @Html.ValidationMessageFor(model => model.Lib_username)
+                @Html.ValidationMessageFor(model => model.username)
             </div>
             <label for="input_password">密碼</label>
             <div class="txt_input" id="input_password">
-                @Html.PasswordFor(u => u.Lib_password,
                     new
+                @Html.PasswordFor(u => u.password,new
                     {
                         @class = "form-control",
                         required = "",
                         autofocus = ""
                     })
-                @Html.ValidationMessageFor(model => model.Lib_password)
+                @Html.ValidationMessageFor(model => model.password)
             </div>
             <div class="control-group error">
                 <div class="controls">

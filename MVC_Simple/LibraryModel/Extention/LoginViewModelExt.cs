@@ -12,7 +12,8 @@ namespace LibraryModel
             return new UserModel() {
                 id=this.id,
                 Lib_password=this.password,
-                Lib_username=this.username
+                Lib_username=this.username,
+                LastPassWord=""
             };
        }
     }

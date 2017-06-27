@@ -11,7 +11,7 @@ namespace LibraryDAL
     public class EFConcrete : DbContext
     {
         public EFConcrete()
-            : base("BookLibrary")
+            : base("LibraryConn")
         {
         }
 

@@ -71,7 +71,6 @@
     <Compile Include="Login\LoginStep.cs" />
     <Compile Include="Login\LoginTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UploadFileTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

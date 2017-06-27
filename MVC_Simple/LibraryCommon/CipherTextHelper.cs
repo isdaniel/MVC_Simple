@@ -53,9 +53,9 @@ namespace LibraryCommon
         /// <returns>返回加密後的密碼</returns>
         public static string SHA512Encryption(string pwd)
         {
-            SHA512 sha512 = new SHA512CryptoServiceProvider();//建立一個SHA512
+            MD5 md5 = new MD5CryptoServiceProvider();
             byte[] source = Encoding.Default.GetBytes(pwd);//將字串轉為Byte[]
-            byte[] crypto = sha512.ComputeHash(source);//進行SHA512加密
+            byte[] crypto = md5.ComputeHash(source);//進行MD5加密
             return Convert.ToBase64String(crypto);
         }
     }
