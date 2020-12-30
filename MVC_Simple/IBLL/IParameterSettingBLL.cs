@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IBLL
 {
-    public interface IParameterBLL
+    public interface IParameterSettingBLL
     {
         IEnumerable<Parameter> GetListBy(Func<Parameter, bool> predicate);
     }

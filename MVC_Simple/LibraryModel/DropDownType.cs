@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LibraryModel
 {
-    public enum eDropDown
+    public enum DropDownType
     {
-        language=0,
-        booktype=10
+        Language=0,
+        BookType=10
     }
 }

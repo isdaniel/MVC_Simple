@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using WarehouseBLL;
+using LibraryBLL;
 
 namespace LibraryController
 {
@@ -24,19 +24,19 @@ namespace LibraryController
         /// <summary>
         /// 資料倉儲的User對象
         /// </summary>
-        protected IUser UserRepositroy = new BLLWarehouse().User;
+        protected IUser UserRepositroy = new UserBLL();
         /// <summary>
         /// 資料倉儲的Book對象
         /// </summary>
-        protected IBook BookRepositroy = new BLLWarehouse().Book;
+        protected IBook BookRepositroy = new BookBLL();
         /// <summary>
         /// 資料倉儲的User對象
         /// </summary>
-        protected IBookImage BookImageRepositroy = new BLLWarehouse().BookImage;
+        protected IBookImage BookImageRepositroy = new BookImageBLL();
         /// <summary>
         /// 資料倉儲的Parameter對象
         /// </summary>
-        protected IParameterBLL ParameterRepositroy = new BLLWarehouse().Parameter; 
+        protected IParameterSettingBLL ParameterSettingRepositroy = new ParameterSettingSettingBll(); 
         #endregion
         #region const名稱
         protected const string USERNAME = "Callid";
@@ -61,18 +61,10 @@ namespace LibraryController
         /// <summary>
         /// Request的Cookie
         /// </summary>
-        protected HttpCookieCollection Cookie
-        {
-            get
-            {
-                return Request.Cookies;
-            }
-        }
-        protected HttpCookie UserCookie {
-            get {
-                return Cookie[USERNAME];
-            }
-        }
+        protected HttpCookieCollection Cookie => Request.Cookies;
+
+        protected HttpCookie UserCookie => Cookie[USERNAME];
+
         #endregion
         #region 登出使用者清除Session和Cookie + void LogoutUser()
         /// <summary>

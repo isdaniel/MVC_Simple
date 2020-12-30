@@ -9,14 +9,13 @@ using System.Threading.Tasks;
 namespace LibraryModel
 {
 
-    [Table("Library_UserInfo")]
     public class UserModel
     {
         /// <summary>
         /// 序號
         /// </summary>
         [Key]
-        public int id { get; set; }
+        public int ID { get; set; }
 
         /// <summary>
         /// 上次使用的密碼
@@ -28,13 +27,13 @@ namespace LibraryModel
         /// </summary>
         [StringLength(10, MinimumLength = 6, ErrorMessage = "密碼需6~10碼")]
         [Required(ErrorMessage = "密碼不能為空")]
-        public string Lib_password { get; set; }
+        public string Password { get; set; }
 
         /// <summary>
         /// 使用者帳號
         /// </summary>
         [Required(ErrorMessage = "帳號不能為空")]
-        public string Lib_username { get; set; }
+        public string Username { get; set; }
 
         /// <summary>
         /// 密碼修改時間

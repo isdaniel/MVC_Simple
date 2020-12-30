@@ -6,7 +6,7 @@
         <h5>類型:</h5>@Html.DropDownList("BookType", ViewData["BookType"] as IEnumerable<SelectListItem>,new { @class= "form-control" })
         @*@Html.Raw(ViewData["BookType"])*@
         <br />
-        @Html.TextBox("bookName", ViewData["Serchvalue"], new { @class = "form-control", placeholder = "書名" })
+        @Html.TextBox("BookName", ViewData["Serchvalue"], new { @class = "form-control", placeholder = "書名" })
         <br />
         <input type="submit" class="btn btn-info" value="搜尋" />
 }

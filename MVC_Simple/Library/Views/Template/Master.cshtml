@@ -1,4 +1,5 @@
-﻿<html>
+﻿@using LibraryController
+<html>
 <head>
     <title>圖書館後台</title>
     @Styles.Render("~/css/lib")
@@ -36,11 +37,11 @@
                     <li><a href="#">關於我</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    @if (Session["Callid"]!=null)
+                    @if (SessionData.UserInfo != null)
                     {
-                        <li>
-                            <a>歡迎使用者  @Html.Encode(((UserModel)Session["Callid"]).Lib_username)</a>
-                        </li>
+                    <li>
+                        <a>歡迎使用者  @Html.Encode(SessionData.UserInfo.UserName)</a>
+                    </li>
                         <li>
                             @Html.ActionLink("登出", "Logout", "User")
                         </li>

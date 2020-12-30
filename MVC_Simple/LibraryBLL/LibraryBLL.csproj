@@ -54,7 +54,7 @@
   <ItemGroup>
     <Compile Include="Home\BookBLL.cs" />
     <Compile Include="Home\BookImageBLL.cs" />
-    <Compile Include="Home\ParameterBLL.cs" />
+    <Compile Include="Home\ParameterSettingSettingBll.cs" />
     <Compile Include="Home\SearchCondition\BookName.cs" />
     <Compile Include="Home\SearchCondition\BookType.cs" />
     <Compile Include="Home\SearchCondition\BookLanguage.cs" />
@@ -64,10 +64,6 @@
     <Compile Include="Register\UserBLL.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DALWarehouse\WarehouseDAL.csproj">
-      <Project>{d4ace45d-b4fe-47b3-81d4-912ba3af24e8}</Project>
-      <Name>WarehouseDAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\IBLL\IBLL.csproj">
       <Project>{c9316154-d6a0-423a-9dee-58bd32876320}</Project>
       <Name>IBLL</Name>
@@ -79,6 +75,10 @@
     <ProjectReference Include="..\LibraryCommon\LibraryCommon.csproj">
       <Project>{92e7cfe1-2f90-42ca-85cc-b256b4f370dc}</Project>
       <Name>LibraryCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LibraryDAL\LibraryDAL.csproj">
+      <Project>{2D13579C-DF43-4629-A943-B6E006BC20B8}</Project>
+      <Name>LibraryDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\LibraryModel\LibraryModel.csproj">
       <Project>{8ac39703-9b40-431a-935f-9424cdb28921}</Project>

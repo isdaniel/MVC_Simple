@@ -10,9 +10,9 @@ namespace LibraryBLL.Home.SearchCondition
     {
         public void condition(SearchConcrete entity)
         {
-            if (!String.IsNullOrEmpty(entity._Entity.bookName))
+            if (!String.IsNullOrEmpty(entity._Entity.BookName))
             {
-                entity.sb.AppendLine("and bookName like @bookName");
+                entity.sb.AppendLine("and BookName like @BookName");
             }
             entity.SetCondition(new BookType());
             entity.Next();

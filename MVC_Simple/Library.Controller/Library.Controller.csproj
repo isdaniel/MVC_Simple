@@ -31,9 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
@@ -91,7 +97,9 @@
     <Compile Include="Extention\UserControllerExt.cs" />
     <Compile Include="infrastructure\CustomAuthorize.cs" />
     <Compile Include="infrastructure\CustomerErrorAtrribute.cs" />
+    <Compile Include="MemberInfoContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionData.cs" />
     <Compile Include="UserController.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +111,10 @@
       <Project>{c9316154-d6a0-423a-9dee-58bd32876320}</Project>
       <Name>IBLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LibraryBLL\LibraryBLL.csproj">
+      <Project>{1321BAAF-E538-4B3C-A6F1-C7F904D218B4}</Project>
+      <Name>LibraryBLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LibraryCommon\LibraryCommon.csproj">
       <Project>{92e7cfe1-2f90-42ca-85cc-b256b4f370dc}</Project>
       <Name>LibraryCommon</Name>
@@ -110,10 +122,6 @@
     <ProjectReference Include="..\LibraryModel\LibraryModel.csproj">
       <Project>{8ac39703-9b40-431a-935f-9424cdb28921}</Project>
       <Name>LibraryModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WarehouseBLL\WarehouseBLL.csproj">
-      <Project>{8bbd0378-c53c-46e8-8cf2-d7058643dba3}</Project>
-      <Name>WarehouseBLL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Configuration;
+﻿using System.Configuration;
+using System.Web;
+
 namespace LibraryCommon
 {
     public class ConfigHelper
@@ -24,7 +21,10 @@ namespace LibraryCommon
         {
             get
             {
-                return AppSetting("ImgaePath");
+                var req = HttpContext.Current.Request;
+
+                return req.Url.Host +
+                       (req.Url.IsDefaultPort ? "" : ":" + req.Url.Port);
             }
         }
 
@@ -34,7 +34,7 @@ namespace LibraryCommon
         /// <param name="name">add裡面的key</param>
         /// <returns>返回相對應的value</returns>
         private static string AppSetting(string name) {
-            return ConfigurationManager.AppSettings[name].ToString();
+            return ConfigurationManager.AppSettings[name];
         }
     }
 }

@@ -31,7 +31,7 @@ namespace LibraryController
         /// <param name="model">回傳空的model代表 全部查詢</param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult AddBook(IEnumerable<HttpPostedFileBase> files, [System.Web.Http.FromBody]Library_Book model)
+        public ActionResult AddBook(IEnumerable<HttpPostedFileBase> files, [System.Web.Http.FromBody]BookModel model)
         {
             if (ModelState.IsValid)
             {
@@ -53,7 +53,7 @@ namespace LibraryController
         /// <returns></returns>
         public ActionResult Delete(int id)
         {
-            Library_Book model = new Library_Book() { id = id };
+            BookModel model = new BookModel() { id = id };
             BookRepositroy.Delete(model);
             return View("Library", GetPage(1));
         }
@@ -85,7 +85,7 @@ namespace LibraryController
                     return new BookViewModel()
                     {
                         BookLanguage=o.BookLanguage,
-                        bookName=o.bookName,
+                        bookName=o.BookName,
                         BookType=o.BookType,
                         summary=o.summary,
                         ImagePath=GetImageByBookId(o.id)                        
@@ -100,7 +100,7 @@ namespace LibraryController
         /// </summary>
         /// <param name="page">頁面</param>
         /// <returns></returns>
-        public ActionResult Library([System.Web.Http.FromBody] BookSearch_ViewModel conditionModel, string page = "1")
+        public ActionResult Library([System.Web.Http.FromBody] BookSearchViewModel conditionModel, string page = "1")
         {
             SetDropDown();
             return View(GetPage(int.Parse(page), conditionModel));
@@ -118,7 +118,7 @@ namespace LibraryController
             {
                 if (file!=null)
                 {
-                    BookImageRepositroy.Insert(new Library_BookImgae()
+                    BookImageRepositroy.Insert(new BookImageModel()
                     {
                         BookId = BookId,
                         Image_Path = file.FileName

@@ -22,7 +22,7 @@ namespace LibraryController
         {
             get
             {
-                return GetDropDown(eDropDown.language);
+                return GetDropDown(DropDownType.Language);
             }
         }
         /// <summary>
@@ -32,17 +32,18 @@ namespace LibraryController
         {
             get
             {
-                return GetDropDown(eDropDown.booktype);
+                return GetDropDown(DropDownType.BookType);
             }
         }
-        #region 取得下拉選單的資料 + GetDropDown(eDropDown parameterType)
+
+        #region 取得下拉選單的資料 + GetDropDown(DropDownType parameterType)
         /// <summary>
         /// 取得下拉選單的資料
         /// </summary>
         /// <param name="parameterType">下拉選單的參數</param>
         /// <returns></returns>
         private IEnumerable<SelectListItem> GetDropDown
-            (eDropDown parameterType)
+            (DropDownType parameterType)
         {
             //要查詢之參數
             string paraString = parameterType.ToString();
@@ -53,7 +54,7 @@ namespace LibraryController
             if (dropList == null)
             {
                 dropList = new List<SelectListItem>();
-                var paras = ParameterRepositroy.GetListBy
+                var paras = ParameterSettingRepositroy.GetListBy
                 (u => u.parametertype == paraString).ToList();
                 paras.ForEach((p) =>
                 {
@@ -66,7 +67,7 @@ namespace LibraryController
                 //將資料存入快取中方便下次取出
                 Cache.Set(
                     paraString,
-                    dropList, DateTimeOffset.Now.AddMinutes(30)
+                    dropList, DateTimeOffset.Now.AddMinutes(10)
                     );
             }
             return dropList;
@@ -79,7 +80,7 @@ namespace LibraryController
         /// <param name="page"></param>
         /// <returns></returns>
         private IPagedList<BookViewModel> GetPage(int page) {
-            return GetPage(page, new BookSearch_ViewModel());
+            return GetPage(page, new BookSearchViewModel());
         }
 
         /// <summary>
@@ -89,22 +90,22 @@ namespace LibraryController
         /// <param name="model">查詢條件的model</param>
         /// <returns></returns>
         private IPagedList<BookViewModel> GetPage
-            (int page, BookSearch_ViewModel model)
+            (int page, BookSearchViewModel model)
         {
             List<string> imagePaths = new List<string>();
 
             var BookList = GetBookList(model);
 
             return BookList.
-                OrderBy(x => x.create_time).
+                OrderBy(x => x.CreateTime).
                 Select(x => new BookViewModel()
                 {
                     id = x.id,
                     summary = x.summary,
                     BookLanguage = x.BookLanguage,
-                    bookName = x.bookName,
+                    bookName = x.BookName,
                     BookType = x.BookType,
-                    create_time = x.create_time,
+                    create_time = x.CreateTime,
                     ImagePath= GetImageByBookId(x.id)
                 }).ToPagedList(page, 12);
         }
@@ -113,15 +114,12 @@ namespace LibraryController
         /// </summary>
         /// <param name="model">條件</param>
         /// <returns></returns>
-        private IEnumerable<Library_Book> GetBookList(BookSearch_ViewModel model) {
+        private IEnumerable<BookModel> GetBookList(BookSearchViewModel model) {
             return BookRepositroy.GetListBy
                 (u =>
                 !string.IsNullOrEmpty(model.BookLanguage) ?
-                u.BookLanguage == model.BookLanguage : true &&
-                !string.IsNullOrEmpty(model.bookName) ?
-                u.bookName == model.bookName : true &&
-                !string.IsNullOrEmpty(model.BookType) ?
-                u.BookType == model.BookType : true);
+                u.BookLanguage == model.BookLanguage : !string.IsNullOrEmpty(model.BookName) ?
+                u.BookName == model.BookName : string.IsNullOrEmpty(model.BookType) || u.BookType == model.BookType);
         }
         /// <summary>
         /// 設置頁面上的下拉選單
@@ -139,8 +137,8 @@ namespace LibraryController
         private List<string> GetImageByBookId(int id) {
             List<string> imagePaths = new List<string>();
             string no_pic = _imagePath + "No_Pic.gif";
-            var images=BookImageRepositroy.GetListBy(b => b.BookId == id);
-            if (images.Count()>0)
+            var images = BookImageRepositroy.GetListBy(b => b.BookId == id);
+            if (images.Any())
             {
                 foreach (var image in images)
                 {

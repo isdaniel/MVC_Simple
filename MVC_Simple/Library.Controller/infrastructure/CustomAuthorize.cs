@@ -7,19 +7,23 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Xml.Linq;
+using log4net;
+using Newtonsoft.Json;
 
 namespace LibraryController.infrastructure
 {
     public class CustomAuthorizeAttribute : 
         FilterAttribute,IAuthorizationFilter
     {
+        private ILog _log = LogManager.GetLogger(typeof(CustomAuthorizeAttribute));
+
         public void OnAuthorization(AuthorizationContext filterContext)
         {
             //取得Controller是否有IgnoreAuthorizeAttribute
-            var IsControllerIngnore = filterContext.ActionDescriptor.ControllerDescriptor.IsDefined(typeof(IgnoreAuthorizeAttribute), false);
+            var isControllerIngnore = filterContext.ActionDescriptor.ControllerDescriptor.IsDefined(typeof(IgnoreAuthorizeAttribute), false);
             //取得Action是否有IgnoreAuthorizeAttribute
-            var IsActionIngnore = filterContext.ActionDescriptor.IsDefined(typeof(IgnoreAuthorizeAttribute), false);
-            if (!IsControllerIngnore & !IsActionIngnore)
+            var isActionIngnore = filterContext.ActionDescriptor.IsDefined(typeof(IgnoreAuthorizeAttribute), false);
+            if (!isControllerIngnore & !isActionIngnore)
             {
                 if (!AuthorizeCore(filterContext.HttpContext))
                 {
@@ -29,13 +33,9 @@ namespace LibraryController.infrastructure
         }
         protected bool AuthorizeCore(HttpContextBase httpContext)
         {
-            if (httpContext.Session["Callid"]!=null)
+            if (SessionData.UserInfo!= null)
             {
-                Logger log = new Logger(this.GetType());
-                log.WriteSusseccLog(string.Format("登入成功 使用者是:{0}", 
-                    httpContext.Session["Callid"].ToString()));
-                var Id = httpContext.Session["Callid"];
-                httpContext.Session["Callid"] = Id;                
+                _log.Info($"登入成功 使用者是:{SessionData.UserInfo.UserName}");
                 return true;
             }
             return false;

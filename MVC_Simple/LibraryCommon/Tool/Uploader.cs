@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using log4net;
 
 namespace LibraryCommon
 {
@@ -11,16 +12,26 @@ namespace LibraryCommon
     /// </summary>
     public class Uploader : IUpload
     {
+        private ILog _log = LogManager.GetLogger(typeof(Uploader));
+
         public bool Execute(UploadManage manage)
         {
-            foreach (var file in manage.Files)
+            bool result = true;
+
+            try
             {
-                if (file != null)
+                foreach (var file in manage.Files)
                 {
-                    file.SaveAs(ConfigHelper.ImaPhysicalPath + file.FileName);
+                    file?.SaveAs(ConfigHelper.ImaPhysicalPath + file.FileName);
                 }
             }
-            return true;
+            catch (Exception e)
+            {
+                result = false;
+                _log.Error(e);
+            }
+            
+            return result;
         }
     }
 }

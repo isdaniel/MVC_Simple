@@ -9,12 +9,8 @@ namespace IBLL
 {
     public interface IBookImage
     {
-        bool Insert(Library_BookImgae model);
+        bool Insert(BookImageModel model);
 
-        void Update(Library_BookImgae model);
-
-        void Delete(Library_BookImgae model);
-
-        IEnumerable<Library_BookImgae> GetListBy(Func<Library_BookImgae, bool> predicate);
+        IEnumerable<BookImageModel> GetListBy(Func<BookImageModel, bool> predicate);
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LibraryModel
 {
-    public class Library_Book
+    public class BookModel
     {
         /// <summary>
         /// 語言
@@ -21,7 +21,7 @@ namespace LibraryModel
         /// 書名
         /// </summary>
         [Required(ErrorMessage = "書名必填")]
-        public string bookName { get; set; }
+        public string BookName { get; set; }
 
         /// <summary>
         /// 書的種類
@@ -32,7 +32,7 @@ namespace LibraryModel
         /// <summary>
         /// 建立時間
         /// </summary>
-        public DateTime? create_time { get; set; }
+        public DateTime? CreateTime { get; set; }
 
         /// <summary>
         /// 序號

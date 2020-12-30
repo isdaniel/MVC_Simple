@@ -12,7 +12,7 @@ namespace LibraryBLL.Home.SearchCondition
         /// <summary>
         /// 參數
         /// </summary>
-        public BookSearch_ViewModel _Entity;
+        public BookSearchViewModel _Entity;
 
         /// <summary>
         /// SQL語法
@@ -21,7 +21,7 @@ namespace LibraryBLL.Home.SearchCondition
 
         private ISearchContition _Condition = null;
 
-        public SearchConcrete(BookSearch_ViewModel entity)
+        public SearchConcrete(BookSearchViewModel entity)
         {
             this._Entity = entity;
         }
@@ -39,10 +39,10 @@ namespace LibraryBLL.Home.SearchCondition
         /// <summary>
         /// 設置下一階段
         /// </summary>
-        /// <param name="condiion">下一階段的實體</param>
-        public void SetCondition(ISearchContition condiion)
+        /// <param name="condition">下一階段的實體</param>
+        public void SetCondition(ISearchContition condition)
         {
-            _Condition = condiion;
+            _Condition = condition;
         }
     }
 }

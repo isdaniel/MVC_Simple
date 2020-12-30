@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LibraryModel
 {
-    public class Library_BookImgae
+    public class BookImageModel
     {
         /// <summary>
         /// 外鍵liabrary_book(Id)

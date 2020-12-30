@@ -8,11 +8,11 @@ namespace LibraryModel
 {
     public partial class BookViewModel
     {
-        public Library_Book ToBookModel() {
-            return new Library_Book()
+        public BookModel ToBookModel() {
+            return new BookModel()
             {
                 BookLanguage = this.BookLanguage,
-                bookName = this.bookName,
+                BookName = this.bookName,
                 BookType = this.BookType,
                 summary = this.summary,
                 id = this.id

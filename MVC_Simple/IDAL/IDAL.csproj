@@ -40,9 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IDAL.cs" />
+    <Compile Include="IBookImageDAL.cs" />
+    <Compile Include="IBookDAL.cs" />
     <Compile Include="IBaseDAL.cs" />
-    <Compile Include="IDALWarehouse.cs" />
+    <Compile Include="IParameterDAL.cs" />
+    <Compile Include="IUserDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -51,9 +53,7 @@
       <Name>LibraryModel</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Extention\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

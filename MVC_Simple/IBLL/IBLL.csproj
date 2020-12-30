@@ -40,10 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IBLLWarehouse.cs" />
     <Compile Include="IBookImage.cs" />
     <Compile Include="IBook.cs" />
-    <Compile Include="IParameterBLL.cs" />
+    <Compile Include="IParameterSettingBLL.cs" />
     <Compile Include="IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

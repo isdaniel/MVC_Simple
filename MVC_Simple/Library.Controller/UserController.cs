@@ -27,14 +27,16 @@ namespace LibraryController
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model)
         {
-            
             //是否符合資料驗證(後端驗證)且判斷是否有次使用者
-            if (Login(model.ToUserModel(), ModelState.IsValid))
+            if (!ModelState.IsValid || IsLogin(model))
             {
-                return RedirectToAction("Library", "Book");
+                ModelState.AddModelError("password", "帳號密碼錯誤!!");
+                return View();
             }
-            ModelState.AddModelError("password", "帳號密碼錯誤!!");
-            return View();
+
+            
+
+            return RedirectToAction("Library", "Book");
         }
 
         public ActionResult Logout()

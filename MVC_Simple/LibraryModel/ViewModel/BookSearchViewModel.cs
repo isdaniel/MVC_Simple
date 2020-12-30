@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryModel
 {
-    public class BookSearch_ViewModel
+    public class BookSearchViewModel
     {
         /// <summary>
         /// 書的語言
@@ -16,7 +16,7 @@ namespace LibraryModel
         /// <summary>
         /// 書名
         /// </summary>
-        public string bookName { get; set; }
+        public string BookName { get; set; }
 
         /// <summary>
         /// 書的類別

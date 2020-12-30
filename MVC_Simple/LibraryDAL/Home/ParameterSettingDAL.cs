@@ -10,29 +10,25 @@ using System.Threading.Tasks;
 
 namespace LibraryDAL
 {
-    public partial class BookDAL: DapperBase , IBookDAL
+    public partial class ParameterSettingDAL : DapperBase,
+        IParameterSettingDAL
     {
-        public bool Insert(BookModel model)
+        public bool Insert(Parameter model)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(BookModel model)
+        public void Update(Parameter model)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(BookModel model)
+        public void Delete(Parameter model)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<BookModel> GetListBy(Func<BookModel, bool> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int InsertGetId(BookModel model)
+        public IEnumerable<Parameter> GetListBy(Func<Parameter, bool> predicate)
         {
             throw new NotImplementedException();
         }

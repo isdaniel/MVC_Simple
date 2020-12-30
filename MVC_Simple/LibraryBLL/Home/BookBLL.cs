@@ -5,42 +5,36 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WarehouseDAL;
+using LibraryDAL;
+
 
 namespace LibraryBLL
 {
     public class BookBLL : IBook
     {
-        private IDALWarehouse dal = new DALWarehouse();
+       IBookDAL _bookDal = new BookDAL();
 
-        public void Delete(Library_Book model)
+        public void Delete(BookModel model)
         {
-            dal.Book.Delete(model);
-        }
-
-        public IEnumerable<Library_Book> GetListBy(Func<Library_Book,bool> whereLambda)
-        {
-            return dal.Book.GetListBy(whereLambda);
+            _bookDal.Delete(model);
         }
 
+        public IEnumerable<BookModel> GetListBy(Func<BookModel,bool> whereLambda)
+        {
+            return _bookDal.GetListBy(whereLambda);
+        }
 
-        public bool Insert(Library_Book model)
-        {
-           return dal.Book.Insert(model);
+
+        public int InsertGetId(BookModel model) {
+            return _bookDal.InsertGetId(model);
         }
-        public int InsertGetId(Library_Book model) {
-            return dal.Book.InsertGetId(model);
-        }
-        public void Update(Library_Book model)
-        {
-            dal.Book.Update(model);
-        }
+
         #region MyRegion
         ///// <summary>
         ///// 新增一本書
         ///// </summary>
         ///// <param name="model"></param>
-        //public int Insert(Library_Book model)
+        //public int Insert(BookModel model)
         //{
         //    return dal.Add(model);
         //}
@@ -49,15 +43,15 @@ namespace LibraryBLL
         ///// 刪除書 
         ///// </summary>
         ///// <param name="model"></param>
-        //public void Delete(Library_Book model)
+        //public void Delete(BookModel model)
         //{
         //    using (BookConcrete concrete = new BookConcrete())
         //    {
         //        concrete.Entry(model).State = EntityState.Deleted;
         //        concrete.Book.Attach(model);
         //        concrete.Book.Remove(model);//刪除書本
-        //        var itemsToDelete = concrete.Library_BookImgae
-        //            .Where(u => u.BookId == model.id);//找尋書下的圖片
+        //        var itemsToDelete = concrete.BookImageModel
+        //            .Where(u => u.BookId == model.ID);//找尋書下的圖片
         //        concrete.SaveChanges();
         //    }
         //}
@@ -70,19 +64,19 @@ namespace LibraryBLL
         //{
         //    using (BookConcrete concrete = new BookConcrete())
         //    {
-        //        Library_Book book = new Library_Book()
+        //        BookModel book = new BookModel()
         //        {
-        //            id = model.id,
+        //            ID = model.ID,
         //            BookLanguage = model.BookLanguage,
-        //            bookName = model.bookName,
+        //            BookName = model.BookName,
         //            summary = model.summary,
         //            BookType = model.BookType
         //        };
         //        foreach (var file in model.ImagePath)
         //        {
-        //            Library_BookImgae image = new Library_BookImgae()
+        //            BookImageModel image = new BookImageModel()
         //            {
-        //                BookId = model.id,
+        //                BookId = model.ID,
         //                Image_Path = file
         //            };
         //            concrete.Entry(image).State = EntityState.Added;
@@ -95,26 +89,26 @@ namespace LibraryBLL
         ///// <summary>
         ///// 取得BookModel藉由編號
         ///// </summary>
-        ///// <param name="id">book的編號</param>
+        ///// <param name="ID">book的編號</param>
         ///// <returns></returns>
-        //public BookViewModel GetBookModelById(int id)
+        //public BookViewModel GetBookModelById(int ID)
         //{
         //    using (BookConcrete concrete = new BookConcrete())
         //    {
         //        /*===將書的資訊填入BookViewModel中 begin===*/
-        //        BookViewModel model = concrete.Book.Where(u => u.id == id).Select(u => new BookViewModel
+        //        BookViewModel model = concrete.Book.Where(u => u.ID == ID).Select(u => new BookViewModel
         //        {
         //            BookLanguage = u.BookLanguage,
         //            BookType = u.BookType,
-        //            id = u.id,
+        //            ID = u.ID,
         //            summary = u.summary,
-        //            bookName = u.bookName,
-        //            create_time = u.create_time
+        //            BookName = u.BookName,
+        //            CreateTime = u.CreateTime
         //        }).FirstOrDefault();
         //        /*===將書的資訊填入BookViewModel中 end===*/
         //        /*===將圖片的資訊塞入BookViewModel中 begin===*/
-        //        var IamgeList = (from i in concrete.Library_BookImgae
-        //                         where i.BookId == id
+        //        var IamgeList = (from i in concrete.BookImageModel
+        //                         where i.BookId == ID
         //                         select "/LibraryImgae/" + i.Image_Path).ToList();
         //        model.ImagePath = IamgeList;
         //        /*===將圖片的資訊塞入BookViewModel中 end===*/
@@ -127,13 +121,13 @@ namespace LibraryBLL
         ///// </summary>
         ///// <param name="model"></param>
         ///// <returns></returns>
-        //public List<Library_Book> GetList(BookSearch_ViewModel model)
+        //public List<BookModel> GetList(BookSearchViewModel model)
         //{
         //    SearchConcrete concrete = new SearchConcrete(model);
         //    StringBuilder sb = new StringBuilder();
         //    concrete.SetCondition(new BookLanguage());
         //    string SqlString = concrete.Next();
-        //    sb.AppendLine("select * from Library_Book");
+        //    sb.AppendLine("select * from BookModel");
         //    sb.AppendLine("where 1=1");
         //    sb.AppendLine(SqlString);
         //    return BookListViewModel(dal.GetList(sb.ToString(), model));
@@ -143,7 +137,7 @@ namespace LibraryBLL
         ///// 取得所有參數
         ///// </summary>
         ///// <returns></returns>
-        //public List<Parameter> GetParameterList()
+        //public List<ParameterSetting> GetParameterList()
         //{
         //    ParameterDal paraDal = ParameterDal.GetInstace();
         //    return paraDal.GetAllParameter();
@@ -154,23 +148,23 @@ namespace LibraryBLL
         ///// </summary>
         ///// <param name="model"></param>
         ///// <returns></returns>
-        //private List<Library_Book> BookListViewModel(List<Library_Book> model)
+        //private List<BookModel> BookListViewModel(List<BookModel> model)
         //{
         //    ParameterDal paraDal = ParameterDal.GetInstace();
-        //    List<Parameter> parameters = paraDal.GetAllParameter();
+        //    List<ParameterSetting> parameters = paraDal.GetAllParameter();
         //    var ViewModel = from item in model
-        //                    join language in parameters
-        //                    on item.BookLanguage equals language.English
-        //                    join booktype in parameters
-        //                    on item.BookType equals booktype.English
-        //                    select new Library_Book
+        //                    join Language in parameters
+        //                    on item.BookLanguage equals Language.English
+        //                    join BookType in parameters
+        //                    on item.BookType equals BookType.English
+        //                    select new BookModel
         //                    {
-        //                        BookLanguage = booktype.chinese,
-        //                        BookType = language.chinese,
-        //                        id = item.id,
+        //                        BookLanguage = BookType.chinese,
+        //                        BookType = Language.chinese,
+        //                        ID = item.ID,
         //                        summary = item.summary,
-        //                        bookName = item.bookName,
-        //                        create_time = item.create_time
+        //                        BookName = item.BookName,
+        //                        CreateTime = item.CreateTime
         //                    };
         //    return ViewModel.ToList();
         //} 

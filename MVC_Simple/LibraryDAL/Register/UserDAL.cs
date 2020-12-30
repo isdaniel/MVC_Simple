@@ -12,7 +12,7 @@ using System.Data.Entity;
 
 namespace LibraryDAL
 {
-    public partial class UserDAL:BaseDAL<UserModel>, IUserDAL
+    public partial class UserDAL:DapperBase, IUserDAL
     {
 
         //public void Delete(UserModel model)
@@ -24,7 +24,7 @@ namespace LibraryDAL
         //    Func<UserModel, bool> predicate)
         //{
         //    StringBuilder sb = new StringBuilder();
-        //    sb.Append("SELECT Lib_password,Lib_username FROM Library_UserInfo");
+        //    sb.Append("SELECT Password,Username FROM Library_UserInfo");
         //    return _Conn.Query<UserModel>(sb.ToString()).ToList().Where(predicate);
         //}
         ///// <summary>
@@ -35,9 +35,9 @@ namespace LibraryDAL
         //{
         //    StringBuilder sb = new StringBuilder();
         //    sb.AppendLine("insert into Library_UserInfo");
-        //    sb.AppendLine("(Lib_username,Lib_password)");
+        //    sb.AppendLine("(Username,Password)");
         //    sb.AppendLine("values");
-        //    sb.AppendLine("(@Lib_username,@Lib_password)");
+        //    sb.AppendLine("(@Username,@Password)");
         //    _Conn.Execute(sb.ToString(), model);
         //}
         ///// <summary>
@@ -51,8 +51,34 @@ namespace LibraryDAL
         //    sb.AppendLine("set lastpassword=lib_password,");
         //    sb.AppendLine("lib_password=@lib_password,");
         //    sb.AppendLine("ModifyDate=@ModifyDate");
-        //    sb.AppendLine("where id=@id");
+        //    sb.AppendLine("where ID=@ID");
         //    _Conn.Execute(sb.ToString(), model);
         //}
+        public bool Insert(UserModel model)
+        {
+            string sql = "INSERT INTO dbo.Users (UserName,PassWord,ModifyDate) VALUES (@UserName,@PassWord,GETDATE())";
+
+            var dapperContext = GetDapperContext(sql, true);
+
+            dapperContext.Parameters.Add("@UserName", model.Username, DbType.AnsiString, ParameterDirection.Input, 120);
+            dapperContext.Parameters.Add("@PassWord", model.Password, DbType.AnsiString, ParameterDirection.Input, 25);
+            dapperContext.ExecuteNonQuery();
+            return true;
+        }
+
+        public void Update(UserModel model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(UserModel model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<UserModel> GetListBy(Func<UserModel, bool> predicate)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

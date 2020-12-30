@@ -43,22 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EnumProperty.cs" />
+    <Compile Include="DropDownType.cs" />
     <Compile Include="Extention\BookViewModelExt.cs" />
     <Compile Include="Extention\LoginViewModelExt.cs" />
     <Compile Include="ViewModel\BookViewModel.cs" />
-    <Compile Include="Library_BookImgae.cs" />
-    <Compile Include="Library_Book.cs" />
-    <Compile Include="ViewModel\BookSearch_ViewModel.cs" />
+    <Compile Include="BookImageModel.cs" />
+    <Compile Include="BookModel.cs" />
+    <Compile Include="ViewModel\BookSearchViewModel.cs" />
     <Compile Include="Parameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
