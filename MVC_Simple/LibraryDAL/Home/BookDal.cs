@@ -14,7 +14,12 @@ namespace LibraryDAL
     {
         public bool Insert(BookModel model)
         {
-            throw new NotImplementedException();
+            string sql = "INSERT INTO dbo.Book (BookLanguage,bookName,BookType,Summary) VALUES  (@BookLanguage,@bookName,@BookType,@Summary)";
+            var context= GetDapperContext(sql,true);
+            //add parameter.
+            context.ExecuteNonQuery();
+
+            return true;
         }
 
         public void Update(BookModel model)
