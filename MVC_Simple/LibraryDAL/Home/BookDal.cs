@@ -34,12 +34,27 @@ namespace LibraryDAL
 
         public IEnumerable<BookModel> GetListBy(Func<BookModel, bool> predicate)
         {
-            throw new NotImplementedException();
+            string sql = "SELECT * FROM dbo.Book";
+            var context = GetDapperContext(sql, false);
+            //add parameter.
+            return context.Query<BookModel>().Where(predicate);
         }
 
         public int InsertGetId(BookModel model)
         {
-            throw new NotImplementedException();
+            StringBuilder sql = new StringBuilder();
+
+            sql.Append(
+                "INSERT INTO dbo.Book (BookLanguage,bookName,BookType,Summary) VALUES  (@BookLanguage,@bookName,@BookType,@Summary);");
+            sql.Append(
+                "SELECT SCOPE_IDENTITY();");
+            var context = GetDapperContext(sql.ToString(), true);
+            context.Parameters.Add("@BookLanguage", model.BookLanguage, DbType.AnsiString, ParameterDirection.Input, 20);
+            context.Parameters.Add("@bookName", model.BookName, DbType.AnsiString, ParameterDirection.Input, 80);
+            context.Parameters.Add("@BookType", model.BookType, DbType.AnsiString, ParameterDirection.Input, 20);
+            context.Parameters.Add("@Summary", model.summary, DbType.AnsiString, ParameterDirection.Input, 500);
+            //add parameter.
+            return context.QuerySingleOrDefault<int>();
         }
     }
 }

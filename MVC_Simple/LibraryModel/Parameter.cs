@@ -30,6 +30,6 @@ namespace LibraryModel
         /// <summary>
         /// 參數類別
         /// </summary>
-        public string parametertype { get; set; }
+        public DropDownType Parametertype { get; set; }
     }
 }

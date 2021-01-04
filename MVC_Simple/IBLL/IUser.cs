@@ -11,8 +11,7 @@ namespace IBLL
     {
 
 
-        IEnumerable<UserModel> GetListBy
-            (Func<UserModel, bool> predicate);
+        UserModel GetUserInfo(LoginViewModel model);
 
         /// <summary>
         /// 返回一個使用者藉由使用者帳號
@@ -26,7 +25,7 @@ namespace IBLL
         /// </summary>
         /// <param name="model"></param>
         /// <returns>返回 true成功新增 false已重複</returns>
-        bool Insert(UserModel model);
+        bool InsertUserInfo(UserModel model);
 
     }
 }

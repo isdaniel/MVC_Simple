@@ -14,9 +14,10 @@ namespace LibraryBLL
 
         private IUserDAL _userDal = new UserDAL();
 
-        public IEnumerable<UserModel> GetListBy(Func<UserModel, bool> predicate)
+        public UserModel GetUserInfo(LoginViewModel model)
         {
-           return _userDal.GetListBy(predicate);
+           return _userDal.GetListBy(x => x.Username == model.username &&
+                                          x.Password.Equals(CipherTextHelper.SHA512Encryption(model.password), StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
         }
 
         /// <summary>
@@ -37,19 +38,20 @@ namespace LibraryBLL
         /// </summary>
         /// <param name="model"></param>
         /// <returns>返回 true成功新增 false已重複</returns>
-        public bool Insert(UserModel model)
+        public bool InsertUserInfo(UserModel model)
         {
-            bool IsInsert = GetUserByUserName(model.Username) != null;
+            bool result = GetUserByUserName(model.Username) != null;
             //找尋是否有此帳戶
             
             //找尋是否已有在資料庫
-            if (!IsInsert)
+            if (!result)
             {
                 //進行hash
                 model.Password = CipherTextHelper.SHA512Encryption(model.Password);
-                _userDal.Insert(model);
+                result = _userDal.Insert(model);
             }
-            return IsInsert;
+
+            return result;
         }
 
 

@@ -24,10 +24,11 @@ namespace LibraryCommon
         /// <summary>
         /// 上傳的檔案
         /// </summary>
-        public IEnumerable<HttpPostedFileBase> Files;
+        public IEnumerable<HttpPostedFileBase> Files { get;private set; }
+
         public UploadManage(IEnumerable<HttpPostedFileBase> files)
         {
-            Files = files;
+            Files = files ?? new List<EmptyHttpPostedFile>();
             _uploadStep = new List<IUpload>();
         }
         public UploadManage SetNext(IUpload item)
@@ -52,6 +53,15 @@ namespace LibraryCommon
             }
             return true;
         }
+    }
+
+    public class EmptyHttpPostedFile : HttpPostedFileBase
+    {
+        public override void SaveAs(string filename)
+        {
+            
+        }
+
     }
 
 }

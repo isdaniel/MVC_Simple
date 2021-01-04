@@ -30,7 +30,11 @@ namespace LibraryDAL
 
         public IEnumerable<Parameter> GetListBy(Func<Parameter, bool> predicate)
         {
-            throw new NotImplementedException();
+            string sql = "SELECT * FROM dbo.ParameterSetting";
+
+            var dapperContext = GetDapperContext(sql, false);
+
+            return dapperContext.Query<Parameter>().Where(predicate);
         }
     }
 }

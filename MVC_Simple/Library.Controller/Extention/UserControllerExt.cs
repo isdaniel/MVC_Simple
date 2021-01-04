@@ -16,14 +16,24 @@ namespace LibraryController
 
         private bool IsLogin(LoginViewModel model)
         {
-            return UserRepositroy.GetListBy(x => x.Username == model.username &&
-                                                 x.Password == CipherTextHelper.SHA512Encryption(model.password)).Any();
+            var userInfo = UserRepositroy.GetUserInfo(model);
+
+            if (userInfo != null)
+            {
+                SessionData.UserInfo = new MemberInfoContext()
+                {
+                    UserName = userInfo.Username,
+                    UserId = userInfo.ID
+                };
+            }
+
+            return SessionData.UserInfo != null;
         }
 
         #region 新增帳號 + public bool InsertAccount(UserModel model)
         private bool InsertAccount(UserModel model)
         {
-            return UserRepositroy.Insert(model);
+            return UserRepositroy.InsertUserInfo(model);
         }
         #endregion
     }

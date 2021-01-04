@@ -29,7 +29,11 @@ namespace LibraryDAL
 
         public IEnumerable<BookImageModel> GetListBy(Func<BookImageModel, bool> predicate)
         {
-            throw new NotImplementedException();
+
+            string sql = "select * from dbo.BookImgae";
+            var context = GetDapperContext(sql, false);
+            //add parameter.
+            return context.Query<BookImageModel>().Where(predicate);
         }
     }
 }

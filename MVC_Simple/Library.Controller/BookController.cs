@@ -41,7 +41,7 @@ namespace LibraryController
                       .SetNext(new Uploader());
                 manage.Execute();
                 int bookId = BookRepositroy.InsertGetId(model);
-                InsertImage(files, bookId);
+                InsertImage(manage.Files, bookId);
                 return View("Library", GetPage(1));
             }
             return View();

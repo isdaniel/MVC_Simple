@@ -10,10 +10,8 @@ namespace LibraryModel
     {
        public UserModel ToUserModel() {
             return new UserModel() {
-                ID=this.id,
-                Password=this.password,
-                Username=this.username,
-                LastPassWord=""
+                Password=password,
+                Username=username
             };
        }
     }

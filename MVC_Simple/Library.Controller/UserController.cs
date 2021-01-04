@@ -1,11 +1,6 @@
 ﻿using LibraryCommon;
 using LibraryModel;
-using System;
-using System.Web;
 using System.Web.Mvc;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace LibraryController
 {
@@ -28,14 +23,12 @@ namespace LibraryController
         public ActionResult Login(LoginViewModel model)
         {
             //是否符合資料驗證(後端驗證)且判斷是否有次使用者
-            if (!ModelState.IsValid || IsLogin(model))
+            if (!(ModelState.IsValid && IsLogin(model)))
             {
                 ModelState.AddModelError("password", "帳號密碼錯誤!!");
                 return View();
             }
-
             
-
             return RedirectToAction("Library", "Book");
         }
 
@@ -60,6 +53,7 @@ namespace LibraryController
                 {
                     return RedirectToAction("Library", "Book");
                 }
+
                 ViewBag.message = "帳戶已存在";
             }
             return View();

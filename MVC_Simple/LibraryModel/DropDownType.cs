@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryModel
 {
-    public enum DropDownType
+    public enum DropDownType : int
     {
         Language=0,
         BookType=10

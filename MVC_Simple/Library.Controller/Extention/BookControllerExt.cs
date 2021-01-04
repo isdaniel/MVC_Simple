@@ -12,10 +12,6 @@ namespace LibraryController
     public partial class BookController
     {
         /// <summary>
-        /// 圖片儲存的路徑
-        /// </summary>
-        string _imagePath = ConfigHelper.ImagePath;
-        /// <summary>
         /// 書名的下拉選單
         /// </summary>
         public IEnumerable<SelectListItem> BookLanguage
@@ -45,17 +41,15 @@ namespace LibraryController
         private IEnumerable<SelectListItem> GetDropDown
             (DropDownType parameterType)
         {
-            //要查詢之參數
-            string paraString = parameterType.ToString();
             //取得記憶體中的資料
             List<SelectListItem> dropList =
-                Cache[paraString] as List<SelectListItem>;
+                Cache[parameterType.ToString()] as List<SelectListItem>;
             //如果沒有創建一個新的
             if (dropList == null)
             {
                 dropList = new List<SelectListItem>();
                 var paras = ParameterSettingRepositroy.GetListBy
-                (u => u.parametertype == paraString).ToList();
+                (u => u.Parametertype == parameterType).ToList();
                 paras.ForEach((p) =>
                 {
                     dropList.Add(new SelectListItem()
@@ -66,7 +60,7 @@ namespace LibraryController
                 });
                 //將資料存入快取中方便下次取出
                 Cache.Set(
-                    paraString,
+                    parameterType.ToString(),
                     dropList, DateTimeOffset.Now.AddMinutes(10)
                     );
             }
@@ -136,13 +130,13 @@ namespace LibraryController
         /// <returns></returns>
         private List<string> GetImageByBookId(int id) {
             List<string> imagePaths = new List<string>();
-            string no_pic = _imagePath + "No_Pic.gif";
+            string no_pic = ConfigHelper.ImagePath + "No_Pic.gif";
             var images = BookImageRepositroy.GetListBy(b => b.BookId == id);
             if (images.Any())
             {
                 foreach (var image in images)
                 {
-                    imagePaths.Add(_imagePath + image.Image_Path);
+                    imagePaths.Add(ConfigHelper.ImagePath + image.Image_Path);
                 }
             }
             else
